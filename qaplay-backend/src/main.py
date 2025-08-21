@@ -4,13 +4,25 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from flask import Flask, send_from_directory
+from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 from src.models.user import db
+from src.models.quiz import Question, QuizSession, QuizAnswer, Certificate
 from src.routes.user import user_bp
+from src.routes.quiz import quiz_bp
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = 'asdf#FGSgvasgf$5$WGT'
+app.config['JWT_SECRET_KEY'] = 'jwt-secret-string-qaplay-2025'
+
+# Configurar CORS
+CORS(app, origins="*")
+
+# Configurar JWT
+jwt = JWTManager(app)
 
 app.register_blueprint(user_bp, url_prefix='/api')
+app.register_blueprint(quiz_bp, url_prefix='/api')
 
 # uncomment if you need to use database
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
