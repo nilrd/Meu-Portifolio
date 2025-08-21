@@ -1,7 +1,92 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Moon, Sun, Menu, X, Play, Award, BookOpen, User, Mail, Github, Linkedin, Instagram, MessageCircle, Code, Zap, Target, Trophy, Star, ArrowRight, CheckCircle } from 'lucide-react';
+import { Moon, Sun, Menu, X, Play, Award, BookOpen, User, Mail, Github, Linkedin, Instagram, MessageCircle, Code, Zap, Target, Trophy, Star, ArrowRight, CheckCircle, MapPin, Calendar, Briefcase, GraduationCap, Download, ExternalLink } from 'lucide-react';
 import './App.css';
+
+// Componente Modal de Contato
+const ContactModal = ({ isOpen, onClose }) => {
+  if (!isOpen) return null;
+
+  const contacts = [
+    {
+      icon: <Linkedin className="w-6 h-6" />,
+      label: "LinkedIn",
+      value: "nilsondasilvabrites",
+      url: "https://www.linkedin.com/in/nilsondasilvabrites/",
+      color: "bg-blue-600 hover:bg-blue-700"
+    },
+    {
+      icon: <Github className="w-6 h-6" />,
+      label: "GitHub",
+      value: "nilrd",
+      url: "https://github.com/nilrd",
+      color: "bg-gray-800 hover:bg-gray-900"
+    },
+    {
+      icon: <MessageCircle className="w-6 h-6" />,
+      label: "WhatsApp",
+      value: "(11) 94082-5120",
+      url: "https://wa.me/5511940825120",
+      color: "bg-green-600 hover:bg-green-700"
+    },
+    {
+      icon: <Instagram className="w-6 h-6" />,
+      label: "Instagram",
+      value: "@nilsbrites",
+      url: "https://instagram.com/nilsbrites",
+      color: "bg-pink-600 hover:bg-pink-700"
+    },
+    {
+      icon: <Mail className="w-6 h-6" />,
+      label: "Email",
+      value: "nilson.brites@gmail.com",
+      url: "mailto:nilson.brites@gmail.com",
+      color: "bg-red-600 hover:bg-red-700"
+    }
+  ];
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-3xl max-w-md w-full p-8 relative animate-in fade-in zoom-in duration-300">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
+        <div className="text-center mb-8">
+          <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <User className="w-10 h-10 text-white" />
+          </div>
+          <h3 className="text-2xl font-bold text-foreground mb-2">Vamos Conversar!</h3>
+          <p className="text-muted-foreground">Escolha a melhor forma de entrar em contato</p>
+        </div>
+
+        <div className="space-y-3">
+          {contacts.map((contact, index) => (
+            <a
+              key={index}
+              href={contact.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center space-x-4 p-4 rounded-2xl text-white transition-all duration-300 hover:scale-105 hover:shadow-lg ${contact.color}`}
+            >
+              <div className="flex-shrink-0">
+                {contact.icon}
+              </div>
+              <div className="flex-grow">
+                <div className="font-semibold">{contact.label}</div>
+                <div className="text-sm opacity-90">{contact.value}</div>
+              </div>
+              <ExternalLink className="w-4 h-4 opacity-70" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // Componente Header Inovador
 const Header = ({ darkMode, toggleDarkMode }) => {
@@ -15,6 +100,14 @@ const Header = ({ darkMode, toggleDarkMode }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -44,15 +137,21 @@ const Header = ({ darkMode, toggleDarkMode }) => {
 
           {/* Navigation Moderna */}
           <nav className="hidden lg:flex items-center space-x-8">
-            {['Home', 'Treinamentos', 'Blog', 'Sobre', 'Contato'].map((item, index) => (
-              <a 
-                key={item}
-                href={`#${item.toLowerCase()}`} 
+            {[
+              { name: 'Home', id: 'home' },
+              { name: 'Treinamentos', id: 'treinamentos' },
+              { name: 'Blog', id: 'blog' },
+              { name: 'Sobre', id: 'sobre' },
+              { name: 'Contato', id: 'contato' }
+            ].map((item) => (
+              <button 
+                key={item.name}
+                onClick={() => scrollToSection(item.id)}
                 className="relative group text-foreground hover:text-blue-600 transition-colors duration-300 font-medium"
               >
-                {item}
+                {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
-              </a>
+              </button>
             ))}
           </nav>
 
@@ -78,15 +177,20 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         {isMenuOpen && (
           <div className="lg:hidden mt-6 pb-6 border-t border-border pt-6">
             <div className="flex flex-col space-y-4">
-              {['Home', 'Treinamentos', 'Blog', 'Sobre', 'Contato'].map((item) => (
-                <a 
-                  key={item}
-                  href={`#${item.toLowerCase()}`} 
-                  className="text-foreground hover:text-blue-600 transition-colors py-2 font-medium"
-                  onClick={() => setIsMenuOpen(false)}
+              {[
+                { name: 'Home', id: 'home' },
+                { name: 'Treinamentos', id: 'treinamentos' },
+                { name: 'Blog', id: 'blog' },
+                { name: 'Sobre', id: 'sobre' },
+                { name: 'Contato', id: 'contato' }
+              ].map((item) => (
+                <button 
+                  key={item.name}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left text-foreground hover:text-blue-600 transition-colors py-2 font-medium"
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </button>
               ))}
             </div>
           </div>
@@ -112,8 +216,15 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="min-h-screen relative overflow-hidden">
+    <section id="home" className="min-h-screen relative overflow-hidden">
       {/* Background Animado */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-emerald-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
@@ -148,7 +259,10 @@ const HeroSection = () => {
 
             {/* CTAs Inovadores */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <button 
+                onClick={() => scrollToSection('treinamentos')}
+                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
+              >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex items-center space-x-3">
                   <Zap className="w-6 h-6" />
@@ -157,7 +271,10 @@ const HeroSection = () => {
                 </div>
               </button>
               
-              <button className="group px-8 py-4 border-2 border-border hover:border-blue-600 text-foreground rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <button 
+                onClick={() => scrollToSection('sobre')}
+                className="group px-8 py-4 border-2 border-border hover:border-blue-600 text-foreground rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+              >
                 <div className="flex items-center space-x-3">
                   <User className="w-6 h-6" />
                   <span>Explorar Portfólio</span>
@@ -367,10 +484,223 @@ const TrainingSection = () => {
   );
 };
 
+// Seção Sobre Mim
+const AboutSection = () => {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+
+  const experiences = [
+    {
+      period: "05/2022 - atual",
+      company: "E2E Coders",
+      role: "Analista de Testes de Software",
+      description: "Planejamento e execução de testes manuais e automatizados, desenvolvimento de scripts em Gherkin, automação com Java/Selenium, testes de API com Postman."
+    }
+  ];
+
+  const skills = [
+    { name: "Java", level: 85, color: "bg-orange-500" },
+    { name: "Selenium", level: 90, color: "bg-green-500" },
+    { name: "Cypress", level: 80, color: "bg-blue-500" },
+    { name: "Postman", level: 85, color: "bg-purple-500" },
+    { name: "Git/GitHub", level: 80, color: "bg-gray-600" },
+    { name: "MySQL", level: 75, color: "bg-blue-600" }
+  ];
+
+  const projects = [
+    {
+      name: "QA Play",
+      description: "Plataforma interativa para aprendizado e prática de Quality Assurance",
+      tech: ["React", "Flask", "Python", "SQLite"],
+      status: "Em desenvolvimento"
+    },
+    {
+      name: "Site Toque Ideal",
+      description: "Desenvolvimento e testes QA completos",
+      tech: ["HTML", "CSS", "JavaScript", "Testes Manuais"],
+      url: "https://www.toqueideal.com/",
+      status: "Concluído"
+    }
+  ];
+
+  return (
+    <section id="sobre" className="py-24 bg-background">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-emerald-100 dark:bg-emerald-900/30 px-4 py-2 rounded-full mb-6">
+              <User className="w-4 h-4 text-emerald-600" />
+              <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
+                Conheça o Profissional
+              </span>
+            </div>
+            
+            <h2 className="text-5xl md:text-6xl font-black text-foreground mb-6">
+              Sobre <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">Nilson Brites</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Perfil Principal */}
+            <div className="lg:col-span-2 space-y-8">
+              {/* Bio */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+                  <User className="w-6 h-6 mr-3 text-blue-600" />
+                  Perfil Profissional
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  Profissional hands-on, autodidata e comprometido com o aprendizado contínuo, sempre buscando qualidade e superação de desafios. 
+                  Com perfil analítico e boa comunicação, atuo como Analista de Testes em times ágeis com framework Scrum, participando de todo o ciclo de desenvolvimento (SDLC).
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  Tenho experiência com testes manuais e automatizados, aplicando técnicas de caixa preta como Particionamento de Equivalência, 
+                  Análise de Valor Limite, Tabela de Decisão e Transição de Estado, garantindo maior assertividade na cobertura dos testes.
+                </p>
+              </div>
+
+              {/* Experiência */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+                  <Briefcase className="w-6 h-6 mr-3 text-purple-600" />
+                  Experiência Profissional
+                </h3>
+                {experiences.map((exp, index) => (
+                  <div key={index} className="border-l-4 border-blue-500 pl-6 pb-6">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <Calendar className="w-4 h-4 text-blue-600" />
+                      <span className="text-sm font-medium text-blue-600">{exp.period}</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-foreground">{exp.role}</h4>
+                    <p className="text-lg text-purple-600 mb-3">{exp.company}</p>
+                    <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Projetos */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
+                  <Code className="w-6 h-6 mr-3 text-emerald-600" />
+                  Projetos Desenvolvidos
+                </h3>
+                <div className="space-y-6">
+                  {projects.map((project, index) => (
+                    <div key={index} className="border border-border rounded-2xl p-6 hover:shadow-md transition-shadow">
+                      <div className="flex justify-between items-start mb-3">
+                        <h4 className="text-lg font-bold text-foreground">{project.name}</h4>
+                        <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+                          project.status === 'Concluído' 
+                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
+                            : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
+                        }`}>
+                          {project.status}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground mb-4">{project.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {project.tech.map((tech, techIndex) => (
+                          <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-xs rounded-lg">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                      {project.url && (
+                        <a 
+                          href={project.url} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Ver projeto</span>
+                        </a>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar */}
+            <div className="space-y-8">
+              {/* Skills */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
+                  <Target className="w-5 h-5 mr-3 text-orange-600" />
+                  Habilidades Técnicas
+                </h3>
+                <div className="space-y-4">
+                  {skills.map((skill, index) => (
+                    <div key={index}>
+                      <div className="flex justify-between items-center mb-2">
+                        <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                        <span className="text-xs text-muted-foreground">{skill.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                        <div 
+                          className={`h-2 rounded-full ${skill.color} transition-all duration-1000`}
+                          style={{ width: `${skill.level}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Formação */}
+              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
+                  <GraduationCap className="w-5 h-5 mr-3 text-green-600" />
+                  Formação
+                </h3>
+                <div className="space-y-4 text-sm">
+                  <div>
+                    <h4 className="font-semibold text-foreground">Ciência da Computação</h4>
+                    <p className="text-muted-foreground">Impacta Tecnologia (Cursando)</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Qualidade de Software</h4>
+                    <p className="text-muted-foreground">E2E Treinamentos</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Back-end Oracle Next Education</h4>
+                    <p className="text-muted-foreground">Alura</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* CTA Contato */}
+              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 text-white text-center">
+                <h3 className="text-xl font-bold mb-4">Vamos Conversar?</h3>
+                <p className="text-blue-100 mb-6">
+                  Interessado em colaborar ou discutir oportunidades em QA?
+                </p>
+                <button 
+                  onClick={() => setContactModalOpen(true)}
+                  className="w-full bg-white text-blue-600 font-bold py-3 px-6 rounded-2xl hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center space-x-2"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Entrar em Contato</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ContactModal 
+        isOpen={contactModalOpen} 
+        onClose={() => setContactModalOpen(false)} 
+      />
+    </section>
+  );
+};
+
 // Footer Moderno
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 to-black text-white py-16">
+    <footer id="contato" className="bg-gradient-to-br from-gray-900 to-black text-white py-16">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
@@ -487,6 +817,7 @@ function App() {
             <>
               <HeroSection />
               <TrainingSection />
+              <AboutSection />
             </>
           } />
         </Routes>
