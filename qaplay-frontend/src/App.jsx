@@ -1,172 +1,113 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Moon, Sun, Menu, X, Play, Award, BookOpen, User, Mail, Github, Linkedin, Instagram, MessageCircle, Code, Zap, Target, Trophy, Star, ArrowRight, CheckCircle, MapPin, Calendar, Briefcase, GraduationCap, Download, ExternalLink } from 'lucide-react';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { 
+  Sun, 
+  Moon, 
+  Menu, 
+  X, 
+  Home as HomeIcon, 
+  BookOpen, 
+  FileText, 
+  User, 
+  Mail,
+  Play,
+  Trophy,
+  Target,
+  Zap,
+  Code,
+  Shield,
+  Cpu,
+  Globe,
+  Award,
+  Clock,
+  Users,
+  CheckCircle,
+  Star,
+  ArrowRight,
+  ExternalLink,
+  MessageCircle
+} from 'lucide-react';
 
-// Componente Modal de Contato
-const ContactModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+// Hook para gerenciar tema
+const useTheme = () => {
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved ? saved === 'dark' : false;
+  });
 
-  const contacts = [
-    {
-      icon: <Linkedin className="w-6 h-6" />,
-      label: "LinkedIn",
-      value: "nilsondasilvabrites",
-      url: "https://www.linkedin.com/in/nilsondasilvabrites/",
-      color: "bg-blue-600 hover:bg-blue-700"
-    },
-    {
-      icon: <Github className="w-6 h-6" />,
-      label: "GitHub",
-      value: "nilrd",
-      url: "https://github.com/nilrd",
-      color: "bg-gray-800 hover:bg-gray-900"
-    },
-    {
-      icon: <MessageCircle className="w-6 h-6" />,
-      label: "WhatsApp",
-      value: "(11) 94082-5120",
-      url: "https://wa.me/5511940825120",
-      color: "bg-green-600 hover:bg-green-700"
-    },
-    {
-      icon: <Instagram className="w-6 h-6" />,
-      label: "Instagram",
-      value: "@nilsbrites",
-      url: "https://instagram.com/nilsbrites",
-      color: "bg-pink-600 hover:bg-pink-700"
-    },
-    {
-      icon: <Mail className="w-6 h-6" />,
-      label: "Email",
-      value: "nilson.brites@gmail.com",
-      url: "mailto:nilson.brites@gmail.com",
-      color: "bg-red-600 hover:bg-red-700"
-    }
+  useEffect(() => {
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    document.documentElement.classList.toggle('dark', isDark);
+  }, [isDark]);
+
+  return [isDark, setIsDark];
+};
+
+// Componente Header
+const Header = ({ isDark, setIsDark }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const menuItems = [
+    { path: '/', label: 'Home', icon: HomeIcon },
+    { path: '/training', label: 'QA Play Training', icon: BookOpen },
+    { path: '/blog', label: 'Blog', icon: FileText },
+    { path: '/sobre', label: 'Sobre Mim', icon: User },
+    { path: '/contato', label: 'Contato', icon: Mail }
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-gray-800 rounded-3xl max-w-md w-full p-8 relative animate-in fade-in zoom-in duration-300">
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
-        <div className="text-center mb-8">
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <User className="w-10 h-10 text-white" />
-          </div>
-          <h3 className="text-2xl font-bold text-foreground mb-2">Vamos Conversar!</h3>
-          <p className="text-muted-foreground">Escolha a melhor forma de entrar em contato</p>
-        </div>
-
-        <div className="space-y-3">
-          {contacts.map((contact, index) => (
-            <a
-              key={index}
-              href={contact.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`flex items-center space-x-4 p-4 rounded-2xl text-white transition-all duration-300 hover:scale-105 hover:shadow-lg ${contact.color}`}
-            >
-              <div className="flex-shrink-0">
-                {contact.icon}
-              </div>
-              <div className="flex-grow">
-                <div className="font-semibold">{contact.label}</div>
-                <div className="text-sm opacity-90">{contact.value}</div>
-              </div>
-              <ExternalLink className="w-4 h-4 opacity-70" />
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Componente Header Inovador
-const Header = ({ darkMode, toggleDarkMode }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
-  };
-
-  return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      scrolled 
-        ? 'bg-background/95 backdrop-blur-lg border-b border-border shadow-lg' 
-        : 'bg-transparent'
-    }`}>
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo Inovador */}
-          <div className="flex items-center space-x-3">
-            <div className="relative">
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 via-blue-500 to-purple-600 rounded-2xl flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-300">
-                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-blue-600 font-bold text-lg">Q</span>
-                </div>
-              </div>
-              <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-pulse"></div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+              <Target className="w-6 h-6 text-white" />
             </div>
             <div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <h1 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 QA Play
-              </span>
-              <div className="text-xs text-muted-foreground">Interactive Learning</div>
+              </h1>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Interactive Learning</p>
             </div>
-          </div>
+          </Link>
 
-          {/* Navigation Moderna */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {[
-              { name: 'Home', id: 'home' },
-              { name: 'Treinamentos', id: 'treinamentos' },
-              { name: 'Blog', id: 'blog' },
-              { name: 'Sobre', id: 'sobre' },
-              { name: 'Contato', id: 'contato' }
-            ].map((item) => (
-              <button 
-                key={item.name}
-                onClick={() => scrollToSection(item.id)}
-                className="relative group text-foreground hover:text-blue-600 transition-colors duration-300 font-medium"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
-              </button>
-            ))}
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center space-x-1">
+            {menuItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = location.pathname === item.path;
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-200 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                  <span className="font-medium">{item.label}</span>
+                </Link>
+              );
+            })}
           </nav>
 
-          {/* Controls */}
+          {/* Theme Toggle */}
           <div className="flex items-center space-x-4">
             <button
-              onClick={toggleDarkMode}
-              className="p-3 rounded-xl bg-secondary/50 hover:bg-accent transition-all duration-300 hover:scale-110"
+              onClick={() => setIsDark(!isDark)}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
-              {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
-            
+
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-3 rounded-xl bg-secondary/50 hover:bg-accent transition-all duration-300"
+              className="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300"
             >
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -175,24 +116,28 @@ const Header = ({ darkMode, toggleDarkMode }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-6 pb-6 border-t border-border pt-6">
-            <div className="flex flex-col space-y-4">
-              {[
-                { name: 'Home', id: 'home' },
-                { name: 'Treinamentos', id: 'treinamentos' },
-                { name: 'Blog', id: 'blog' },
-                { name: 'Sobre', id: 'sobre' },
-                { name: 'Contato', id: 'contato' }
-              ].map((item) => (
-                <button 
-                  key={item.name}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-left text-foreground hover:text-blue-600 transition-colors py-2 font-medium"
-                >
-                  {item.name}
-                </button>
-              ))}
-            </div>
+          <div className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
+            <nav className="flex flex-col space-y-2">
+              {menuItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-200 ${
+                      isActive
+                        ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    }`}
+                  >
+                    <Icon className="w-5 h-5" />
+                    <span className="font-medium">{item.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
           </div>
         )}
       </div>
@@ -200,579 +145,91 @@ const Header = ({ darkMode, toggleDarkMode }) => {
   );
 };
 
-// Hero Section Revolucionário
-const HeroSection = () => {
-  const [currentStat, setCurrentStat] = useState(0);
-  const stats = [
-    { number: "500+", label: "Questões Únicas", icon: <Target className="w-6 h-6" /> },
-    { number: "6", label: "Áreas de Conhecimento", icon: <BookOpen className="w-6 h-6" /> },
-    { number: "∞", label: "Certificados Válidos", icon: <Trophy className="w-6 h-6" /> }
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentStat((prev) => (prev + 1) % stats.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  return (
-    <section id="home" className="min-h-screen relative overflow-hidden">
-      {/* Background Animado */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-emerald-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-emerald-400/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
-      </div>
-
-      <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
-        <div className="max-w-6xl mx-auto">
-          {/* Título Principal */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full mb-6">
-              <Star className="w-4 h-4 text-yellow-500" />
-              <span className="text-sm font-medium text-blue-700 dark:text-blue-300">
-                Plataforma #1 em QA Interativo
-              </span>
-            </div>
-            
-            <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
-              <span className="block text-foreground">Evolua seu</span>
-              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 bg-clip-text text-transparent">
-                QA Game
-              </span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed">
-              Transforme conhecimento em conquistas. Domine Quality Assurance através de 
-              <span className="text-blue-600 font-semibold"> desafios gamificados</span>, 
-              <span className="text-purple-600 font-semibold"> certificações reconhecidas</span> e 
-              <span className="text-emerald-600 font-semibold"> experiência prática</span>.
-            </p>
-
-            {/* CTAs Inovadores */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <button 
-                onClick={() => scrollToSection('treinamentos')}
-                className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="relative flex items-center space-x-3">
-                  <Zap className="w-6 h-6" />
-                  <span>Iniciar Jornada QA</span>
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </button>
-              
-              <button 
-                onClick={() => scrollToSection('sobre')}
-                className="group px-8 py-4 border-2 border-border hover:border-blue-600 text-foreground rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20"
-              >
-                <div className="flex items-center space-x-3">
-                  <User className="w-6 h-6" />
-                  <span>Explorar Portfólio</span>
-                </div>
-              </button>
-            </div>
-          </div>
-
-          {/* Stats Animadas */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div 
-                key={index}
-                className={`text-center p-6 rounded-3xl transition-all duration-500 ${
-                  currentStat === index 
-                    ? 'bg-white dark:bg-gray-800 shadow-2xl scale-105 border-2 border-blue-200 dark:border-blue-800' 
-                    : 'bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800'
-                }`}
-              >
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center transition-colors duration-300 ${
-                  currentStat === index 
-                    ? 'bg-gradient-to-br from-blue-500 to-purple-600 text-white' 
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300'
-                }`}>
-                  {stat.icon}
-                </div>
-                <div className={`text-4xl font-black mb-2 transition-colors duration-300 ${
-                  currentStat === index ? 'text-blue-600' : 'text-foreground'
-                }`}>
-                  {stat.number}
-                </div>
-                <div className="text-muted-foreground font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Training Section Inovadora
-const TrainingSection = () => {
-  const [hoveredQuiz, setHoveredQuiz] = useState(null);
-  
-  const quizzes = [
-    {
-      id: 'fundamentals',
-      title: "Fundamentos de Testes",
-      description: "Conceitos essenciais de Quality Assurance",
-      note: "Baseado em padrões internacionais",
-      icon: <Award className="w-8 h-8" />,
-      gradient: "from-blue-500 to-cyan-500",
-      bgPattern: "bg-blue-50 dark:bg-blue-900/20",
-      level: "Iniciante",
-      questions: 20,
-      time: 40
-    },
-    {
-      id: 'cypress',
-      title: "Cypress Mastery",
-      description: "Testes de UI modernos e eficientes",
-      note: "Framework de nova geração",
-      icon: <Zap className="w-8 h-8" />,
-      gradient: "from-green-500 to-emerald-500",
-      bgPattern: "bg-green-50 dark:bg-green-900/20",
-      level: "Intermediário",
-      questions: 15,
-      time: 30
-    },
-    {
-      id: 'java',
-      title: "Java Testing Pro",
-      description: "Lógica de programação para testes",
-      note: "Orientado a objetos",
-      icon: <Code className="w-8 h-8" />,
-      gradient: "from-orange-500 to-red-500",
-      bgPattern: "bg-orange-50 dark:bg-orange-900/20",
-      level: "Intermediário",
-      questions: 15,
-      time: 25
-    },
-    {
-      id: 'javascript',
-      title: "JavaScript Testing",
-      description: "Programação funcional para QA",
-      note: "Linguagem versátil",
-      icon: <Code className="w-8 h-8" />,
-      gradient: "from-yellow-500 to-orange-500",
-      bgPattern: "bg-yellow-50 dark:bg-yellow-900/20",
-      level: "Intermediário",
-      questions: 15,
-      time: 25
-    },
-    {
-      id: 'selenium',
-      title: "Selenium Expert",
-      description: "Automação web profissional",
-      note: "Padrão da indústria",
-      icon: <Target className="w-8 h-8" />,
-      gradient: "from-purple-500 to-pink-500",
-      bgPattern: "bg-purple-50 dark:bg-purple-900/20",
-      level: "Avançado",
-      questions: 15,
-      time: 30
-    },
-    {
-      id: 'quality',
-      title: "Quality Engineering",
-      description: "Metodologias e práticas avançadas",
-      note: "DevOps e Agilidade",
-      icon: <Trophy className="w-8 h-8" />,
-      gradient: "from-red-500 to-pink-500",
-      bgPattern: "bg-red-50 dark:bg-red-900/20",
-      level: "Avançado",
-      questions: 20,
-      time: 35
-    }
-  ];
-
-  return (
-    <section id="treinamentos" className="py-24 bg-gradient-to-b from-background to-gray-50 dark:to-gray-900/50">
-      <div className="container mx-auto px-6">
-        {/* Header da Seção */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center space-x-2 bg-purple-100 dark:bg-purple-900/30 px-4 py-2 rounded-full mb-6">
-            <Trophy className="w-4 h-4 text-purple-600" />
-            <span className="text-sm font-medium text-purple-700 dark:text-purple-300">
-              Treinamentos Gamificados
-            </span>
-          </div>
-          
-          <h2 className="text-5xl md:text-6xl font-black text-foreground mb-6">
-            Escolha sua <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Especialização</span>
-          </h2>
-          
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Cada trilha foi cuidadosamente projetada para elevar suas habilidades em QA. 
-            Conquiste certificações e destaque-se no mercado.
-          </p>
-        </div>
-
-        {/* Grid de Quizzes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {quizzes.map((quiz, index) => (
-            <div 
-              key={quiz.id}
-              className={`group relative overflow-hidden rounded-3xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 ${quiz.bgPattern}`}
-              onMouseEnter={() => setHoveredQuiz(index)}
-              onMouseLeave={() => setHoveredQuiz(null)}
-            >
-              {/* Card Background */}
-              <div className="absolute inset-0 bg-white dark:bg-gray-800 opacity-80 group-hover:opacity-95 transition-opacity duration-300"></div>
-              
-              {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${quiz.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-              
-              {/* Content */}
-              <div className="relative p-8">
-                {/* Level Badge */}
-                <div className="flex justify-between items-start mb-6">
-                  <span className={`px-3 py-1 text-xs font-bold rounded-full bg-gradient-to-r ${quiz.gradient} text-white`}>
-                    {quiz.level}
-                  </span>
-                  <div className={`p-3 rounded-2xl bg-gradient-to-br ${quiz.gradient} text-white transform group-hover:scale-110 transition-transform duration-300`}>
-                    {quiz.icon}
-                  </div>
-                </div>
-
-                {/* Title & Description */}
-                <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                  {quiz.title}
-                </h3>
-                
-                <p className="text-muted-foreground mb-2 leading-relaxed">
-                  {quiz.description}
-                </p>
-                
-                <p className="text-sm text-blue-600 dark:text-blue-400 mb-6 italic">
-                  {quiz.note}
-                </p>
-
-                {/* Stats */}
-                <div className="flex justify-between items-center mb-6 text-sm text-muted-foreground">
-                  <div className="flex items-center space-x-1">
-                    <CheckCircle className="w-4 h-4" />
-                    <span>{quiz.questions} questões</span>
-                  </div>
-                  <div className="flex items-center space-x-1">
-                    <Target className="w-4 h-4" />
-                    <span>{quiz.time} min</span>
-                  </div>
-                </div>
-
-                {/* CTA Button */}
-                <button className={`w-full py-4 rounded-2xl font-bold text-white bg-gradient-to-r ${quiz.gradient} transform group-hover:scale-105 transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2`}>
-                  <Play className="w-5 h-5" />
-                  <span>Iniciar Desafio</span>
-                  <ArrowRight className={`w-4 h-4 transition-transform duration-300 ${hoveredQuiz === index ? 'translate-x-1' : ''}`} />
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// Seção Sobre Mim
-const AboutSection = () => {
-  const [contactModalOpen, setContactModalOpen] = useState(false);
-
-  const experiences = [
-    {
-      period: "05/2022 - atual",
-      company: "E2E Coders",
-      role: "Analista de Testes de Software",
-      description: "Planejamento e execução de testes manuais e automatizados, desenvolvimento de scripts em Gherkin, automação com Java/Selenium, testes de API com Postman."
-    }
-  ];
-
-  const skills = [
-    { name: "Java", level: 85, color: "bg-orange-500" },
-    { name: "Selenium", level: 90, color: "bg-green-500" },
-    { name: "Cypress", level: 80, color: "bg-blue-500" },
-    { name: "Postman", level: 85, color: "bg-purple-500" },
-    { name: "Git/GitHub", level: 80, color: "bg-gray-600" },
-    { name: "MySQL", level: 75, color: "bg-blue-600" }
-  ];
-
-  const projects = [
-    {
-      name: "QA Play",
-      description: "Plataforma interativa para aprendizado e prática de Quality Assurance",
-      tech: ["React", "Flask", "Python", "SQLite"],
-      status: "Em desenvolvimento"
-    },
-    {
-      name: "Site Toque Ideal",
-      description: "Desenvolvimento e testes QA completos",
-      tech: ["HTML", "CSS", "JavaScript", "Testes Manuais"],
-      url: "https://www.toqueideal.com/",
-      status: "Concluído"
-    }
-  ];
-
-  return (
-    <section id="sobre" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-emerald-100 dark:bg-emerald-900/30 px-4 py-2 rounded-full mb-6">
-              <User className="w-4 h-4 text-emerald-600" />
-              <span className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
-                Conheça o Profissional
-              </span>
-            </div>
-            
-            <h2 className="text-5xl md:text-6xl font-black text-foreground mb-6">
-              Sobre <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">Nilson Brites</span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Perfil Principal */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* Bio */}
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <User className="w-6 h-6 mr-3 text-blue-600" />
-                  Perfil Profissional
-                </h3>
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  Profissional hands-on, autodidata e comprometido com o aprendizado contínuo, sempre buscando qualidade e superação de desafios. 
-                  Com perfil analítico e boa comunicação, atuo como Analista de Testes em times ágeis com framework Scrum, participando de todo o ciclo de desenvolvimento (SDLC).
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  Tenho experiência com testes manuais e automatizados, aplicando técnicas de caixa preta como Particionamento de Equivalência, 
-                  Análise de Valor Limite, Tabela de Decisão e Transição de Estado, garantindo maior assertividade na cobertura dos testes.
-                </p>
-              </div>
-
-              {/* Experiência */}
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <Briefcase className="w-6 h-6 mr-3 text-purple-600" />
-                  Experiência Profissional
-                </h3>
-                {experiences.map((exp, index) => (
-                  <div key={index} className="border-l-4 border-blue-500 pl-6 pb-6">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Calendar className="w-4 h-4 text-blue-600" />
-                      <span className="text-sm font-medium text-blue-600">{exp.period}</span>
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground">{exp.role}</h4>
-                    <p className="text-lg text-purple-600 mb-3">{exp.company}</p>
-                    <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Projetos */}
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                  <Code className="w-6 h-6 mr-3 text-emerald-600" />
-                  Projetos Desenvolvidos
-                </h3>
-                <div className="space-y-6">
-                  {projects.map((project, index) => (
-                    <div key={index} className="border border-border rounded-2xl p-6 hover:shadow-md transition-shadow">
-                      <div className="flex justify-between items-start mb-3">
-                        <h4 className="text-lg font-bold text-foreground">{project.name}</h4>
-                        <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                          project.status === 'Concluído' 
-                            ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
-                            : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
-                        }`}>
-                          {project.status}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground mb-4">{project.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {project.tech.map((tech, techIndex) => (
-                          <span key={techIndex} className="px-2 py-1 bg-gray-100 dark:bg-gray-700 text-xs rounded-lg">
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                      {project.url && (
-                        <a 
-                          href={project.url} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                          <span>Ver projeto</span>
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <div className="space-y-8">
-              {/* Skills */}
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
-                  <Target className="w-5 h-5 mr-3 text-orange-600" />
-                  Habilidades Técnicas
-                </h3>
-                <div className="space-y-4">
-                  {skills.map((skill, index) => (
-                    <div key={index}>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                        <span className="text-xs text-muted-foreground">{skill.level}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                        <div 
-                          className={`h-2 rounded-full ${skill.color} transition-all duration-1000`}
-                          style={{ width: `${skill.level}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Formação */}
-              <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-lg">
-                <h3 className="text-xl font-bold text-foreground mb-6 flex items-center">
-                  <GraduationCap className="w-5 h-5 mr-3 text-green-600" />
-                  Formação
-                </h3>
-                <div className="space-y-4 text-sm">
-                  <div>
-                    <h4 className="font-semibold text-foreground">Ciência da Computação</h4>
-                    <p className="text-muted-foreground">Impacta Tecnologia (Cursando)</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Qualidade de Software</h4>
-                    <p className="text-muted-foreground">E2E Treinamentos</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Back-end Oracle Next Education</h4>
-                    <p className="text-muted-foreground">Alura</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA Contato */}
-              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-8 text-white text-center">
-                <h3 className="text-xl font-bold mb-4">Vamos Conversar?</h3>
-                <p className="text-blue-100 mb-6">
-                  Interessado em colaborar ou discutir oportunidades em QA?
-                </p>
-                <button 
-                  onClick={() => setContactModalOpen(true)}
-                  className="w-full bg-white text-blue-600 font-bold py-3 px-6 rounded-2xl hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center space-x-2"
-                >
-                  <MessageCircle className="w-5 h-5" />
-                  <span>Entrar em Contato</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <ContactModal 
-        isOpen={contactModalOpen} 
-        onClose={() => setContactModalOpen(false)} 
-      />
-    </section>
-  );
-};
-
-// Footer Moderno
+// Componente Footer
 const Footer = () => {
   return (
-    <footer id="contato" className="bg-gradient-to-br from-gray-900 to-black text-white py-16">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-emerald-400 via-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
-                <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-blue-600 font-bold text-lg">Q</span>
-                </div>
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Logo e Descrição */}
+          <div>
+            <div className="flex items-center space-x-2 mb-4">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center">
+                <Target className="w-6 h-6 text-white" />
               </div>
               <div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  QA Play
-                </span>
-                <div className="text-sm text-gray-400">Interactive Learning</div>
+                <h3 className="text-xl font-bold">QA Play</h3>
+                <p className="text-sm text-gray-400">Interactive Learning</p>
               </div>
             </div>
-            <p className="text-gray-300 leading-relaxed max-w-md">
-              Revolucionando o aprendizado em Quality Assurance através de experiências 
-              gamificadas e certificações reconhecidas pela indústria.
+            <p className="text-gray-400 text-sm">
+              Transforme conhecimento em conquistas. Domine Quality Assurance através de desafios gamificados.
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Navegação */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Navegação</h3>
-            <div className="space-y-3">
-              {['Home', 'Treinamentos', 'Blog', 'Sobre', 'Contato'].map((link) => (
-                <a 
-                  key={link}
-                  href={`#${link.toLowerCase()}`} 
-                  className="block text-gray-400 hover:text-blue-400 transition-colors duration-300"
-                >
-                  {link}
-                </a>
-              ))}
-            </div>
+            <h4 className="text-lg font-semibold mb-4">Navegação</h4>
+            <ul className="space-y-2">
+              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/training" className="text-gray-400 hover:text-white transition-colors">QA Play Training</Link></li>
+              <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/sobre" className="text-gray-400 hover:text-white transition-colors">Sobre Mim</Link></li>
+              <li><Link to="/contato" className="text-gray-400 hover:text-white transition-colors">Contato</Link></li>
+            </ul>
           </div>
 
-          {/* Contact */}
+          {/* Conecte-se */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-white">Conecte-se</h3>
-            <div className="space-y-4">
-              {[
-                { icon: <Linkedin className="w-5 h-5" />, label: "LinkedIn", url: "https://www.linkedin.com/in/nilsondasilvabrites/" },
-                { icon: <Github className="w-5 h-5" />, label: "GitHub", url: "https://github.com/nilrd" },
-                { icon: <MessageCircle className="w-5 h-5" />, label: "WhatsApp", url: "https://wa.me/5511940825120" },
-                { icon: <Instagram className="w-5 h-5" />, label: "Instagram", url: "https://instagram.com/nilsbrites" },
-                { icon: <Mail className="w-5 h-5" />, label: "Email", url: "mailto:nilson.brites@gmail.com" }
-              ].map((contact) => (
-                <a 
-                  key={contact.label}
-                  href={contact.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-3 text-gray-400 hover:text-blue-400 transition-colors duration-300 group"
-                >
-                  <div className="p-2 rounded-lg bg-gray-800 group-hover:bg-blue-600 transition-colors duration-300">
-                    {contact.icon}
-                  </div>
-                  <span>{contact.label}</span>
-                </a>
-              ))}
+            <h4 className="text-lg font-semibold mb-4">Conecte-se</h4>
+            <div className="flex space-x-4">
+              <a
+                href="https://www.linkedin.com/in/nilsondasilvabrites/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <ExternalLink className="w-5 h-5" />
+              </a>
+              <a
+                href="https://github.com/nilrd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
+              >
+                <ExternalLink className="w-5 h-5" />
+              </a>
+              <a
+                href="https://wa.me/5511940825120"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                <MessageCircle className="w-5 h-5" />
+              </a>
+              <a
+                href="https://instagram.com/nilsbrites"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-pink-600 rounded-lg hover:bg-pink-700 transition-colors"
+              >
+                <ExternalLink className="w-5 h-5" />
+              </a>
+            </div>
+            <div className="mt-4">
+              <a
+                href="mailto:nilson.brites@gmail.com"
+                className="text-gray-400 hover:text-white transition-colors text-sm"
+              >
+                nilson.brites@gmail.com
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p className="text-gray-400">
-            © 2025 QA Play. Desenvolvido com ❤️ por{' '}
-            <span className="text-blue-400 font-semibold">Nilson da Silva Brites</span>. 
-            Todos os direitos reservados.
+        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
+          <p className="text-gray-400 text-sm">
+            © 2025 QA Play. Desenvolvido por Nilson da Silva Brites.
           </p>
         </div>
       </div>
@@ -780,53 +237,910 @@ const Footer = () => {
   );
 };
 
-// Componente Principal
-function App() {
-  const [darkMode, setDarkMode] = useState(false);
+// Página Home
+const HomePage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+      {/* Hero Section */}
+      <section className="pt-24 pb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-600 dark:text-blue-400 text-sm font-medium mb-8">
+              <Star className="w-4 h-4 mr-2" />
+              Plataforma #1 em QA Interativo
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              Evolua seu{' '}
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                QA Game
+              </span>
+            </h1>
+            
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+              Transforme conhecimento em conquistas. Domine Quality Assurance através de{' '}
+              <span className="text-blue-600 dark:text-blue-400 font-semibold">desafios gamificados</span>,{' '}
+              <span className="text-purple-600 dark:text-purple-400 font-semibold">certificações reconhecidas</span> e{' '}
+              <span className="text-green-600 dark:text-green-400 font-semibold">experiência prática</span>.
+            </p>
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setDarkMode(savedTheme === 'dark');
-    } else {
-      setDarkMode(window.matchMedia('(prefers-color-scheme: dark)').matches);
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Link
+                to="/training"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+              >
+                <Zap className="w-5 h-5 mr-2" />
+                Iniciar Jornada QA
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+              <Link
+                to="/sobre"
+                className="inline-flex items-center px-8 py-4 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 font-semibold rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-purple-600 transition-all duration-200"
+              >
+                <User className="w-5 h-5 mr-2" />
+                Explorar Portfólio
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                </div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">500+</div>
+                <div className="text-gray-600 dark:text-gray-400">Questões Únicas</div>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
+                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <BookOpen className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                </div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">6</div>
+                <div className="text-gray-600 dark:text-gray-400">Áreas de Conhecimento</div>
+              </div>
+              
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
+                <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Trophy className="w-6 h-6 text-green-600 dark:text-green-400" />
+                </div>
+                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">∞</div>
+                <div className="text-gray-600 dark:text-gray-400">Certificados Válidos</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Por que escolher o QA Play?
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Uma plataforma completa que combina aprendizado, prática e certificação em um ambiente gamificado único.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Play className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Gamificação Inteligente</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Sistema de pontuação, badges e certificados que tornam o aprendizado envolvente e motivador.
+              </p>
+            </div>
+
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Award className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Certificações Reconhecidas</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Certificados válidos baseados em padrões internacionais que agregam valor ao seu currículo.
+              </p>
+            </div>
+
+            <div className="text-center p-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Users className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Comunidade Ativa</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Conecte-se com outros profissionais de QA e compartilhe conhecimentos e experiências.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Pronto para elevar suas habilidades em QA?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8">
+            Junte-se a centenas de profissionais que já transformaram suas carreiras com o QA Play.
+          </p>
+          <Link
+            to="/training"
+            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          >
+            <Zap className="w-5 h-5 mr-2" />
+            Começar Agora
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// Página QA Play Training
+const TrainingPage = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedQuiz, setSelectedQuiz] = useState(null);
+  const [formData, setFormData] = useState({ name: '', email: '' });
+
+  const quizzes = [
+    {
+      id: 'fundamentos',
+      title: 'Fundamentos de Testes',
+      description: 'Conceitos essenciais de Quality Assurance',
+      subtitle: 'Baseado em padrões internacionais',
+      questions: 20,
+      duration: 40,
+      level: 'Iniciante',
+      color: 'from-blue-500 to-blue-600',
+      icon: Shield
+    },
+    {
+      id: 'cypress',
+      title: 'Cypress Mastery',
+      description: 'Testes de UI modernos e eficientes',
+      subtitle: 'Framework de nova geração',
+      questions: 15,
+      duration: 30,
+      level: 'Intermediário',
+      color: 'from-green-500 to-green-600',
+      icon: Zap
+    },
+    {
+      id: 'java',
+      title: 'Java Testing Pro',
+      description: 'Lógica de programação para testes',
+      subtitle: 'Orientado a objetos',
+      questions: 15,
+      duration: 25,
+      level: 'Intermediário',
+      color: 'from-orange-500 to-red-600',
+      icon: Code
+    },
+    {
+      id: 'javascript',
+      title: 'JavaScript Testing',
+      description: 'Programação funcional para QA',
+      subtitle: 'Linguagem versátil',
+      questions: 15,
+      duration: 25,
+      level: 'Intermediário',
+      color: 'from-yellow-500 to-orange-600',
+      icon: Code
+    },
+    {
+      id: 'selenium',
+      title: 'Selenium Expert',
+      description: 'Automação web profissional',
+      subtitle: 'Padrão da indústria',
+      questions: 15,
+      duration: 30,
+      level: 'Avançado',
+      color: 'from-purple-500 to-purple-600',
+      icon: Globe
+    },
+    {
+      id: 'quality-engineering',
+      title: 'Quality Engineering',
+      description: 'Metodologias e práticas avançadas',
+      subtitle: 'DevOps e Agilidade',
+      questions: 20,
+      duration: 35,
+      level: 'Avançado',
+      color: 'from-pink-500 to-red-600',
+      icon: Cpu
     }
-  }, []);
+  ];
 
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+  const handleStartQuiz = (quiz) => {
+    setSelectedQuiz(quiz);
+    setShowModal(true);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.name && formData.email) {
+      // Aqui seria a integração com o backend
+      alert(`Quiz ${selectedQuiz.title} iniciado para ${formData.name}!`);
+      setShowModal(false);
+      setFormData({ name: '', email: '' });
     }
-  }, [darkMode]);
+  };
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+  const getLevelColor = (level) => {
+    switch (level) {
+      case 'Iniciante': return 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400';
+      case 'Intermediário': return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
+      case 'Avançado': return 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-400';
+      default: return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
+    }
   };
 
   return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-24 pb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900/30 rounded-full text-purple-600 dark:text-purple-400 text-sm font-medium mb-8">
+            <Trophy className="w-4 h-4 mr-2" />
+            Treinamentos Gamificados
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Escolha sua{' '}
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Especialização
+            </span>
+          </h1>
+          
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Cada trilha foi cuidadosamente projetada para elevar suas habilidades em QA. 
+            Conquiste certificações e destaque-se no mercado.
+          </p>
+        </div>
+
+        {/* Quizzes Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {quizzes.map((quiz) => {
+            const Icon = quiz.icon;
+            return (
+              <div
+                key={quiz.id}
+                className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
+              >
+                <div className={`h-2 bg-gradient-to-r ${quiz.color}`}></div>
+                
+                <div className="p-6">
+                  {/* Level Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(quiz.level)}`}>
+                      {quiz.level}
+                    </span>
+                    <div className={`w-12 h-12 bg-gradient-to-br ${quiz.color} rounded-xl flex items-center justify-center`}>
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    {quiz.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-1">
+                    {quiz.description}
+                  </p>
+                  <p className="text-sm text-blue-600 dark:text-blue-400 italic mb-4">
+                    {quiz.subtitle}
+                  </p>
+
+                  {/* Stats */}
+                  <div className="flex items-center space-x-4 mb-6 text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex items-center">
+                      <CheckCircle className="w-4 h-4 mr-1" />
+                      {quiz.questions} questões
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      {quiz.duration} min
+                    </div>
+                  </div>
+
+                  {/* Button */}
+                  <button
+                    onClick={() => handleStartQuiz(quiz)}
+                    className={`w-full py-3 px-4 bg-gradient-to-r ${quiz.color} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-200 flex items-center justify-center`}
+                  >
+                    <Play className="w-4 h-4 mr-2" />
+                    Iniciar Desafio
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <div className="text-center mb-6">
+              <div className={`w-16 h-16 bg-gradient-to-br ${selectedQuiz.color} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                <selectedQuiz.icon className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                {selectedQuiz.title}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Para iniciar o quiz, precisamos de algumas informações
+              </p>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Nome Completo
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  placeholder="Seu nome completo"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  placeholder="seu@email.com"
+                />
+              </div>
+
+              <div className="flex space-x-3 pt-4">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="flex-1 py-3 px-4 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  className={`flex-1 py-3 px-4 bg-gradient-to-r ${selectedQuiz.color} text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-200`}
+                >
+                  Iniciar Quiz
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Página Blog
+const BlogPage = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-24 pb-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Blog
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+            Artigos, tutoriais e insights sobre Quality Assurance
+          </p>
+          
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-12">
+            <FileText className="w-16 h-16 text-gray-400 mx-auto mb-6" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              Em Breve
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300">
+              Estamos preparando conteúdo exclusivo sobre Quality Assurance, 
+              automação de testes e as melhores práticas da indústria.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Página Sobre Mim
+const SobrePage = () => {
+  const [showContactModal, setShowContactModal] = useState(false);
+
+  const skills = [
+    { name: 'Java', level: 85 },
+    { name: 'Selenium', level: 90 },
+    { name: 'Cypress', level: 80 },
+    { name: 'Postman', level: 85 },
+    { name: 'Git/GitHub', level: 80 },
+    { name: 'MySQL', level: 75 }
+  ];
+
+  const contacts = [
+    {
+      platform: 'LinkedIn',
+      handle: 'nilsondasilvabrites',
+      url: 'https://www.linkedin.com/in/nilsondasilvabrites/',
+      icon: ExternalLink,
+      color: 'bg-blue-600 hover:bg-blue-700'
+    },
+    {
+      platform: 'GitHub',
+      handle: 'nilrd',
+      url: 'https://github.com/nilrd',
+      icon: ExternalLink,
+      color: 'bg-gray-700 hover:bg-gray-600'
+    },
+    {
+      platform: 'WhatsApp',
+      handle: '(11) 94082-5120',
+      url: 'https://wa.me/5511940825120',
+      icon: MessageCircle,
+      color: 'bg-green-600 hover:bg-green-700'
+    },
+    {
+      platform: 'Instagram',
+      handle: '@nilsbrites',
+      url: 'https://instagram.com/nilsbrites',
+      icon: ExternalLink,
+      color: 'bg-pink-600 hover:bg-pink-700'
+    },
+    {
+      platform: 'Email',
+      handle: 'nilson.brites@gmail.com',
+      url: 'mailto:nilson.brites@gmail.com',
+      icon: Mail,
+      color: 'bg-red-600 hover:bg-red-700'
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-24 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center px-4 py-2 bg-green-100 dark:bg-green-900/30 rounded-full text-green-600 dark:text-green-400 text-sm font-medium mb-8">
+            <User className="w-4 h-4 mr-2" />
+            Conheça o Profissional
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Sobre{' '}
+            <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">
+              Nilson Brites
+            </span>
+          </h1>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {/* Perfil Profissional */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+            <div className="flex items-center mb-6">
+              <User className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Perfil Profissional</h2>
+            </div>
+            <div className="space-y-4 text-gray-600 dark:text-gray-300">
+              <p>
+                Profissional hands-on, autodidata e comprometido com o aprendizado contínuo, 
+                sempre buscando qualidade e superação de desafios. Com perfil analítico e boa 
+                comunicação, atuo como Analista de Testes em times ágeis com framework Scrum, 
+                participando de todo o ciclo de desenvolvimento (SDLC).
+              </p>
+              <p>
+                Tenho experiência com testes manuais e automatizados, aplicando técnicas de 
+                caixa preta como Particionamento de Equivalência, Análise de Valor Limite, 
+                Tabela de Decisão e Transição de Estado, garantindo maior assertividade na 
+                cobertura dos testes.
+              </p>
+            </div>
+          </div>
+
+          {/* Habilidades Técnicas */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+            <div className="flex items-center mb-6">
+              <Code className="w-6 h-6 text-orange-600 dark:text-orange-400 mr-3" />
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Habilidades Técnicas</h2>
+            </div>
+            <div className="space-y-4">
+              {skills.map((skill) => (
+                <div key={skill.name}>
+                  <div className="flex justify-between mb-2">
+                    <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>
+                    <span className="text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                  </div>
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                    <div
+                      className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000"
+                      style={{ width: `${skill.level}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Experiência Profissional */}
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+          <div className="flex items-center mb-6">
+            <Trophy className="w-6 h-6 text-purple-600 dark:text-purple-400 mr-3" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Experiência Profissional</h2>
+          </div>
+          
+          <div className="border-l-4 border-blue-500 pl-6">
+            <div className="flex items-center text-sm text-blue-600 dark:text-blue-400 mb-2">
+              <Calendar className="w-4 h-4 mr-2" />
+              05/2022 - atual
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Analista de Testes de Software
+            </h3>
+            <p className="text-purple-600 dark:text-purple-400 font-medium mb-4">E2E Coders</p>
+            <p className="text-gray-600 dark:text-gray-300">
+              Planejamento e execução de testes manuais e automatizados, desenvolvimento de 
+              scripts em Gherkin, automação com Java/Selenium, testes de API com Postman.
+            </p>
+          </div>
+        </div>
+
+        {/* Projetos */}
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+          <div className="flex items-center mb-6">
+            <Code className="w-6 h-6 text-green-600 dark:text-green-400 mr-3" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Projetos Desenvolvidos</h2>
+          </div>
+          
+          <div className="space-y-6">
+            <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">QA Play</h3>
+                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full text-sm">
+                  Em desenvolvimento
+                </span>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Plataforma interativa para aprendizado e prática de Quality Assurance
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full text-sm">React</span>
+                <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 rounded-full text-sm">Flask</span>
+                <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 rounded-full text-sm">Python</span>
+                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-400 rounded-full text-sm">SQLite</span>
+              </div>
+            </div>
+
+            <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Site Toque Ideal</h3>
+                <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 rounded-full text-sm">
+                  Concluído
+                </span>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Desenvolvimento e testes QA completos
+              </p>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 rounded-full text-sm">HTML</span>
+                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 rounded-full text-sm">CSS</span>
+                <span className="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 rounded-full text-sm">JavaScript</span>
+                <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-400 rounded-full text-sm">Testes Manuais</span>
+              </div>
+              <a
+                href="https://github.com/nilrd/SiteToqueIdeal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Ver projeto
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Formação */}
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-8">
+          <div className="flex items-center mb-6">
+            <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400 mr-3" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Formação</h2>
+          </div>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">Ciência da Computação</h3>
+              <p className="text-gray-600 dark:text-gray-300">Impacta Tecnologia (Cursando)</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">Qualidade de Software</h3>
+              <p className="text-gray-600 dark:text-gray-300">E2E Treinamentos</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">Back-end Oracle Next Education</h3>
+              <p className="text-gray-600 dark:text-gray-300">Alura</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">Vamos Conversar?</h2>
+          <p className="text-blue-100 mb-6">
+            Interessado em colaborar ou discutir oportunidades em QA?
+          </p>
+          <button
+            onClick={() => setShowContactModal(true)}
+            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          >
+            <Mail className="w-5 h-5 mr-2" />
+            Entrar em Contato
+          </button>
+        </div>
+      </div>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full p-6">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
+                  <User className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Vamos Conversar!</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Escolha a melhor forma de entrar em contato</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowContactModal(false)}
+                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+              >
+                <X className="w-5 h-5 text-gray-500" />
+              </button>
+            </div>
+
+            <div className="space-y-3">
+              {contacts.map((contact) => {
+                const Icon = contact.icon;
+                return (
+                  <a
+                    key={contact.platform}
+                    href={contact.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center p-4 ${contact.color} text-white rounded-xl hover:shadow-lg transition-all duration-200 transform hover:scale-105`}
+                  >
+                    <Icon className="w-5 h-5 mr-3" />
+                    <div>
+                      <div className="font-semibold">{contact.platform}</div>
+                      <div className="text-sm opacity-90">{contact.handle}</div>
+                    </div>
+                    <ExternalLink className="w-4 h-4 ml-auto" />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Página Contato
+const ContatoPage = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aqui seria a integração com o backend
+    alert('Mensagem enviada com sucesso!');
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-24 pb-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Contato
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
+            Entre em contato para discutir oportunidades, colaborações ou tirar dúvidas
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Formulário */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Envie uma Mensagem</h2>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Nome
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  placeholder="Seu nome"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  placeholder="seu@email.com"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Assunto
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.subject}
+                  onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  placeholder="Assunto da mensagem"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  Mensagem
+                </label>
+                <textarea
+                  required
+                  rows={6}
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                  placeholder="Sua mensagem..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-200"
+              >
+                Enviar Mensagem
+              </button>
+            </form>
+          </div>
+
+          {/* Informações de Contato */}
+          <div className="space-y-6">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Informações de Contato</h2>
+              
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <Mail className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-3" />
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">Email</p>
+                    <p className="text-gray-600 dark:text-gray-300">nilson.brites@gmail.com</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center">
+                  <MessageCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">WhatsApp</p>
+                    <p className="text-gray-600 dark:text-gray-300">(11) 94082-5120</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-center">
+                  <ExternalLink className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-3" />
+                  <div>
+                    <p className="font-medium text-gray-900 dark:text-white">LinkedIn</p>
+                    <p className="text-gray-600 dark:text-gray-300">nilsondasilvabrites</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+              <h3 className="text-xl font-bold mb-4">Vamos trabalhar juntos!</h3>
+              <p className="text-blue-100 mb-6">
+                Estou sempre aberto a novas oportunidades e colaborações interessantes na área de QA.
+              </p>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.linkedin.com/in/nilsondasilvabrites/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://github.com/nilrd"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  <ExternalLink className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://wa.me/5511940825120"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-white/20 rounded-lg hover:bg-white/30 transition-colors"
+                >
+                  <MessageCircle className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Componente Principal
+const App = () => {
+  const [isDark, setIsDark] = useTheme();
+
+  return (
     <Router>
-      <div className="min-h-screen bg-background text-foreground">
-        <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+      <div className={`min-h-screen ${isDark ? 'dark' : ''}`}>
+        <Header isDark={isDark} setIsDark={setIsDark} />
         
         <Routes>
-          <Route path="/" element={
-            <>
-              <HeroSection />
-              <TrainingSection />
-              <AboutSection />
-            </>
-          } />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/training" element={<TrainingPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/sobre" element={<SobrePage />} />
+          <Route path="/contato" element={<ContatoPage />} />
         </Routes>
         
         <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;
 
