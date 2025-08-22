@@ -174,14 +174,14 @@ const QAPlayTrainingPage = () => {
     {
       id: 'soft-skills',
       title: 'Soft Skills para QA',
-      description: 'Comunicação, liderança e trabalho em equipe.',
+      description: 'Comunicação, colaboração e trabalho em equipe.',
       icon: MessageCircle,
       color: 'yellow',
       duration: '2-3 horas',
       lessons: 6,
       points: 70,
       difficulty: 'Básico',
-      topics: ['Comunicação', 'Liderança', 'Feedback', 'Apresentações']
+      topics: ['Comunicação', 'Colaboração', 'Feedback', 'Apresentações']
     },
     {
       id: 'career',

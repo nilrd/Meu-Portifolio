@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Mail, 
   Linkedin, 
@@ -70,7 +71,7 @@ const AboutPage = () => {
               
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
                 Acredito firmemente que a qualidade não é apenas uma fase do desenvolvimento, mas uma 
-                mentalidade que deve permear todo o ciclo de vida do produto. Tenho experiência em liderar 
+                mentalidade que deve permear todo o ciclo de vida do produto. Tenho experiência em trabalhar 
                 equipes, implementar processos ágeis e criar frameworks de automação que aumentam 
                 significativamente a eficiência e confiabilidade dos testes.
               </p>

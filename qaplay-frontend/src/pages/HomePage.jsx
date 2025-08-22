@@ -28,8 +28,8 @@ const HomePage = () => {
               </h1>
               
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                Especialista em <strong>Quality Assurance</strong> com experiência em automação de testes, 
-                metodologias ágeis e liderança de equipes. Apaixonado por garantir a qualidade 
+                Especialista em <strong>Quality Assurance</strong> com experiência em automação de testes e 
+                metodologias ágeis. Apaixonado por garantir a qualidade 
                 de software e criar soluções inovadoras.
               </p>
 
@@ -55,15 +55,15 @@ const HomePage = () => {
               {/* Estatísticas */}
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">5+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Anos de Experiência</div>
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">2+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Anos na E2E Coders</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">50+</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-400">Projetos Concluídos</div>
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">4+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Projetos Principais</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">10+</div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">6+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Tecnologias</div>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const HomePage = () => {
                         Scrum
                       </span>
                       <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">
-                        Liderança
+                        QA Testing
                       </span>
                     </div>
                   </div>
@@ -144,11 +144,11 @@ const HomePage = () => {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                Liderança de Equipes
+                Metodologias Ágeis
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Gestão e mentoria de equipes de QA, implementando processos 
-                ágeis e cultura de qualidade.
+                Experiência em Scrum, participação ativa em refinamentos, dailies, 
+                retrospectivas e implementação de processos ágeis.
               </p>
             </div>
 
@@ -185,62 +185,66 @@ const HomePage = () => {
               <div className="flex items-center mb-4">
                 <Code className="w-8 h-8 text-blue-500 mr-3" />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  QA Play
+                  ADLN Broker - E2E Coders
                 </h3>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Plataforma interativa para aprendizado e prática de Quality Assurance 
-                através de jogos educacionais e desafios práticos.
+                Sistema de corretagem imobiliária com funcionalidades avançadas. 
+                Responsável por testes manuais, automação com Playwright e Cucumber em ambiente Scrum.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
-                  React
+                  Playwright
                 </span>
                 <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
-                  JavaScript
+                  Cucumber
                 </span>
                 <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  Tailwind CSS
+                  Scrum
                 </span>
               </div>
-              <Link
-                to="/jogos"
+              <a
+                href="https://github.com/nilrd/adlnbroker"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
               >
-                Explorar Projeto
+                Ver no GitHub
                 <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
+              </a>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center mb-4">
                 <CheckCircle className="w-8 h-8 text-green-500 mr-3" />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  Framework de Automação
+                  Toque Ideal - Freelancer
                 </h3>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Desenvolvimento de framework personalizado para automação de testes 
-                web e mobile, aumentando a cobertura de testes em 80%.
+                Site completo desenvolvido do zero utilizando HTML, CSS, JavaScript e 
+                técnicas de IA. Inclui CMS headless e testes de qualidade.
               </p>
               <div className="flex flex-wrap gap-2 mb-4">
                 <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
-                  Selenium
+                  HTML/CSS
                 </span>
                 <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
-                  Python
+                  JavaScript
                 </span>
                 <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  CI/CD
+                  CMS Headless
                 </span>
               </div>
-              <Link
-                to="/sobre"
+              <a
+                href="https://www.toqueideal.com/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
               >
-                Saiba Mais
+                Ver Site Live
                 <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
