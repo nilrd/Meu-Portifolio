@@ -1,0 +1,78 @@
+{
+  "hero": {
+    "title": "Evolua seu QA Game",
+    "subtitle": "Transforme conhecimento em conquistas. Domine Quality Assurance através de desafios gamificados, certificações reconhecidas e experiência prática.",
+    "primaryButton": {
+      "text": "Iniciar Jornada QA",
+      "link": "/training"
+    },
+    "secondaryButton": {
+      "text": "Explorar Portfólio",
+      "link": "/sobre"
+    }
+  },
+  "stats": [
+    {
+      "number": "500+",
+      "label": "Questões Únicas",
+      "icon": "target"
+    },
+    {
+      "number": "6",
+      "label": "Áreas de Conhecimento",
+      "icon": "book"
+    },
+    {
+      "number": "∞",
+      "label": "Certificados Válidos",
+      "icon": "trophy"
+    }
+  ],
+  "features": [
+    {
+      "title": "Gamificação Inteligente",
+      "description": "Sistema de pontuação, badges e certificados que tornam o aprendizado envolvente e motivador.",
+      "icon": "play"
+    },
+    {
+      "title": "Certificações Reconhecidas",
+      "description": "Certificados válidos baseados em padrões internacionais que agregam valor ao seu currículo.",
+      "icon": "award"
+    },
+    {
+      "title": "Comunidade Ativa",
+      "description": "Conecte-se com outros profissionais de QA e compartilhe conhecimentos e experiências.",
+      "icon": "users"
+    }
+  ],
+  "about": {
+    "name": "Nilson da Silva Brites",
+    "title": "Quality Assurance Specialist",
+    "bio": "Sou um profissional apaixonado por Qualidade de Software, com experiência em diversas metodologias e ferramentas. Minha jornada no mundo da tecnologia é impulsionada pela busca contínua por excelência e pela criação de produtos digitais robustos e confiáveis.",
+    "skills": [
+      "Testes Manuais e Exploratórios",
+      "Automação de Testes (Selenium, Cypress)",
+      "Testes de API (Postman, Rest Assured)",
+      "Metodologias Ágeis (Scrum, Kanban)",
+      "SQL e Banco de Dados",
+      "Integração Contínua (CI/CD)"
+    ],
+    "social": {
+      "email": "nilson.brites@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/nilsondasilvabrites/",
+      "github": "https://github.com/nilrd",
+      "instagram": "https://instagram.com/nilsbrites",
+      "whatsapp": "https://wa.me/5511940825120"
+    }
+  },
+  "contact": {
+    "title": "Entre em Contato",
+    "subtitle": "Ficarei feliz em responder suas perguntas, discutir oportunidades ou apenas trocar uma ideia.",
+    "info": {
+      "email": "nilson.brites@gmail.com",
+      "phone": "+55 11 94082-5120",
+      "location": "São Paulo, Brasil"
+    }
+  }
+}
+

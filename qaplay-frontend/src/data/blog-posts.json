@@ -1,0 +1,39 @@
+[
+  {
+    "id": "1",
+    "title": "Fundamentos de Quality Assurance: Por Onde Começar",
+    "slug": "fundamentos-quality-assurance",
+    "excerpt": "Descubra os conceitos essenciais de QA e como iniciar sua jornada na área de qualidade de software.",
+    "content": "Quality Assurance (QA) é uma disciplina fundamental no desenvolvimento de software que visa garantir que os produtos atendam aos requisitos de qualidade estabelecidos. Neste artigo, vamos explorar os conceitos básicos que todo profissional de QA deve conhecer.\n\n## O que é Quality Assurance?\n\nQuality Assurance é um processo sistemático de verificação se um produto ou serviço atende aos requisitos especificados. No contexto de software, QA envolve atividades planejadas e sistemáticas implementadas em um sistema de qualidade para que os requisitos de qualidade de um produto sejam atendidos.\n\n## Diferença entre QA, QC e Testes\n\n- **QA (Quality Assurance)**: Foco na prevenção de defeitos através de processos\n- **QC (Quality Control)**: Foco na detecção de defeitos no produto\n- **Testes**: Atividade específica de verificação e validação\n\n## Princípios Fundamentais\n\n1. **Prevenção é melhor que correção**\n2. **Qualidade é responsabilidade de todos**\n3. **Melhoria contínua**\n4. **Foco no cliente**\n\nEsses fundamentos são essenciais para construir uma base sólida em QA.",
+    "author": "Nilson da Silva Brites",
+    "publishedAt": "2025-01-15",
+    "tags": ["QA", "Fundamentos", "Qualidade", "Software"],
+    "readingTime": "5 min",
+    "featured": true
+  },
+  {
+    "id": "2",
+    "title": "Automação de Testes: Quando e Como Implementar",
+    "slug": "automacao-testes-quando-como",
+    "excerpt": "Aprenda quando vale a pena investir em automação de testes e as melhores práticas para implementação.",
+    "content": "A automação de testes é uma das áreas mais discutidas em QA atualmente. Mas quando realmente vale a pena automatizar? E como fazer isso de forma eficiente?\n\n## Quando Automatizar?\n\n### Cenários Ideais:\n- Testes repetitivos\n- Testes de regressão\n- Testes de carga e performance\n- Validações de dados\n- Testes de integração\n\n### Quando NÃO Automatizar:\n- Testes exploratórios\n- Testes de usabilidade\n- Funcionalidades que mudam frequentemente\n- Casos de teste únicos\n\n## Ferramentas Populares\n\n1. **Selenium**: Para automação web\n2. **Cypress**: Framework moderno para testes E2E\n3. **Postman/Newman**: Para testes de API\n4. **JUnit/TestNG**: Para testes unitários\n\n## Boas Práticas\n\n- Comece pequeno e cresça gradualmente\n- Mantenha os testes simples e legíveis\n- Use Page Object Model\n- Implemente relatórios claros\n- Integre com CI/CD\n\nLembre-se: automação é um investimento a longo prazo que requer manutenção constante.",
+    "author": "Nilson da Silva Brites",
+    "publishedAt": "2025-01-10",
+    "tags": ["Automação", "Selenium", "Cypress", "Testes"],
+    "readingTime": "7 min",
+    "featured": true
+  },
+  {
+    "id": "3",
+    "title": "Metodologias Ágeis e o Papel do QA",
+    "slug": "metodologias-ageis-papel-qa",
+    "excerpt": "Como o profissional de QA se adapta e contribui em ambientes ágeis como Scrum e Kanban.",
+    "content": "O mundo ágil transformou completamente o papel do QA. Não somos mais apenas 'testadores' no final do processo, mas parceiros ativos em todo o ciclo de desenvolvimento.\n\n## QA em Scrum\n\n### Durante o Planning:\n- Participe da estimativa de histórias\n- Identifique critérios de aceitação\n- Levante questões de testabilidade\n\n### Durante o Sprint:\n- Teste incrementalmente\n- Colabore com desenvolvedores\n- Automatize quando possível\n- Documente bugs e melhorias\n\n### Durante a Review:\n- Demonstre qualidade\n- Colete feedback\n- Valide com stakeholders\n\n## Shift-Left Testing\n\nO conceito de 'shift-left' significa mover atividades de QA para mais cedo no processo:\n\n- Revisão de requisitos\n- Testes unitários\n- Análise estática de código\n- Testes de integração contínua\n\n## Ferramentas Ágeis para QA\n\n1. **Jira**: Gestão de projetos e bugs\n2. **Confluence**: Documentação colaborativa\n3. **TestRail**: Gestão de casos de teste\n4. **Jenkins**: Integração contínua\n\n## Desafios Comuns\n\n- Pressão por entregas rápidas\n- Menos tempo para testes\n- Necessidade de automação\n- Comunicação constante\n\nA chave é ser proativo, colaborativo e sempre focado na qualidade do produto final.",
+    "author": "Nilson da Silva Brites",
+    "publishedAt": "2025-01-05",
+    "tags": ["Ágil", "Scrum", "Kanban", "Shift-Left"],
+    "readingTime": "6 min",
+    "featured": false
+  }
+]
+

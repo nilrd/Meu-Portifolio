@@ -1,0 +1,409 @@
+{
+  "fundamentos": {
+    "basico": [
+      {
+        "id": "fund_bas_001",
+        "question": "O que significa a sigla QA?",
+        "options": [
+          "Quality Analysis",
+          "Quality Assurance",
+          "Quality Assessment",
+          "Quality Automation"
+        ],
+        "correctAnswer": 1,
+        "explanation": "QA significa Quality Assurance (Garantia de Qualidade), que é um processo sistemático para garantir que os produtos atendam aos requisitos de qualidade.",
+        "points": 10
+      },
+      {
+        "id": "fund_bas_002",
+        "question": "Qual é a principal diferença entre QA e QC?",
+        "options": [
+          "QA é reativo, QC é proativo",
+          "QA foca em processos, QC foca no produto",
+          "QA é manual, QC é automatizado",
+          "Não há diferença entre eles"
+        ],
+        "correctAnswer": 1,
+        "explanation": "QA (Quality Assurance) foca na prevenção de defeitos através de processos, enquanto QC (Quality Control) foca na detecção de defeitos no produto final.",
+        "points": 15
+      },
+      {
+        "id": "fund_bas_003",
+        "question": "Em que fase do desenvolvimento de software os testes devem começar?",
+        "options": [
+          "Apenas após o desenvolvimento estar completo",
+          "Durante a fase de codificação",
+          "Desde o início do projeto, na fase de requisitos",
+          "Somente antes da entrega"
+        ],
+        "correctAnswer": 2,
+        "explanation": "Os testes devem começar desde o início do projeto, na fase de requisitos, seguindo o princípio de 'shift-left testing'.",
+        "points": 15
+      },
+      {
+        "id": "fund_bas_004",
+        "question": "O que é um caso de teste?",
+        "options": [
+          "Um erro encontrado no sistema",
+          "Um documento que descreve como testar uma funcionalidade específica",
+          "Uma ferramenta de automação",
+          "Um tipo de bug"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Um caso de teste é um documento que especifica as condições, dados de entrada, ações e resultados esperados para testar uma funcionalidade específica.",
+        "points": 10
+      },
+      {
+        "id": "fund_bas_005",
+        "question": "Qual é o objetivo principal dos testes de software?",
+        "options": [
+          "Provar que o software não tem bugs",
+          "Encontrar todos os defeitos possíveis",
+          "Reduzir o risco de falhas e aumentar a confiança na qualidade",
+          "Atrasar a entrega do produto"
+        ],
+        "correctAnswer": 2,
+        "explanation": "O objetivo principal dos testes é reduzir o risco de falhas em produção e aumentar a confiança na qualidade do software.",
+        "points": 15
+      }
+    ],
+    "intermediario": [
+      {
+        "id": "fund_int_001",
+        "question": "Qual técnica de teste é baseada na análise do código fonte?",
+        "options": [
+          "Teste de caixa preta",
+          "Teste de caixa branca",
+          "Teste de caixa cinza",
+          "Teste exploratório"
+        ],
+        "correctAnswer": 1,
+        "explanation": "O teste de caixa branca é baseado na análise da estrutura interna do código, incluindo caminhos, condições e loops.",
+        "points": 20
+      },
+      {
+        "id": "fund_int_002",
+        "question": "O que é cobertura de código?",
+        "options": [
+          "A quantidade de linhas de código no projeto",
+          "A porcentagem do código que foi executada durante os testes",
+          "O número de bugs encontrados por linha de código",
+          "A documentação do código"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Cobertura de código é uma métrica que indica a porcentagem do código fonte que foi executada durante a execução dos testes.",
+        "points": 20
+      },
+      {
+        "id": "fund_int_003",
+        "question": "Em metodologias ágeis, qual é o papel do QA durante uma Sprint?",
+        "options": [
+          "Testar apenas no final da Sprint",
+          "Participar ativamente durante toda a Sprint, testando incrementalmente",
+          "Apenas documentar os testes",
+          "Focar apenas em testes automatizados"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Em metodologias ágeis, o QA deve participar ativamente durante toda a Sprint, testando de forma incremental e colaborando com a equipe.",
+        "points": 25
+      },
+      {
+        "id": "fund_int_004",
+        "question": "O que são critérios de aceitação?",
+        "options": [
+          "Bugs que podem ser aceitos em produção",
+          "Condições que devem ser atendidas para que uma funcionalidade seja considerada completa",
+          "Ferramentas de teste automatizado",
+          "Métricas de performance"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Critérios de aceitação são condições específicas que devem ser atendidas para que uma funcionalidade seja considerada completa e aceita.",
+        "points": 20
+      },
+      {
+        "id": "fund_int_005",
+        "question": "Qual é a diferença entre verificação e validação?",
+        "options": [
+          "Não há diferença",
+          "Verificação: 'Estamos construindo certo?' / Validação: 'Estamos construindo a coisa certa?'",
+          "Verificação é manual, validação é automatizada",
+          "Verificação é para bugs, validação é para performance"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Verificação pergunta 'Estamos construindo o produto certo?' enquanto validação pergunta 'Estamos construindo o produto corretamente?'",
+        "points": 25
+      }
+    ],
+    "avancado": [
+      {
+        "id": "fund_ava_001",
+        "question": "Em um ambiente de CI/CD, qual é a melhor estratégia para testes?",
+        "options": [
+          "Executar apenas testes manuais",
+          "Pirâmide de testes: muitos testes unitários, alguns de integração, poucos E2E",
+          "Apenas testes end-to-end",
+          "Testes apenas em produção"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A pirâmide de testes é a estratégia ideal para CI/CD: muitos testes unitários (rápidos), alguns de integração (médios) e poucos E2E (lentos).",
+        "points": 30
+      },
+      {
+        "id": "fund_ava_002",
+        "question": "O que é 'shift-left testing'?",
+        "options": [
+          "Mover testes para a esquerda na tela",
+          "Mover atividades de teste para fases mais iniciais do desenvolvimento",
+          "Testar apenas funcionalidades do lado esquerdo da interface",
+          "Uma técnica de automação"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Shift-left testing significa mover atividades de teste para fases mais iniciais do ciclo de desenvolvimento, detectando problemas mais cedo.",
+        "points": 30
+      },
+      {
+        "id": "fund_ava_003",
+        "question": "Qual é o conceito de 'Test-Driven Development' (TDD)?",
+        "options": [
+          "Escrever testes após o desenvolvimento",
+          "Escrever testes antes do código de produção",
+          "Testar apenas funcionalidades críticas",
+          "Automatizar todos os testes"
+        ],
+        "correctAnswer": 1,
+        "explanation": "TDD é uma prática onde os testes são escritos antes do código de produção, seguindo o ciclo Red-Green-Refactor.",
+        "points": 35
+      },
+      {
+        "id": "fund_ava_004",
+        "question": "Em testes de API, qual é a importância do 'contract testing'?",
+        "options": [
+          "Testar apenas a performance da API",
+          "Garantir que mudanças na API não quebrem integrações existentes",
+          "Testar apenas a segurança",
+          "Documentar a API"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Contract testing garante que mudanças em APIs não quebrem as integrações existentes, validando contratos entre serviços.",
+        "points": 35
+      },
+      {
+        "id": "fund_ava_005",
+        "question": "O que é 'chaos engineering' no contexto de testes?",
+        "options": [
+          "Testes desorganizados sem planejamento",
+          "Introduzir falhas controladas no sistema para testar resiliência",
+          "Testes realizados por pessoas inexperientes",
+          "Testes apenas em ambiente de produção"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Chaos engineering é a prática de introduzir falhas controladas no sistema para testar sua resiliência e capacidade de recuperação.",
+        "points": 40
+      }
+    ]
+  },
+  "automacao": {
+    "basico": [
+      {
+        "id": "auto_bas_001",
+        "question": "Qual é a principal vantagem da automação de testes?",
+        "options": [
+          "Elimina completamente a necessidade de testes manuais",
+          "Execução rápida e repetível de testes",
+          "Encontra todos os bugs automaticamente",
+          "É mais barata que testes manuais"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A principal vantagem da automação é permitir execução rápida e repetível de testes, especialmente útil para testes de regressão.",
+        "points": 10
+      },
+      {
+        "id": "auto_bas_002",
+        "question": "Quando NÃO é recomendado automatizar testes?",
+        "options": [
+          "Para testes de regressão",
+          "Para funcionalidades que mudam frequentemente",
+          "Para testes de carga",
+          "Para validação de dados"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Não é recomendado automatizar testes para funcionalidades que mudam frequentemente, pois o custo de manutenção seria muito alto.",
+        "points": 15
+      },
+      {
+        "id": "auto_bas_003",
+        "question": "O que é o Selenium?",
+        "options": [
+          "Uma linguagem de programação",
+          "Uma ferramenta para automação de testes web",
+          "Um banco de dados",
+          "Um sistema operacional"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Selenium é uma ferramenta open-source para automação de testes em aplicações web, suportando múltiplas linguagens e navegadores.",
+        "points": 10
+      },
+      {
+        "id": "auto_bas_004",
+        "question": "O que são 'locators' no contexto de automação web?",
+        "options": [
+          "Ferramentas de debugging",
+          "Estratégias para encontrar elementos na página web",
+          "Tipos de navegadores",
+          "Linguagens de programação"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Locators são estratégias usadas para encontrar e interagir com elementos específicos em uma página web (ID, classe, XPath, etc.).",
+        "points": 15
+      },
+      {
+        "id": "auto_bas_005",
+        "question": "Qual é a diferença entre testes unitários e testes de integração?",
+        "options": [
+          "Não há diferença",
+          "Unitários testam componentes isolados, integração testa interação entre componentes",
+          "Unitários são manuais, integração são automatizados",
+          "Unitários são mais lentos que integração"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Testes unitários testam componentes individuais isoladamente, enquanto testes de integração testam a interação entre múltiplos componentes.",
+        "points": 15
+      }
+    ],
+    "intermediario": [
+      {
+        "id": "auto_int_001",
+        "question": "O que é o padrão Page Object Model (POM)?",
+        "options": [
+          "Um tipo de locator",
+          "Um padrão de design para organizar código de automação",
+          "Uma ferramenta de teste",
+          "Um navegador específico"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Page Object Model é um padrão de design que cria uma camada de abstração entre os testes e a interface do usuário, melhorando manutenibilidade.",
+        "points": 20
+      },
+      {
+        "id": "auto_int_002",
+        "question": "Qual é a vantagem do Cypress sobre o Selenium?",
+        "options": [
+          "Suporta mais navegadores",
+          "Execução mais rápida e debugging mais fácil",
+          "É mais antigo e estável",
+          "Suporta mais linguagens"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Cypress oferece execução mais rápida, debugging em tempo real e uma experiência de desenvolvimento mais moderna comparado ao Selenium.",
+        "points": 20
+      },
+      {
+        "id": "auto_int_003",
+        "question": "O que são 'waits' implícitos e explícitos?",
+        "options": [
+          "Tipos de locators",
+          "Estratégias para aguardar elementos aparecerem na página",
+          "Tipos de navegadores",
+          "Linguagens de programação"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Waits são estratégias para aguardar condições: implícitos aguardam globalmente, explícitos aguardam condições específicas.",
+        "points": 25
+      },
+      {
+        "id": "auto_int_004",
+        "question": "Em testes de API, o que é importante validar?",
+        "options": [
+          "Apenas o status code",
+          "Status code, response body, headers e tempo de resposta",
+          "Apenas o response body",
+          "Apenas os headers"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Em testes de API é importante validar status code, corpo da resposta, headers, tempo de resposta e estrutura dos dados.",
+        "points": 20
+      },
+      {
+        "id": "auto_int_005",
+        "question": "O que é 'data-driven testing'?",
+        "options": [
+          "Testes que usam banco de dados",
+          "Executar o mesmo teste com diferentes conjuntos de dados",
+          "Testes apenas com dados reais",
+          "Testes que modificam dados"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Data-driven testing é uma abordagem onde o mesmo teste é executado múltiplas vezes com diferentes conjuntos de dados de entrada.",
+        "points": 25
+      }
+    ],
+    "avancado": [
+      {
+        "id": "auto_ava_001",
+        "question": "Como implementar testes paralelos eficientemente?",
+        "options": [
+          "Executar todos os testes ao mesmo tempo",
+          "Dividir testes em grupos independentes e executar em paralelo",
+          "Usar apenas um thread",
+          "Executar testes sequencialmente"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Testes paralelos eficientes requerem divisão em grupos independentes, isolamento de dados e gerenciamento adequado de recursos.",
+        "points": 30
+      },
+      {
+        "id": "auto_ava_002",
+        "question": "O que é 'headless testing' e quando usar?",
+        "options": [
+          "Testes sem planejamento",
+          "Executar testes sem interface gráfica do navegador",
+          "Testes sem dados",
+          "Testes manuais"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Headless testing executa testes sem a interface gráfica do navegador, sendo mais rápido e ideal para CI/CD pipelines.",
+        "points": 30
+      },
+      {
+        "id": "auto_ava_003",
+        "question": "Como lidar com elementos dinâmicos em automação?",
+        "options": [
+          "Usar apenas IDs fixos",
+          "Usar waits dinâmicos e locators robustos",
+          "Evitar testar elementos dinâmicos",
+          "Usar apenas XPath absoluto"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Elementos dinâmicos requerem waits dinâmicos, locators robustos (CSS, XPath relativo) e estratégias de retry.",
+        "points": 35
+      },
+      {
+        "id": "auto_ava_004",
+        "question": "Qual é a melhor prática para gerenciar dados de teste?",
+        "options": [
+          "Usar sempre dados de produção",
+          "Criar dados isolados e limpar após cada teste",
+          "Reutilizar sempre os mesmos dados",
+          "Não usar dados nos testes"
+        ],
+        "correctAnswer": 1,
+        "explanation": "A melhor prática é criar dados isolados para cada teste e limpar após execução, garantindo independência entre testes.",
+        "points": 35
+      },
+      {
+        "id": "auto_ava_005",
+        "question": "Como implementar relatórios eficazes de automação?",
+        "options": [
+          "Apenas logs básicos",
+          "Screenshots, logs detalhados, métricas e integração com ferramentas de CI",
+          "Apenas resultados pass/fail",
+          "Relatórios manuais"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Relatórios eficazes incluem screenshots de falhas, logs detalhados, métricas de execução e integração com ferramentas de CI/CD.",
+        "points": 40
+      }
+    ]
+  }
+}
+
