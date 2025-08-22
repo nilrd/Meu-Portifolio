@@ -333,13 +333,13 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                ADLN Broker - E2E Coders
+                Sistema de Corretagem - E2E Coders
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 Sistema de corretagem imobiliária com funcionalidades avançadas de gestão de propriedades e transações. 
                 Responsável por testes manuais, escrita de casos de teste e automação com Playwright e Cucumber em ambiente Scrum.
               </p>
-              <div className="flex flex-wrap gap-2 mb-3">
+              <div className="flex flex-wrap gap-2">
                 <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
                   Playwright
                 </span>
@@ -353,26 +353,17 @@ const AboutPage = () => {
                   Testes Manuais
                 </span>
               </div>
-              <a
-                href="https://github.com/nilrd/adlnbroker"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-              >
-                Ver no GitHub
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-6 rounded-xl">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Plataforma E2E Treinamentos
+                Plataforma Educacional - E2E Coders
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 Plataforma educacional em desenvolvimento para gestão de cursos e alunos. Execução de testes de API, 
                 testes web manuais e automatizados utilizando Selenium, JUnit, Java e Cucumber.
               </p>
-              <div className="flex flex-wrap gap-2 mb-3">
+              <div className="flex flex-wrap gap-2">
                 <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
                   Selenium
                 </span>
@@ -386,15 +377,6 @@ const AboutPage = () => {
                   Cucumber
                 </span>
               </div>
-              <a
-                href="https://plataforma.dev.e2etreinamentos.com.br/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-              >
-                Ver Plataforma
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">

@@ -185,7 +185,7 @@ const HomePage = () => {
               <div className="flex items-center mb-4">
                 <Code className="w-8 h-8 text-blue-500 mr-3" />
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                  ADLN Broker - E2E Coders
+                  Sistema de Corretagem - E2E Coders
                 </h3>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -203,15 +203,13 @@ const HomePage = () => {
                   Scrum
                 </span>
               </div>
-              <a
-                href="https://github.com/nilrd/adlnbroker"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/sobre"
                 className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
               >
-                Ver no GitHub
+                Saiba Mais
                 <ArrowRight className="w-4 h-4 ml-1" />
-              </a>
+              </Link>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300">
