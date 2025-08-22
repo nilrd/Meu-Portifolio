@@ -33,7 +33,8 @@ const HomePage = () => {
             </h1>
             
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Transforme conhecimento em conhecimento. Domine Quality Assurance através de{' '}
+              Criado por <strong>Nilson da Silva Brites</strong>, especialista em Quality Assurance. 
+              Transforme conhecimento em conhecimento através de{' '}
               <span className="text-blue-600 dark:text-blue-400 font-semibold">desafios gamificados</span>,{" "}
               <span className="text-purple-600 dark:text-purple-400 font-semibold">certificações reconhecidas</span> e{' '}
               <span className="text-green-600 dark:text-green-400 font-semibold">experiência prática</span>.
@@ -133,10 +134,125 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+      {/* Seção sobre o Criador */}
+      <section className="py-16 bg-white dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                Conheça o Criador
+              </h2>
+              <div className="space-y-4 text-gray-600 dark:text-gray-300">
+                <p className="text-lg">
+                  <strong className="text-gray-900 dark:text-white">Nilson da Silva Brites</strong> é um especialista em Quality Assurance 
+                  com vasta experiência em metodologias ágeis, automação de testes e liderança de equipes de QA.
+                </p>
+                <p>
+                  Apaixonado por educação e tecnologia, Nilson criou o QA Play para democratizar o conhecimento 
+                  em Quality Assurance através de uma abordagem gamificada e interativa.
+                </p>
+                <p>
+                  Sua missão é formar a próxima geração de profissionais de QA, combinando teoria sólida 
+                  com prática real do mercado.
+                </p>
+              </div>
+              
+              <div className="mt-8 grid grid-cols-2 gap-6">
+                <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">5+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Anos de Experiência</div>
+                </div>
+                <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">100+</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400">Profissionais Treinados</div>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <Link
+                  to="/sobre"
+                  className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                >
+                  <User className="w-5 h-5 mr-2" />
+                  Saiba Mais Sobre Mim
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Link>
+              </div>
+            </div>
+            
+            <div className="lg:text-center">
+              <div className="relative">
+                {/* Card com foto e informações */}
+                <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-3xl p-8 shadow-xl">
+                  <div className="flex flex-col items-center text-center">
+                    {/* Foto circular com bordas animadas */}
+                    <div className="relative mb-6">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full animate-spin-slow opacity-75"></div>
+                      <div className="relative bg-white dark:bg-gray-800 rounded-full p-2">
+                        <img 
+                          src="/images/NilsonBrites1.jpg" 
+                          alt="Nilson da Silva Brites - Especialista em QA" 
+                          className="w-32 h-32 object-cover rounded-full"
+                        />
+                      </div>
+                      {/* Badge flutuante */}
+                      <div className="absolute -top-2 -right-2 bg-gradient-to-r from-green-500 to-blue-500 text-white p-2 rounded-full shadow-lg animate-bounce">
+                        <Trophy className="w-5 h-5" />
+                      </div>
+                    </div>
+                    
+                    {/* Nome e título */}
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                      Nilson da Silva Brites
+                    </h3>
+                    <p className="text-blue-600 dark:text-blue-400 font-semibold mb-4">
+                      Especialista em Quality Assurance
+                    </p>
+                    
+                    {/* Tags de especialidades */}
+                    <div className="flex flex-wrap gap-2 justify-center mb-6">
+                      <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">
+                        Automação
+                      </span>
+                      <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">
+                        Metodologias Ágeis
+                      </span>
+                      <span className="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">
+                        Liderança
+                      </span>
+                    </div>
+                    
+                    {/* Quote inspiracional */}
+                    <blockquote className="text-gray-600 dark:text-gray-300 italic text-center mb-6 border-l-4 border-blue-500 pl-4">
+                      "A qualidade não é um acidente; é sempre o resultado de um esforço inteligente."
+                    </blockquote>
+                    
+                    {/* Botão de ação */}
+                    <Link
+                      to="/sobre"
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+                    >
+                      <User className="w-5 h-5 mr-2" />
+                      Conheça Minha História
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </Link>
+                  </div>
+                </div>
+                
+                {/* Elementos decorativos */}
+                <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full opacity-20 animate-pulse"></div>
+                <div className="absolute -bottom-4 -right-4 w-12 h-12 bg-purple-500 rounded-full opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
+                <div className="absolute top-1/2 -left-6 w-6 h-6 bg-pink-500 rounded-full opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Pronto para elevar suas habilidades em QA?
           </h2>
           <p className="text-xl text-blue-100 mb-8">

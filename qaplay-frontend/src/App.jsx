@@ -58,22 +58,19 @@ const Header = ({ isDark, setIsDark }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo Animado */}
-          <Link to="/" className="logo-container">
-            <div className="flex items-center space-x-3 logo-text">
-              <div className="relative">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500 rounded-xl flex items-center justify-center animate-pulse-glow">
-                  <Target className="w-7 h-7 text-white animate-float" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-bounce opacity-75"></div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold gradient-text">
-                  QA Play
-                </h1>
-                <p className="text-xs text-gray-500 dark:text-gray-400 -mt-1">
-                  Interactive Learning
-                </p>
-              </div>
+          <Link to="/" className="flex items-center space-x-3 hover-lift">
+            <img 
+              src="/images/qa-play-icon.png" 
+              alt="QA Play" 
+              className="w-10 h-10"
+            />
+            <div className="flex flex-col">
+              <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-shift">
+                QA Play
+              </span>
+              <span className="text-xs text-gray-500 dark:text-gray-400 animate-float">
+                Interactive Learning
+              </span>
             </div>
           </Link>
 

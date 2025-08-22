@@ -96,36 +96,6 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Galeria de Fotos */}
-        <section className="mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-            Galeria
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover-lift">
-              <img 
-                src="/images/NilsonBrites1.jpg" 
-                alt="Nilson da Silva Brites - Foto 1" 
-                className="w-full h-64 object-cover"
-              />
-            </div>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover-lift">
-              <img 
-                src="/images/NilsonBrites2.jpg" 
-                alt="Nilson da Silva Brites - Foto 2" 
-                className="w-full h-64 object-cover"
-              />
-            </div>
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover-lift">
-              <img 
-                src="/images/NilsonBrites3.jpg" 
-                alt="Nilson da Silva Brites - Foto 3" 
-                className="w-full h-64 object-cover"
-              />
-            </div>
-          </div>
-        </section>
-
         {/* Seção de Contato Rápido */}
         <section className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl shadow-lg">
           <h2 className="text-3xl font-bold mb-4">Vamos Conectar?</h2>

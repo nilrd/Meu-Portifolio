@@ -42,6 +42,12 @@ const QuizPage = () => {
       description: 'Para especialistas em QA',
       color: 'red',
       icon: '🚀'
+    },
+    mixed: {
+      name: 'Níveis Mistos',
+      description: 'Mistura de questões básicas, intermediárias e avançadas',
+      color: 'purple',
+      icon: '🎲'
     }
   };
 
@@ -64,7 +70,21 @@ const QuizPage = () => {
 
   // Se um jogo está em andamento
   if (selectedCategory && selectedLevel && !gameResult) {
-    const questions = qaQuestions[selectedCategory][selectedLevel];
+    let questions;
+    
+    if (selectedLevel === 'mixed') {
+      // Para níveis mistos, combinar todas as questões da categoria
+      const allQuestions = [];
+      Object.keys(qaQuestions[selectedCategory]).forEach(level => {
+        qaQuestions[selectedCategory][level].forEach(q => {
+          allQuestions.push({ ...q, level });
+        });
+      });
+      questions = allQuestions;
+    } else {
+      questions = qaQuestions[selectedCategory][selectedLevel];
+    }
+    
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20 pb-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +100,7 @@ const QuizPage = () => {
           
           <QuizGame
             category={categories[selectedCategory].name}
-            level={levels[selectedLevel].name}
+            level={selectedLevel}
             questions={questions}
             onComplete={handleGameComplete}
           />
