@@ -125,46 +125,35 @@ const AboutPage = () => {
           <div className="space-y-8">
             <div className="border-l-4 border-blue-500 pl-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                Senior QA Analyst
+                Analista de Testes de Software
               </h3>
               <p className="text-blue-600 dark:text-blue-400 font-semibold mb-2">
-                Tech Solutions Inc. • 2022 - Presente
+                E2E Coders • Maio 2022 - Presente
               </p>
               <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-                <li>• Liderança de equipe de 5 analistas de QA em projetos de grande escala</li>
-                <li>• Implementação de framework de automação que reduziu tempo de testes em 60%</li>
-                <li>• Definição de estratégias de teste para aplicações web e mobile</li>
-                <li>• Mentoria de novos membros da equipe e disseminação de boas práticas</li>
+                <li>• Planejamento e execução de testes manuais e automatizados com foco na qualidade e cumprimento de requisitos técnicos e funcionais</li>
+                <li>• Desenvolvimento de scripts de testes em Step by Step e Gherkin, garantindo cobertura total dos cenários de teste</li>
+                <li>• Automação de testes com Java, utilizando frameworks como Selenium, Cucumber e JUnit, organizando pacotes seguindo o padrão Page Objects</li>
+                <li>• Realização de testes de API com Postman e gestão de bugs na ferramenta JIRA</li>
+                <li>• Gestão de repositórios de testes automatizados no Git e GitHub, assegurando integração e colaboração na equipe</li>
+                <li>• Aplicação de técnicas de testes como caixa preta, particionamento de equivalência, análise de valor limite e tabela de decisão</li>
+                <li>• Participação ativa em times ágeis com framework Scrum, incluindo refinamento, dailies e retrospectivas</li>
               </ul>
             </div>
 
             <div className="border-l-4 border-purple-500 pl-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                QA Analyst
+                Desenvolvedor & QA Freelancer
               </h3>
               <p className="text-purple-600 dark:text-purple-400 font-semibold mb-2">
-                Digital Innovations Ltd. • 2020 - 2022
+                Projetos Independentes • 2021 - Presente
               </p>
               <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-                <li>• Desenvolvimento e execução de planos de teste para aplicações críticas</li>
-                <li>• Automação de testes de API usando Postman e Rest Assured</li>
-                <li>• Colaboração estreita com equipes de desenvolvimento em metodologia Scrum</li>
-                <li>• Identificação e documentação de mais de 500 bugs críticos</li>
-              </ul>
-            </div>
-
-            <div className="border-l-4 border-green-500 pl-6">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                Junior QA Tester
-              </h3>
-              <p className="text-green-600 dark:text-green-400 font-semibold mb-2">
-                StartUp Ventures • 2019 - 2020
-              </p>
-              <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-                <li>• Execução de testes manuais e exploratórios em aplicações web</li>
-                <li>• Criação de casos de teste detalhados e documentação de defeitos</li>
-                <li>• Participação ativa em cerimônias ágeis e melhoria contínua</li>
-                <li>• Aprendizado e aplicação de ferramentas de automação básicas</li>
+                <li>• Desenvolvimento completo do site Toque Ideal utilizando HTML, CSS, JavaScript e técnicas de Engenharia de Prompt com IA</li>
+                <li>• Implementação de CMS headless para gestão de conteúdo dinâmico</li>
+                <li>• Execução de testes manuais e automatizados para garantir qualidade e funcionalidade</li>
+                <li>• Responsável por todo o ciclo de desenvolvimento, desde concepção até deploy e manutenção</li>
+                <li>• Aplicação de boas práticas de UX/UI e otimização para dispositivos móveis</li>
               </ul>
             </div>
           </div>
@@ -182,10 +171,11 @@ const AboutPage = () => {
               <h3 className="text-lg font-bold text-blue-700 dark:text-blue-300 mb-4">Automação</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Selenium WebDriver</li>
+                <li>• Playwright</li>
                 <li>• Cypress</li>
-                <li>• TestNG/JUnit</li>
+                <li>• JUnit</li>
                 <li>• Page Object Model</li>
-                <li>• Data-Driven Testing</li>
+                <li>• Cucumber/Gherkin</li>
               </ul>
             </div>
 
@@ -193,21 +183,21 @@ const AboutPage = () => {
               <h3 className="text-lg font-bold text-purple-700 dark:text-purple-300 mb-4">Linguagens</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Java</li>
-                <li>• Python</li>
                 <li>• JavaScript</li>
-                <li>• SQL</li>
                 <li>• HTML/CSS</li>
+                <li>• SQL (MySQL)</li>
+                <li>• Gherkin</li>
               </ul>
             </div>
 
             <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
               <h3 className="text-lg font-bold text-green-700 dark:text-green-300 mb-4">Ferramentas</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                <li>• Postman</li>
                 <li>• JIRA</li>
+                <li>• Qase</li>
+                <li>• Postman</li>
                 <li>• Git/GitHub</li>
-                <li>• Jenkins</li>
-                <li>• Docker</li>
+                <li>• MySQL</li>
               </ul>
             </div>
 
@@ -215,7 +205,7 @@ const AboutPage = () => {
               <h3 className="text-lg font-bold text-yellow-700 dark:text-yellow-300 mb-4">Metodologias</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                 <li>• Scrum</li>
-                <li>• Kanban</li>
+                <li>• Shift Left Testing</li>
                 <li>• Test-Driven Development</li>
                 <li>• Behavior-Driven Development</li>
                 <li>• Continuous Integration</li>
@@ -223,24 +213,26 @@ const AboutPage = () => {
             </div>
 
             <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-xl">
-              <h3 className="text-lg font-bold text-red-700 dark:text-red-300 mb-4">Tipos de Teste</h3>
+              <h3 className="text-lg font-bold text-red-700 dark:text-red-300 mb-4">Técnicas de Teste</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                <li>• Testes Funcionais</li>
-                <li>• Testes de API</li>
-                <li>• Testes de Performance</li>
-                <li>• Testes de Segurança</li>
-                <li>• Testes de Usabilidade</li>
+                <li>• Caixa Preta/Branca</li>
+                <li>• Particionamento de Equivalência</li>
+                <li>• Análise de Valor Limite</li>
+                <li>• Tabela de Decisão</li>
+                <li>• Transição de Estados</li>
+                <li>• Testes de Regressão</li>
               </ul>
             </div>
 
             <div className="bg-indigo-50 dark:bg-indigo-900/20 p-6 rounded-xl">
               <h3 className="text-lg font-bold text-indigo-700 dark:text-indigo-300 mb-4">Soft Skills</h3>
               <ul className="space-y-2 text-gray-700 dark:text-gray-300">
-                <li>• Liderança de Equipe</li>
                 <li>• Comunicação Efetiva</li>
                 <li>• Pensamento Analítico</li>
                 <li>• Resolução de Problemas</li>
-                <li>• Mentoria</li>
+                <li>• Trabalho em Equipe</li>
+                <li>• Aprendizado Contínuo</li>
+                <li>• Atenção aos Detalhes</li>
               </ul>
             </div>
           </div>
@@ -262,18 +254,10 @@ const AboutPage = () => {
               <div className="space-y-4">
                 <div className="border-l-4 border-blue-500 pl-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Tecnologia em Análise e Desenvolvimento de Sistemas
+                    Ciência da Computação (Em andamento)
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Universidade Tecnológica • 2017-2019
-                  </p>
-                </div>
-                <div className="border-l-4 border-purple-500 pl-4">
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Curso Técnico em Informática
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    ETEC • 2015-2016
+                    Impacta Tecnologia
                   </p>
                 </div>
               </div>
@@ -282,31 +266,55 @@ const AboutPage = () => {
             <div>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
                 <Award className="w-6 h-6 mr-2 text-green-500" />
-                Certificações
+                Certificações & Cursos
               </h3>
               <div className="space-y-4">
                 <div className="border-l-4 border-green-500 pl-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
-                    ISTQB Foundation Level
+                    Certificação em Qualidade de Software e Lógica de Programação
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    International Software Testing Qualifications Board • 2020
+                    E2E Treinamentos
                   </p>
                 </div>
                 <div className="border-l-4 border-yellow-500 pl-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Scrum Master Certified
+                    Formação Back-end Oracle Next Education
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Scrum Alliance • 2021
+                    Alura
+                  </p>
+                </div>
+                <div className="border-l-4 border-purple-500 pl-4">
+                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                    Formação: Iniciante em Programação
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Alura
                   </p>
                 </div>
                 <div className="border-l-4 border-red-500 pl-4">
                   <h4 className="font-semibold text-gray-900 dark:text-white">
-                    Selenium WebDriver Certification
+                    Lógica de Programação com JavaScript
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Test Automation University • 2022
+                    Alura
+                  </p>
+                </div>
+                <div className="border-l-4 border-blue-500 pl-4">
+                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                    HTML e CSS
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Alura
+                  </p>
+                </div>
+                <div className="border-l-4 border-indigo-500 pl-4">
+                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                    Git e GitHub: Colaboração em Projetos
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Alura
                   </p>
                 </div>
               </div>
@@ -321,37 +329,49 @@ const AboutPage = () => {
             Projetos & Conquistas
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                QA Play Platform
+                ADLN Broker - E2E Coders
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Desenvolvimento de plataforma interativa para ensino de QA através de jogos 
-                educacionais, combinando teoria e prática de forma gamificada.
+                Sistema de corretagem imobiliária com funcionalidades avançadas de gestão de propriedades e transações. 
+                Responsável por testes manuais, escrita de casos de teste e automação com Playwright e Cucumber em ambiente Scrum.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-3">
                 <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
-                  React
+                  Playwright
                 </span>
                 <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  JavaScript
+                  Cucumber
                 </span>
                 <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
-                  Tailwind CSS
+                  Scrum
+                </span>
+                <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded text-sm">
+                  Testes Manuais
                 </span>
               </div>
+              <a
+                href="https://github.com/nilrd/adlnbroker"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                Ver no GitHub
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </a>
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-6 rounded-xl">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Framework de Automação
+                Plataforma E2E Treinamentos
               </h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Criação de framework robusto para automação de testes que aumentou 
-                a cobertura de testes em 80% e reduziu o tempo de execução em 60%.
+                Plataforma educacional em desenvolvimento para gestão de cursos e alunos. Execução de testes de API, 
+                testes web manuais e automatizados utilizando Selenium, JUnit, Java e Cucumber.
               </p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-3">
                 <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
                   Selenium
                 </span>
@@ -359,24 +379,111 @@ const AboutPage = () => {
                   Java
                 </span>
                 <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  TestNG
+                  JUnit
+                </span>
+                <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded text-sm">
+                  Cucumber
                 </span>
               </div>
+              <a
+                href="https://plataforma.dev.e2etreinamentos.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                Ver Plataforma
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </a>
+            </div>
+
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                Toque Ideal - Freelancer
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Site completo para empresa de serviços desenvolvido do zero utilizando HTML, CSS, JavaScript e 
+                técnicas de Engenharia de Prompt com IA. Inclui CMS headless e testes completos de qualidade.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-3">
+                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
+                  HTML/CSS
+                </span>
+                <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
+                  JavaScript
+                </span>
+                <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
+                  CMS Headless
+                </span>
+                <span className="px-2 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded text-sm">
+                  IA/Prompt Engineering
+                </span>
+              </div>
+              <div className="flex gap-3">
+                <a
+                  href="https://github.com/nilrd/SiteToqueIdeal"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+                >
+                  GitHub
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
+                <a
+                  href="https://www.toqueideal.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300"
+                >
+                  Site Live
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 rounded-xl">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                QA Play - Projeto Pessoal
+              </h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                Plataforma interativa para aprendizado e prática de Quality Assurance através de jogos educacionais. 
+                Projeto pessoal desenvolvido para demonstrar habilidades em desenvolvimento frontend e QA.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-3">
+                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
+                  React
+                </span>
+                <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
+                  JavaScript
+                </span>
+                <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
+                  Tailwind CSS
+                </span>
+                <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded text-sm">
+                  Gamificação
+                </span>
+              </div>
+              <Link
+                to="/jogos"
+                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                Explorar Projeto
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
             </div>
           </div>
 
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
             <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">500+</div>
-              <div className="text-gray-700 dark:text-gray-300">Bugs Identificados</div>
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">4+</div>
+              <div className="text-gray-700 dark:text-gray-300">Projetos Principais</div>
             </div>
             <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">50+</div>
-              <div className="text-gray-700 dark:text-gray-300">Projetos Concluídos</div>
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">2+</div>
+              <div className="text-gray-700 dark:text-gray-300">Anos na E2E Coders</div>
             </div>
             <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">10+</div>
-              <div className="text-gray-700 dark:text-gray-300">Pessoas Mentoradas</div>
+              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">100%</div>
+              <div className="text-gray-700 dark:text-gray-300">Dedicação à Qualidade</div>
             </div>
           </div>
         </section>
