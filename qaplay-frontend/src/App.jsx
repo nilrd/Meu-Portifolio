@@ -59,11 +59,9 @@ const Header = ({ isDark, setIsDark }) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo Animado */}
           <Link to="/" className="flex items-center space-x-3 hover-lift">
-            <img 
-              src="/images/qa-play-icon.png" 
-              alt="QA Play" 
-              className="w-10 h-10"
-            />
+            <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center animate-float">
+              <Target className="w-6 h-6 text-white animate-pulse-glow" />
+            </div>
             <div className="flex flex-col">
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-shift">
                 QA Play
