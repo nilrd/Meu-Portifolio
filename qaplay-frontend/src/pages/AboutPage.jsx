@@ -11,7 +11,7 @@ const AboutPage = () => {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 mb-12 border border-gray-200 dark:border-gray-700 flex flex-col md:flex-row items-center md:items-start gap-8">
           <div className="flex-shrink-0">
             <img 
-              src="/assets/NilsonBrites1.jpg" 
+              src="/images/NilsonBrites1.jpg" 
               alt="Nilson da Silva Brites" 
               className="w-48 h-48 rounded-full object-cover shadow-lg border-4 border-blue-400 dark:border-blue-600"
             />
@@ -92,6 +92,36 @@ const AboutPage = () => {
             <div className="flex items-center space-x-3 bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
               <ArrowRight className="w-5 h-5 text-blue-500" />
               <span className="text-gray-800 dark:text-gray-200 font-medium">Integração Contínua (CI/CD)</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Galeria de Fotos */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+            Galeria
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover-lift">
+              <img 
+                src="/images/NilsonBrites1.jpg" 
+                alt="Nilson da Silva Brites - Foto 1" 
+                className="w-full h-64 object-cover"
+              />
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover-lift">
+              <img 
+                src="/images/NilsonBrites2.jpg" 
+                alt="Nilson da Silva Brites - Foto 2" 
+                className="w-full h-64 object-cover"
+              />
+            </div>
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 hover-lift">
+              <img 
+                src="/images/NilsonBrites3.jpg" 
+                alt="Nilson da Silva Brites - Foto 3" 
+                className="w-full h-64 object-cover"
+              />
             </div>
           </div>
         </section>
