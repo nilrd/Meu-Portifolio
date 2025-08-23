@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Trophy, Clock, Target, CheckCircle, XCircle, RotateCcw, Share2, Award, Shuffle } from 'lucide-react';
 import BadgeGenerator from './BadgeGenerator';
 
-const QuizGame = ({ category, level, questions, onComplete }) => {
+const QuizGame = ({ allQuestions, onComplete }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [answers, setAnswers] = useState([]);
@@ -53,39 +53,14 @@ const QuizGame = ({ category, level, questions, onComplete }) => {
     return selectedQuestions;
   };
 
-  // Função para criar mix de níveis
-  const createMixedLevelQuestions = (allQuestions) => {
-    const basicQuestions = allQuestions.filter(q => q.level === 'basico');
-    const intermediateQuestions = allQuestions.filter(q => q.level === 'intermediario');
-    const advancedQuestions = allQuestions.filter(q => q.level === 'avancado');
-    
-    // Distribuição: 40% básico, 40% intermediário, 20% avançado
-    const mixedQuestions = [
-      ...shuffleArray(basicQuestions).slice(0, 8),
-      ...shuffleArray(intermediateQuestions).slice(0, 8),
-      ...shuffleArray(advancedQuestions).slice(0, 4)
-    ];
-    
-    return shuffleArray(mixedQuestions);
-  };
-
   // Inicializar questões do jogo
   useEffect(() => {
-    if (questions && questions.length > 0) {
-      let selectedQuestions;
-      
-      if (level === 'mixed') {
-        // Para modo misto, criar mix de todos os níveis
-        selectedQuestions = createMixedLevelQuestions(questions);
-        selectedQuestions = selectUniqueQuestions(selectedQuestions, 20);
-      } else {
-        // Para nível específico, selecionar 20 questões desse nível
-        selectedQuestions = selectUniqueQuestions(questions, 20);
-      }
-      
+    if (allQuestions && allQuestions.length > 0) {
+      // Selecionar 20 questões aleatórias de todas as questões disponíveis
+      const selectedQuestions = selectUniqueQuestions(allQuestions, 20);
       setGameQuestions(selectedQuestions);
     }
-  }, [questions, level]);
+  }, [allQuestions]);
 
   // Timer effect - 20 minutos total
   useEffect(() => {
@@ -174,16 +149,8 @@ const QuizGame = ({ category, level, questions, onComplete }) => {
     setFinalResult(null);
     
     // Reselecionar questões para evitar repetição
-    if (questions && questions.length > 0) {
-      let selectedQuestions;
-      
-      if (level === 'mixed') {
-        selectedQuestions = createMixedLevelQuestions(questions);
-        selectedQuestions = selectUniqueQuestions(selectedQuestions, 20);
-      } else {
-        selectedQuestions = selectUniqueQuestions(questions, 20);
-      }
-      
+    if (allQuestions && allQuestions.length > 0) {
+      const selectedQuestions = selectUniqueQuestions(allQuestions, 20);
       setGameQuestions(selectedQuestions);
     }
   };
@@ -209,7 +176,7 @@ const QuizGame = ({ category, level, questions, onComplete }) => {
           </div>
           
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            {category} - {level === 'mixed' ? 'Níveis Mistos' : level}
+            Quiz Completo - Todos os Níveis e Categorias
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -223,10 +190,10 @@ const QuizGame = ({ category, level, questions, onComplete }) => {
             </div>
             <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-xl">
               <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-                {level === 'mixed' ? <Shuffle className="w-6 h-6 mx-auto" /> : '🎯'}
+                <Shuffle className="w-6 h-6 mx-auto" />
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                {level === 'mixed' ? 'Mix de Níveis' : 'Nível Único'}
+                Mix de Níveis
               </div>
             </div>
           </div>

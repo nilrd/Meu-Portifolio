@@ -1,0 +1,600 @@
+[
+  {
+    "id": "fund_bas_001",
+    "question": "O que significa a sigla QA?",
+    "options": [
+      "Quality Analysis",
+      "Quality Assurance",
+      "Quality Assessment",
+      "Quality Automation"
+    ],
+    "correctAnswer": 1,
+    "explanation": "QA significa Quality Assurance (Garantia de Qualidade), que \u00e9 um processo sistem\u00e1tico para garantir que os produtos atendam aos requisitos de qualidade.",
+    "points": 10
+  },
+  {
+    "id": "fund_bas_002",
+    "question": "Qual \u00e9 a principal diferen\u00e7a entre QA e QC?",
+    "options": [
+      "QA \u00e9 reativo, QC \u00e9 proativo",
+      "QA foca em processos, QC foca no produto",
+      "QA \u00e9 manual, QC \u00e9 automatizado",
+      "N\u00e3o h\u00e1 diferen\u00e7a entre eles"
+    ],
+    "correctAnswer": 1,
+    "explanation": "QA (Quality Assurance) foca na preven\u00e7\u00e3o de defeitos atrav\u00e9s de processos, enquanto QC (Quality Control) foca na detec\u00e7\u00e3o de defeitos no produto final.",
+    "points": 15
+  },
+  {
+    "id": "fund_bas_003",
+    "question": "Em que fase do desenvolvimento de software os testes devem come\u00e7ar?",
+    "options": [
+      "Apenas ap\u00f3s o desenvolvimento estar completo",
+      "Durante a fase de codifica\u00e7\u00e3o",
+      "Desde o in\u00edcio do projeto, na fase de requisitos",
+      "Somente antes da entrega"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Os testes devem come\u00e7ar desde o in\u00edcio do projeto, na fase de requisitos, seguindo o princ\u00edpio de 'shift-left testing'.",
+    "points": 15
+  },
+  {
+    "id": "fund_bas_004",
+    "question": "O que \u00e9 um caso de teste?",
+    "options": [
+      "Um erro encontrado no sistema",
+      "Um documento que descreve como testar uma funcionalidade espec\u00edfica",
+      "Uma ferramenta de automa\u00e7\u00e3o",
+      "Um tipo de bug"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Um caso de teste \u00e9 um documento que especifica as condi\u00e7\u00f5es, dados de entrada, a\u00e7\u00f5es e resultados esperados para testar uma funcionalidade espec\u00edfica.",
+    "points": 10
+  },
+  {
+    "id": "fund_bas_005",
+    "question": "Qual \u00e9 o objetivo principal dos testes de software?",
+    "options": [
+      "Provar que o software n\u00e3o tem bugs",
+      "Encontrar todos os defeitos poss\u00edveis",
+      "Reduzir o risco de falhas em produ\u00e7\u00e3o",
+      "Atrasar o lan\u00e7amento do produto"
+    ],
+    "correctAnswer": 2,
+    "explanation": "O objetivo principal dos testes \u00e9 reduzir o risco de falhas em produ\u00e7\u00e3o, fornecendo informa\u00e7\u00f5es sobre a qualidade do software.",
+    "points": 15
+  },
+  {
+    "id": "fund_bas_006",
+    "question": "O que s\u00e3o testes funcionais?",
+    "options": [
+      "Testes que verificam se o sistema funciona",
+      "Testes que verificam o comportamento do sistema baseado nos requisitos",
+      "Testes que verificam a performance do sistema",
+      "Testes que verificam a seguran\u00e7a do sistema"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Testes funcionais verificam se o sistema se comporta conforme especificado nos requisitos funcionais.",
+    "points": 10
+  },
+  {
+    "id": "fund_bas_007",
+    "question": "O que s\u00e3o testes n\u00e3o funcionais?",
+    "options": [
+      "Testes que n\u00e3o funcionam",
+      "Testes de performance, usabilidade, seguran\u00e7a",
+      "Testes manuais apenas",
+      "Testes de funcionalidades quebradas"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Testes n\u00e3o funcionais verificam aspectos como performance, usabilidade, seguran\u00e7a, confiabilidade, entre outros.",
+    "points": 10
+  },
+  {
+    "id": "fund_bas_008",
+    "question": "O que \u00e9 um plano de testes?",
+    "options": [
+      "Uma lista de bugs encontrados",
+      "Um documento que define a estrat\u00e9gia e abordagem de testes",
+      "Uma ferramenta de automa\u00e7\u00e3o",
+      "Um relat\u00f3rio de resultados"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Um plano de testes \u00e9 um documento que define a estrat\u00e9gia, abordagem, recursos e cronograma das atividades de teste.",
+    "points": 15
+  },
+  {
+    "id": "fund_bas_009",
+    "question": "Qual \u00e9 a diferen\u00e7a entre verifica\u00e7\u00e3o e valida\u00e7\u00e3o?",
+    "options": [
+      "N\u00e3o h\u00e1 diferen\u00e7a",
+      "Verifica\u00e7\u00e3o: 'Estamos construindo certo?', Valida\u00e7\u00e3o: 'Estamos construindo a coisa certa?'",
+      "Verifica\u00e7\u00e3o \u00e9 manual, valida\u00e7\u00e3o \u00e9 autom\u00e1tica",
+      "Verifica\u00e7\u00e3o \u00e9 para bugs, valida\u00e7\u00e3o \u00e9 para performance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Verifica\u00e7\u00e3o pergunta 'Estamos construindo o produto certo?' enquanto valida\u00e7\u00e3o pergunta 'Estamos construindo o produto corretamente?'",
+    "points": 20
+  },
+  {
+    "id": "fund_bas_010",
+    "question": "O que \u00e9 rastreabilidade em testes?",
+    "options": [
+      "Rastrear bugs no c\u00f3digo",
+      "Relacionar casos de teste com requisitos",
+      "Monitorar performance do sistema",
+      "Acompanhar o progresso da equipe"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rastreabilidade \u00e9 a capacidade de relacionar casos de teste com requisitos, garantindo cobertura completa.",
+    "points": 15
+  },
+  {
+    "id": "fund_bas_011",
+    "question": "O que \u00e9 cobertura de testes?",
+    "options": [
+      "Quantidade de testes executados",
+      "Percentual do c\u00f3digo ou requisitos cobertos pelos testes",
+      "N\u00famero de bugs encontrados",
+      "Tempo gasto testando"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cobertura de testes \u00e9 uma m\u00e9trica que indica o percentual do c\u00f3digo, requisitos ou funcionalidades cobertos pelos testes.",
+    "points": 15
+  },
+  {
+    "id": "fund_bas_012",
+    "question": "Qual \u00e9 a pir\u00e2mide de testes?",
+    "options": [
+      "Uma ferramenta de teste",
+      "Uma estrat\u00e9gia que prioriza testes unit\u00e1rios na base",
+      "Um tipo de bug",
+      "Uma metodologia de desenvolvimento"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A pir\u00e2mide de testes \u00e9 uma estrat\u00e9gia que sugere ter muitos testes unit\u00e1rios na base, alguns testes de integra\u00e7\u00e3o no meio e poucos testes E2E no topo.",
+    "points": 20
+  },
+  {
+    "id": "fund_bas_013",
+    "question": "O que \u00e9 um defeito (bug)?",
+    "options": [
+      "Uma funcionalidade n\u00e3o implementada",
+      "Um desvio do comportamento esperado",
+      "Um teste que falhou",
+      "Uma melhoria no sistema"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Um defeito \u00e9 um desvio do comportamento esperado do sistema, causando resultados incorretos ou inesperados.",
+    "points": 10
+  },
+  {
+    "id": "fund_bas_014",
+    "question": "Qual \u00e9 a diferen\u00e7a entre severidade e prioridade de um bug?",
+    "options": [
+      "S\u00e3o a mesma coisa",
+      "Severidade: impacto t\u00e9cnico, Prioridade: urg\u00eancia de corre\u00e7\u00e3o",
+      "Severidade \u00e9 para bugs cr\u00edticos, prioridade para bugs menores",
+      "Severidade \u00e9 definida pelo QA, prioridade pelo desenvolvedor"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Severidade indica o impacto t\u00e9cnico do bug no sistema, enquanto prioridade indica a urg\u00eancia de corre\u00e7\u00e3o do ponto de vista do neg\u00f3cio.",
+    "points": 20
+  },
+  {
+    "id": "fund_bas_015",
+    "question": "O que \u00e9 teste de regress\u00e3o?",
+    "options": [
+      "Teste de funcionalidades antigas ap\u00f3s mudan\u00e7as",
+      "Teste de performance do sistema",
+      "Teste de seguran\u00e7a",
+      "Teste de usabilidade"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Teste de regress\u00e3o verifica se funcionalidades existentes continuam funcionando corretamente ap\u00f3s mudan\u00e7as no sistema.",
+    "points": 15
+  },
+  {
+    "id": "fund_int_001",
+    "question": "O que \u00e9 BDD (Behavior Driven Development)?",
+    "options": [
+      "Uma linguagem de programa\u00e7\u00e3o",
+      "Uma metodologia que foca no comportamento do software",
+      "Uma ferramenta de teste",
+      "Um tipo de bug"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BDD \u00e9 uma metodologia que estende TDD, focando no comportamento do software atrav\u00e9s de cen\u00e1rios escritos em linguagem natural.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_002",
+    "question": "Qual \u00e9 a sintaxe padr\u00e3o do Gherkin?",
+    "options": [
+      "Given, When, Then",
+      "Setup, Execute, Verify",
+      "Arrange, Act, Assert",
+      "Input, Process, Output"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Gherkin usa a sintaxe Given (dado), When (quando), Then (ent\u00e3o) para descrever cen\u00e1rios de teste.",
+    "points": 15
+  },
+  {
+    "id": "fund_int_003",
+    "question": "O que \u00e9 TDD (Test Driven Development)?",
+    "options": [
+      "Testar depois de desenvolver",
+      "Escrever testes antes do c\u00f3digo de produ\u00e7\u00e3o",
+      "Testar apenas funcionalidades cr\u00edticas",
+      "Automatizar todos os testes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TDD \u00e9 uma pr\u00e1tica onde os testes s\u00e3o escritos antes do c\u00f3digo de produ\u00e7\u00e3o, seguindo o ciclo Red-Green-Refactor.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_004",
+    "question": "O que s\u00e3o testes de integra\u00e7\u00e3o?",
+    "options": [
+      "Testes de componentes individuais",
+      "Testes da intera\u00e7\u00e3o entre m\u00f3dulos ou sistemas",
+      "Testes de performance",
+      "Testes de interface do usu\u00e1rio"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Testes de integra\u00e7\u00e3o verificam se diferentes m\u00f3dulos ou sistemas funcionam corretamente quando combinados.",
+    "points": 15
+  },
+  {
+    "id": "fund_int_005",
+    "question": "O que \u00e9 um mock em testes?",
+    "options": [
+      "Um teste falso",
+      "Um objeto simulado que imita o comportamento de depend\u00eancias",
+      "Um tipo de bug",
+      "Uma ferramenta de automa\u00e7\u00e3o"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mock \u00e9 um objeto simulado que imita o comportamento de depend\u00eancias reais, permitindo testes isolados.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_006",
+    "question": "Qual \u00e9 a diferen\u00e7a entre mock e stub?",
+    "options": [
+      "N\u00e3o h\u00e1 diferen\u00e7a",
+      "Mock verifica intera\u00e7\u00f5es, stub fornece respostas predefinidas",
+      "Mock \u00e9 para testes unit\u00e1rios, stub para integra\u00e7\u00e3o",
+      "Mock \u00e9 autom\u00e1tico, stub \u00e9 manual"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mock verifica se as intera\u00e7\u00f5es esperadas ocorreram, enquanto stub apenas fornece respostas predefinidas.",
+    "points": 25
+  },
+  {
+    "id": "fund_int_007",
+    "question": "O que \u00e9 continuous testing?",
+    "options": [
+      "Testar 24 horas por dia",
+      "Execu\u00e7\u00e3o automatizada de testes no pipeline CI/CD",
+      "Testar apenas em produ\u00e7\u00e3o",
+      "Testar manualmente sempre"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Continuous testing \u00e9 a execu\u00e7\u00e3o automatizada de testes como parte do pipeline de CI/CD para feedback r\u00e1pido.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_008",
+    "question": "O que \u00e9 shift-left testing?",
+    "options": [
+      "Mover testes para a esquerda na tela",
+      "Iniciar testes mais cedo no ciclo de desenvolvimento",
+      "Testar apenas do lado esquerdo",
+      "Uma ferramenta de teste"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Shift-left testing significa iniciar as atividades de teste mais cedo no ciclo de desenvolvimento para detectar defeitos precocemente.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_009",
+    "question": "O que \u00e9 uma matriz de rastreabilidade?",
+    "options": [
+      "Uma ferramenta matem\u00e1tica",
+      "Um documento que mapeia requisitos para casos de teste",
+      "Um tipo de relat\u00f3rio de bug",
+      "Uma metodologia de teste"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Matriz de rastreabilidade \u00e9 um documento que mapeia requisitos para casos de teste, garantindo cobertura completa.",
+    "points": 15
+  },
+  {
+    "id": "fund_int_010",
+    "question": "O que s\u00e3o crit\u00e9rios de aceite?",
+    "options": [
+      "Condi\u00e7\u00f5es que definem quando uma funcionalidade est\u00e1 pronta",
+      "Lista de bugs aceitos",
+      "Ferramentas de teste aceitas",
+      "Desenvolvedores aceitos no projeto"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Crit\u00e9rios de aceite s\u00e3o condi\u00e7\u00f5es espec\u00edficas que uma funcionalidade deve atender para ser considerada completa.",
+    "points": 15
+  },
+  {
+    "id": "fund_int_011",
+    "question": "O que \u00e9 exploratory testing?",
+    "options": [
+      "Testar em ambientes desconhecidos",
+      "Teste simult\u00e2neo de aprendizado, design e execu\u00e7\u00e3o",
+      "Testar apenas funcionalidades novas",
+      "Teste automatizado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Exploratory testing \u00e9 uma abordagem onde aprendizado, design de teste e execu\u00e7\u00e3o acontecem simultaneamente.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_012",
+    "question": "O que \u00e9 risk-based testing?",
+    "options": [
+      "Testar apenas funcionalidades arriscadas",
+      "Priorizar testes baseado na an\u00e1lise de riscos",
+      "Evitar testes que podem quebrar o sistema",
+      "Testar em ambiente de produ\u00e7\u00e3o"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Risk-based testing prioriza os esfor\u00e7os de teste baseado na an\u00e1lise de riscos do neg\u00f3cio e t\u00e9cnicos.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_013",
+    "question": "O que \u00e9 boundary value analysis?",
+    "options": [
+      "An\u00e1lise de limites geogr\u00e1ficos",
+      "T\u00e9cnica que testa valores nos limites de entrada",
+      "An\u00e1lise de performance",
+      "Teste de seguran\u00e7a"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Boundary value analysis \u00e9 uma t\u00e9cnica que foca em testar valores nos limites das condi\u00e7\u00f5es de entrada.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_014",
+    "question": "O que \u00e9 equivalence partitioning?",
+    "options": [
+      "Dividir a equipe de teste",
+      "Dividir dados de entrada em grupos equivalentes",
+      "Dividir o tempo de teste",
+      "Dividir o ambiente de teste"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Equivalence partitioning divide os dados de entrada em grupos onde todos os valores devem ser tratados da mesma forma.",
+    "points": 20
+  },
+  {
+    "id": "fund_int_015",
+    "question": "O que \u00e9 pairwise testing?",
+    "options": [
+      "Testar em pares de pessoas",
+      "T\u00e9cnica que testa todas as combina\u00e7\u00f5es de pares de par\u00e2metros",
+      "Testar duas vezes",
+      "Comparar dois sistemas"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pairwise testing \u00e9 uma t\u00e9cnica que garante que todas as combina\u00e7\u00f5es de pares de par\u00e2metros sejam testadas pelo menos uma vez.",
+    "points": 25
+  },
+  {
+    "id": "fund_av_001",
+    "question": "O que \u00e9 mutation testing?",
+    "options": [
+      "Testar mudan\u00e7as no c\u00f3digo",
+      "Introduzir defeitos artificiais para avaliar a qualidade dos testes",
+      "Testar diferentes vers\u00f5es",
+      "Testar evolu\u00e7\u00e3o do software"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Mutation testing introduz defeitos artificiais (mutantes) no c\u00f3digo para avaliar se os testes conseguem detect\u00e1-los.",
+    "points": 30
+  },
+  {
+    "id": "fund_av_002",
+    "question": "O que \u00e9 property-based testing?",
+    "options": [
+      "Testar propriedades de objetos",
+      "Gerar testes automaticamente baseado em propriedades",
+      "Testar im\u00f3veis",
+      "Testar configura\u00e7\u00f5es"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Property-based testing gera automaticamente casos de teste baseado em propriedades que o c\u00f3digo deve satisfazer.",
+    "points": 30
+  },
+  {
+    "id": "fund_av_003",
+    "question": "O que \u00e9 contract testing?",
+    "options": [
+      "Testar contratos legais",
+      "Verificar se servi\u00e7os atendem aos contratos de API",
+      "Testar documenta\u00e7\u00e3o",
+      "Testar acordos de n\u00edvel de servi\u00e7o"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Contract testing verifica se servi\u00e7os consumidores e provedores atendem aos contratos de API acordados.",
+    "points": 25
+  },
+  {
+    "id": "fund_av_004",
+    "question": "O que \u00e9 chaos engineering?",
+    "options": [
+      "Criar caos na equipe",
+      "Introduzir falhas controladas para testar resili\u00eancia",
+      "Testar sem planejamento",
+      "Quebrar o sistema propositalmente"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chaos engineering introduz falhas controladas em sistemas distribu\u00eddos para testar sua resili\u00eancia e capacidade de recupera\u00e7\u00e3o.",
+    "points": 30
+  },
+  {
+    "id": "fund_av_005",
+    "question": "O que \u00e9 synthetic monitoring?",
+    "options": [
+      "Monitoramento artificial",
+      "Simula\u00e7\u00e3o de transa\u00e7\u00f5es de usu\u00e1rio para monitoramento proativo",
+      "Monitoramento falso",
+      "Monitoramento automatizado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Synthetic monitoring simula transa\u00e7\u00f5es de usu\u00e1rio para monitorar proativamente a disponibilidade e performance.",
+    "points": 25
+  },
+  {
+    "id": "fund_av_006",
+    "question": "O que \u00e9 canary testing?",
+    "options": [
+      "Testar com p\u00e1ssaros",
+      "Liberar para um pequeno grupo antes do rollout completo",
+      "Testar cores amarelas",
+      "Testar alertas"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Canary testing libera uma nova vers\u00e3o para um pequeno grupo de usu\u00e1rios antes do rollout completo para detectar problemas.",
+    "points": 25
+  },
+  {
+    "id": "fund_av_007",
+    "question": "O que \u00e9 A/B testing em QA?",
+    "options": [
+      "Testar duas vers\u00f5es",
+      "Comparar duas variantes para determinar qual performa melhor",
+      "Testar alfabeto",
+      "Testar em duas m\u00e1quinas"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A/B testing compara duas variantes de uma funcionalidade para determinar qual tem melhor performance ou aceita\u00e7\u00e3o.",
+    "points": 20
+  },
+  {
+    "id": "fund_av_008",
+    "question": "O que \u00e9 observability em testes?",
+    "options": [
+      "Capacidade de observar testes",
+      "Inferir o estado interno atrav\u00e9s de outputs externos",
+      "Testar visibilidade",
+      "Monitorar testadores"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Observability \u00e9 a capacidade de inferir o estado interno de um sistema atrav\u00e9s de seus outputs externos (logs, m\u00e9tricas, traces).",
+    "points": 30
+  },
+  {
+    "id": "fund_av_009",
+    "question": "O que \u00e9 test data management?",
+    "options": [
+      "Gerenciar dados de teste",
+      "Estrat\u00e9gia para criar, manter e provisionar dados de teste",
+      "Deletar dados de teste",
+      "Backup de dados"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Test data management \u00e9 uma estrat\u00e9gia abrangente para criar, manter, provisionar e governar dados de teste.",
+    "points": 25
+  },
+  {
+    "id": "fund_av_010",
+    "question": "O que \u00e9 service virtualization?",
+    "options": [
+      "Virtualizar servi\u00e7os",
+      "Simular comportamento de depend\u00eancias n\u00e3o dispon\u00edveis",
+      "Criar servi\u00e7os virtuais",
+      "Testar em m\u00e1quinas virtuais"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Service virtualization simula o comportamento de depend\u00eancias n\u00e3o dispon\u00edveis, caras ou dif\u00edceis de configurar.",
+    "points": 30
+  },
+  {
+    "id": "fund_av_011",
+    "question": "O que \u00e9 shift-right testing?",
+    "options": [
+      "Mover testes para a direita",
+      "Estender testes para produ\u00e7\u00e3o com monitoramento",
+      "Testar do lado direito",
+      "Adiar testes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Shift-right testing estende as pr\u00e1ticas de teste para o ambiente de produ\u00e7\u00e3o atrav\u00e9s de monitoramento e observabilidade.",
+    "points": 25
+  },
+  {
+    "id": "fund_av_012",
+    "question": "O que \u00e9 test environment management?",
+    "options": [
+      "Gerenciar ambientes de teste",
+      "Provisionar e manter ambientes de teste de forma eficiente",
+      "Limpar ambientes",
+      "Configurar m\u00e1quinas"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Test environment management envolve provisionar, configurar, manter e otimizar ambientes de teste de forma eficiente.",
+    "points": 25
+  },
+  {
+    "id": "fund_av_013",
+    "question": "O que \u00e9 test orchestration?",
+    "options": [
+      "Orquestrar m\u00fasicas durante testes",
+      "Coordenar execu\u00e7\u00e3o de testes em m\u00faltiplos ambientes",
+      "Organizar equipe de teste",
+      "Sequenciar casos de teste"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Test orchestration coordena a execu\u00e7\u00e3o de testes em m\u00faltiplos ambientes, ferramentas e pipelines de forma integrada.",
+    "points": 30
+  },
+  {
+    "id": "fund_av_014",
+    "question": "O que \u00e9 test impact analysis?",
+    "options": [
+      "Analisar impacto dos testes",
+      "Identificar quais testes executar baseado em mudan\u00e7as",
+      "Medir impacto de bugs",
+      "Avaliar performance de testes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Test impact analysis identifica quais testes devem ser executados baseado nas mudan\u00e7as feitas no c\u00f3digo.",
+    "points": 30
+  },
+  {
+    "id": "fund_av_015",
+    "question": "O que \u00e9 quality gates?",
+    "options": [
+      "Port\u00f5es de qualidade",
+      "Crit\u00e9rios que devem ser atendidos para prosseguir no pipeline",
+      "Barreiras f\u00edsicas",
+      "Controle de acesso"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Quality gates s\u00e3o crit\u00e9rios de qualidade que devem ser atendidos para que o c\u00f3digo possa prosseguir no pipeline de deployment.",
+    "points": 25
+  },
+  {
+    "id": "auto_bas_001",
+    "question": "O que \u00e9 automa\u00e7\u00e3o de testes?",
+    "options": [
+      "Testes que se executam sozinhos",
+      "Uso de ferramentas para executar testes sem interven\u00e7\u00e3o manual",
+      "Testes mais r\u00e1pidos",
+      "Testes sem bugs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Automa\u00e7\u00e3o de testes \u00e9 o uso de ferramentas e scripts para executar testes sem necessidade de interven\u00e7\u00e3o manual.",
+    "points": 10
+  }
+]

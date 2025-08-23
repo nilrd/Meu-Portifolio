@@ -21,7 +21,6 @@ import {
 // Importar as novas páginas
 import HomePage from './pages/HomePage';
 import QAPlayTrainingPage from './pages/QAPlayTrainingPage';
-import JogosPage from './pages/JogosPage';
 import QuizPage from './pages/QuizPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
@@ -69,10 +68,8 @@ const Header = ({ isDark, setIsDark }) => {
   const menuItems = [
     { path: '/', label: 'Home', icon: HomeIcon },
     { path: '/training', label: 'QA Play Training', icon: BookOpen },
-    { path: '/jogos', label: 'Jogos', icon: Target },
     { path: '/blog', label: 'Blog', icon: FileText },
     { path: '/sobre', label: 'Sobre Mim', icon: User },
-
   ];
 
   return (
@@ -282,11 +279,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/training" element={<QAPlayTrainingPage />} />
-            <Route path="/jogos" element={<JogosPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/sobre" element={<AboutPage />} />
-
           </Routes>
         </main>
         <Footer />
