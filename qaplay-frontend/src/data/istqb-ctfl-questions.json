@@ -1,0 +1,258 @@
+[
+  {
+    "id": "istqb_001",
+    "question": "Qual é o principal objetivo do teste de software?",
+    "options": [
+      "Provar que o software não possui defeitos",
+      "Encontrar todos os defeitos no software",
+      "Reduzir o risco de falhas em produção e verificar se os requisitos foram atendidos",
+      "Garantir que o software funcione perfeitamente em todos os cenários"
+    ],
+    "correctAnswer": 2,
+    "explanation": "O teste não pode provar a ausência de defeitos nem encontrar todos os defeitos. O objetivo principal é reduzir riscos e verificar se os requisitos foram atendidos, conforme estabelecido no syllabus CTFL v4.0.1.",
+    "points": 15,
+    "category": "istqb-ctfl",
+    "level": "básico",
+    "topic": "1.1 - O que é Teste?",
+    "knowledgeLevel": "K1"
+  },
+  {
+    "id": "istqb_002",
+    "question": "Qual é a principal diferença entre teste e depuração (debugging)?",
+    "options": [
+      "Teste e depuração são sinônimos e podem ser usados intercambiavelmente",
+      "Teste identifica defeitos, enquanto depuração localiza e corrige as causas dos defeitos",
+      "Depuração é feita apenas por desenvolvedores, teste apenas por testadores",
+      "Teste é automático, depuração é manual"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Teste é uma atividade que identifica defeitos através da execução de casos de teste, enquanto depuração é o processo de localizar, analisar e corrigir as causas dos defeitos identificados.",
+    "points": 20,
+    "category": "istqb-ctfl",
+    "level": "intermediário",
+    "topic": "1.1 - O que é Teste?",
+    "knowledgeLevel": "K2"
+  },
+  {
+    "id": "istqb_003",
+    "question": "Como o teste contribui para o sucesso de um projeto de software?",
+    "options": [
+      "Apenas identificando defeitos após o desenvolvimento estar completo",
+      "Fornecendo informações para tomada de decisões e reduzindo riscos de falhas",
+      "Substituindo a necessidade de revisões de código",
+      "Eliminando completamente a possibilidade de defeitos em produção"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O teste contribui fornecendo informações objetivas sobre a qualidade do software, permitindo decisões informadas sobre releases e reduzindo riscos de falhas em produção.",
+    "points": 20,
+    "category": "istqb-ctfl",
+    "level": "intermediário",
+    "topic": "1.2 - Por que o Teste é Necessário?",
+    "knowledgeLevel": "K2"
+  },
+  {
+    "id": "istqb_004",
+    "question": "Qual é a relação entre teste e garantia de qualidade (QA)?",
+    "options": [
+      "Teste e QA são exatamente a mesma coisa",
+      "Teste é uma atividade dentro do processo mais amplo de QA",
+      "QA é uma atividade dentro do processo de teste",
+      "Teste e QA são processos completamente independentes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Teste é uma das atividades que contribuem para a garantia de qualidade, que é um processo mais amplo que inclui também processos, padrões, revisões e outras atividades.",
+    "points": 15,
+    "category": "istqb-ctfl",
+    "level": "básico",
+    "topic": "1.2 - Por que o Teste é Necessário?",
+    "knowledgeLevel": "K1"
+  },
+  {
+    "id": "istqb_005",
+    "question": "Qual é a sequência correta da cadeia erro-defeito-falha?",
+    "options": [
+      "Falha → Erro → Defeito",
+      "Defeito → Erro → Falha",
+      "Erro → Defeito → Falha",
+      "Erro → Falha → Defeito"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Um erro humano introduz um defeito no código, que pode causar uma falha quando o software é executado sob certas condições.",
+    "points": 20,
+    "category": "istqb-ctfl",
+    "level": "intermediário",
+    "topic": "1.2 - Por que o Teste é Necessário?",
+    "knowledgeLevel": "K2"
+  },
+  {
+    "id": "istqb_006",
+    "question": "Qual princípio de teste afirma que 'teste mostra a presença de defeitos, não sua ausência'?",
+    "options": [
+      "Princípio 1",
+      "Princípio 2",
+      "Princípio 3",
+      "Princípio 4"
+    ],
+    "correctAnswer": 0,
+    "explanation": "O primeiro princípio de teste estabelece que o teste pode mostrar que defeitos estão presentes, mas não pode provar que não há defeitos.",
+    "points": 15,
+    "category": "istqb-ctfl",
+    "level": "básico",
+    "topic": "1.3 - Princípios de Teste",
+    "knowledgeLevel": "K1"
+  },
+  {
+    "id": "istqb_007",
+    "question": "O que significa o princípio 'teste exaustivo é impossível'?",
+    "options": [
+      "É impossível testar software complexo",
+      "Não é viável testar todas as combinações de entradas e condições",
+      "Teste automatizado é sempre necessário",
+      "Apenas teste manual é eficaz"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Teste exaustivo significa testar todas as combinações possíveis de entradas, pré-condições, e estados, o que é impraticável exceto para casos triviais.",
+    "points": 20,
+    "category": "istqb-ctfl",
+    "level": "intermediário",
+    "topic": "1.3 - Princípios de Teste",
+    "knowledgeLevel": "K2"
+  },
+  {
+    "id": "istqb_008",
+    "question": "Qual princípio sugere que a maioria dos defeitos está concentrada em um pequeno número de módulos?",
+    "options": [
+      "Teste antecipado economiza tempo e dinheiro",
+      "Agrupamento de defeitos (defect clustering)",
+      "Paradoxo do pesticida",
+      "Teste depende do contexto"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O princípio de agrupamento de defeitos (defect clustering) indica que um pequeno número de módulos geralmente contém a maioria dos defeitos descobertos.",
+    "points": 20,
+    "category": "istqb-ctfl",
+    "level": "intermediário",
+    "topic": "1.3 - Princípios de Teste",
+    "knowledgeLevel": "K2"
+  },
+  {
+    "id": "istqb_009",
+    "question": "Qual das seguintes é uma atividade principal do processo de teste?",
+    "options": [
+      "Programação",
+      "Análise e design de teste",
+      "Compilação",
+      "Deploy"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Análise e design de teste é uma das atividades principais do processo de teste, junto com planejamento, implementação, execução e conclusão.",
+    "points": 15,
+    "category": "istqb-ctfl",
+    "level": "básico",
+    "topic": "1.4 - Atividades de Teste",
+    "knowledgeLevel": "K1"
+  },
+  {
+    "id": "istqb_010",
+    "question": "O que é testware?",
+    "options": [
+      "Software usado para desenvolvimento",
+      "Artefatos produzidos durante o processo de teste",
+      "Hardware usado para teste",
+      "Ferramentas de programação"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Testware são todos os artefatos produzidos durante o processo de teste, incluindo casos de teste, dados de teste, scripts de teste, relatórios, etc.",
+    "points": 15,
+    "category": "istqb-ctfl",
+    "level": "básico",
+    "topic": "1.4 - Atividades de Teste",
+    "knowledgeLevel": "K1"
+  },
+  {
+    "id": "istqb_011",
+    "question": "Por que a rastreabilidade entre base de teste e testware é importante?",
+    "options": [
+      "Para facilitar a programação",
+      "Para permitir análise de impacto e cobertura de teste",
+      "Para reduzir o tempo de compilação",
+      "Para melhorar a performance do sistema"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A rastreabilidade permite análise de impacto quando requisitos mudam e ajuda a determinar a cobertura de teste dos requisitos.",
+    "points": 20,
+    "category": "istqb-ctfl",
+    "level": "intermediário",
+    "topic": "1.4 - Atividades de Teste",
+    "knowledgeLevel": "K2"
+  },
+  {
+    "id": "istqb_012",
+    "question": "Qual é a principal responsabilidade de um testador?",
+    "options": [
+      "Escrever código de produção",
+      "Gerenciar o projeto",
+      "Executar atividades de teste e reportar defeitos",
+      "Fazer deploy da aplicação"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A principal responsabilidade de um testador inclui executar atividades de teste, identificar e reportar defeitos, e verificar se os critérios de teste foram atendidos.",
+    "points": 15,
+    "category": "istqb-ctfl",
+    "level": "básico",
+    "topic": "1.4 - Papéis em Teste",
+    "knowledgeLevel": "K1"
+  },
+  {
+    "id": "istqb_013",
+    "question": "Qual habilidade é essencial para um testador eficaz?",
+    "options": [
+      "Apenas conhecimento técnico",
+      "Apenas habilidades de comunicação",
+      "Combinação de habilidades técnicas e interpessoais",
+      "Apenas experiência em programação"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Testadores eficazes precisam de uma combinação de habilidades técnicas (conhecimento de teste) e interpessoais (comunicação, trabalho em equipe).",
+    "points": 15,
+    "category": "istqb-ctfl",
+    "level": "básico",
+    "topic": "1.5 - Habilidades Essenciais",
+    "knowledgeLevel": "K1"
+  },
+  {
+    "id": "istqb_014",
+    "question": "O que caracteriza a abordagem de 'equipe completa' (whole team approach)?",
+    "options": [
+      "Apenas testadores são responsáveis pela qualidade",
+      "Todos os membros da equipe compartilham responsabilidade pela qualidade",
+      "Apenas desenvolvedores fazem teste",
+      "Gerentes de projeto fazem todo o teste"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Na abordagem de equipe completa, todos os membros da equipe (desenvolvedores, testadores, analistas de negócio, etc.) compartilham a responsabilidade pela qualidade.",
+    "points": 20,
+    "category": "istqb-ctfl",
+    "level": "intermediário",
+    "topic": "1.5 - Abordagem de Equipe Completa",
+    "knowledgeLevel": "K2"
+  },
+  {
+    "id": "istqb_015",
+    "question": "Qual é o paradoxo do pesticida no contexto de teste de software?",
+    "options": [
+      "Testes automatizados são sempre melhores que manuais",
+      "Se os mesmos testes são repetidos, eles param de encontrar novos defeitos",
+      "Mais testes sempre significam melhor qualidade",
+      "Defeitos são como pesticidas no código"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O paradoxo do pesticida indica que se os mesmos testes são executados repetidamente, eles eventualmente param de encontrar novos defeitos. É necessário revisar e atualizar os testes regularmente.",
+    "points": 25,
+    "category": "istqb-ctfl",
+    "level": "avançado",
+    "topic": "1.3 - Princípios de Teste",
+    "knowledgeLevel": "K2"
+  }
+]
+

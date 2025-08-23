@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Play, Trophy, Target, Clock, Star, Code, Database, Globe, Zap, GitBranch, TestTube, ArrowRight, BookOpen } from 'lucide-react';
 import QuizGame from '../components/QuizGame';
+import UserInfoForm from '../components/UserInfoForm';
+import BadgeGenerator from '../components/BadgeGenerator';
 
 // Importar todos os bancos de questões
 import cypressQuestions from '../data/cypress-questions.json';
@@ -11,12 +13,16 @@ import agileCICDQuestions from '../data/agile-cicd-questions.json';
 import bddTDDQuestions from '../data/bdd-tdd-questions.json';
 import performanceQuestions from '../data/performance-testing-questions.json';
 import apiTestingQuestions from '../data/api-testing-questions.json';
+import istqbCTFLQuestions from '../data/istqb-ctfl-questions.json';
 import allMixedQuestions from '../data/qa-questions-mixed.json';
 
 const QuizCategoryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameResult, setGameResult] = useState(null);
+  const [userInfo, setUserInfo] = useState(null);
+  const [showUserForm, setShowUserForm] = useState(false);
+  const [showBadge, setShowBadge] = useState(false);
 
   const quizCategories = [
     {
@@ -29,6 +35,17 @@ const QuizCategoryPage = () => {
       totalQuestions: 20,
       timeLimit: 1200, // 20 minutos
       difficulty: 'Todos os Níveis'
+    },
+    {
+      id: 'istqb-ctfl',
+      title: 'ISTQB CTFL v4.0.1',
+      description: 'Fundamentos de Teste baseados no syllabus ISTQB CTFL',
+      icon: BookOpen,
+      color: 'from-blue-600 to-indigo-600',
+      questions: istqbCTFLQuestions,
+      totalQuestions: 15,
+      timeLimit: 900, // 15 minutos
+      difficulty: 'Básico ao Avançado'
     },
     {
       id: 'cypress',
@@ -123,19 +140,38 @@ const QuizCategoryPage = () => {
   const handleGameComplete = (result) => {
     setGameStarted(false);
     setGameResult(result);
+    setShowBadge(true);
   };
 
-  const startQuiz = (category) => {
+  const handleCategorySelect = (category) => {
     setSelectedCategory(category);
+    setShowUserForm(true);
+  };
+
+  const handleUserInfoSubmit = (info) => {
+    setUserInfo(info);
+    setShowUserForm(false);
     setGameStarted(true);
-    setGameResult(null);
   };
 
   const resetGame = () => {
-    setGameStarted(false);
     setSelectedCategory(null);
+    setGameStarted(false);
+    setGameResult(null);
+    setUserInfo(null);
+    setShowUserForm(false);
+    setShowBadge(false);
+  };
+
+  const closeBadge = () => {
+    setShowBadge(false);
     setGameResult(null);
   };
+
+  // Mostrar formulário de usuário
+  if (showUserForm && selectedCategory) {
+    return <UserInfoForm onSubmit={handleUserInfoSubmit} category={selectedCategory} />;
+  }
 
   if (gameStarted && selectedCategory) {
     return (
@@ -238,11 +274,12 @@ const QuizCategoryPage = () => {
                   </div>
                   
                   <button
-                    onClick={() => startQuiz(category)}
-                    className={`w-full inline-flex items-center justify-center px-4 py-3 bg-gradient-to-r ${category.color} text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200 transform hover:scale-105`}
+                    onClick={() => handleCategorySelect(category)}
+                    className={`w-full bg-gradient-to-r ${category.color} text-white font-semibold py-3 px-6 rounded-lg hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2`}
                   >
-                    <Play className="w-4 h-4 mr-2" />
+                    <Play className="w-5 h-5" />
                     Iniciar Quiz
+                    <ArrowRight className="w-5 h-5" />
                   </button>
                 </div>
               </div>
@@ -279,7 +316,37 @@ const QuizCategoryPage = () => {
             </div>
           </div>
         </div>
+
+        {/* Rodapé com menção ao ISTQB CTFL */}
+        <div className="mt-16 text-center">
+          <div className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm rounded-2xl p-6 border border-gray-200 dark:border-gray-700">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+              Questões inspiradas e baseadas nos estudos do <strong>ISTQB CTFL v4.0.1</strong> (International Software Testing Qualifications Board - Certified Tester Foundation Level)
+            </p>
+            <p className="text-xs text-gray-400 dark:text-gray-500 mb-3">
+              Para aprofundar seus conhecimentos em fundamentos de teste, baixe o syllabus oficial:
+            </p>
+            <a
+              href="/ISTQB_CTFL_Syllabus_v4.0.1.pdf"
+              download
+              className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-200 dark:hover:bg-blue-900/50 transition-colors text-sm"
+            >
+              <BookOpen className="w-4 h-4 mr-2" />
+              Download ISTQB CTFL Syllabus v4.0.1 (PDF)
+            </a>
+          </div>
+        </div>
       </div>
+
+      {/* Badge Generator Modal */}
+      {showBadge && gameResult && userInfo && selectedCategory && (
+        <BadgeGenerator
+          userInfo={userInfo}
+          quizResult={gameResult}
+          category={selectedCategory}
+          onClose={closeBadge}
+        />
+      )}
     </div>
   );
 };
