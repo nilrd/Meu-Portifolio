@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, Clock, Target, CheckCircle, XCircle, RotateCcw, Share2, Award, Shuffle } from 'lucide-react';
+import { Trophy, Clock, Target, CheckCircle, XCircle, RotateCcw, Share2, Award, Shuffle, Check, ArrowRight } from 'lucide-react';
 import BadgeGenerator from './BadgeGenerator';
 
-const QuizGame = ({ allQuestions, onComplete }) => {
+const QuizGame = ({ allQuestions, onComplete, category, level, totalQuestions, timeLimit, pointsPerQuestion }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [answers, setAnswers] = useState([]);
   const [showExplanation, setShowExplanation] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(1200); // 20 minutos = 1200 segundos
+  const [timeLeft, setTimeLeft] = useState(timeLimit || 1200);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameFinished, setGameFinished] = useState(false);
   const [score, setScore] = useState(0);
@@ -15,6 +15,7 @@ const QuizGame = ({ allQuestions, onComplete }) => {
   const [finalResult, setFinalResult] = useState(null);
   const [gameQuestions, setGameQuestions] = useState([]);
   const [usedQuestionIds, setUsedQuestionIds] = useState(new Set());
+  const [answerConfirmed, setAnswerConfirmed] = useState(false);
 
   // Função para embaralhar array
   const shuffleArray = (array) => {
@@ -24,6 +25,25 @@ const QuizGame = ({ allQuestions, onComplete }) => {
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
+  };
+
+  // Função para embaralhar opções e ajustar índice da resposta correta
+  const shuffleQuestionOptions = (question) => {
+    const originalOptions = [...question.options];
+    const correctAnswerText = originalOptions[question.correctAnswer];
+    
+    // Embaralhar as opções
+    const shuffledOptions = shuffleArray(originalOptions);
+    
+    // Encontrar o novo índice da resposta correta
+    const newCorrectIndex = shuffledOptions.findIndex(option => option === correctAnswerText);
+    
+    return {
+      ...question,
+      options: shuffledOptions,
+      correctAnswer: newCorrectIndex,
+      originalCorrectAnswer: question.correctAnswer // Manter referência original se necessário
+    };
   };
 
   // Função para selecionar questões sem repetição
@@ -39,7 +59,8 @@ const QuizGame = ({ allQuestions, onComplete }) => {
     if (availableQuestions.length < count) {
       currentUsedIds.clear();
       localStorage.setItem('usedQuestionIds', JSON.stringify([]));
-      return shuffleArray(allQuestions).slice(0, count);
+      const selectedQuestions = shuffleArray(allQuestions).slice(0, count);
+      return selectedQuestions.map(q => shuffleQuestionOptions(q));
     }
     
     // Selecionar questões aleatórias das disponíveis
@@ -50,19 +71,20 @@ const QuizGame = ({ allQuestions, onComplete }) => {
     localStorage.setItem('usedQuestionIds', JSON.stringify([...currentUsedIds]));
     setUsedQuestionIds(currentUsedIds);
     
-    return selectedQuestions;
+    // Embaralhar opções de cada questão
+    return selectedQuestions.map(q => shuffleQuestionOptions(q));
   };
 
   // Inicializar questões do jogo
   useEffect(() => {
     if (allQuestions && allQuestions.length > 0) {
-      // Selecionar 20 questões aleatórias de todas as questões disponíveis
-      const selectedQuestions = selectUniqueQuestions(allQuestions, 20);
+      const questionsCount = totalQuestions || 20;
+      const selectedQuestions = selectUniqueQuestions(allQuestions, questionsCount);
       setGameQuestions(selectedQuestions);
     }
-  }, [allQuestions]);
+  }, [allQuestions, totalQuestions]);
 
-  // Timer effect - 20 minutos total
+  // Timer effect
   useEffect(() => {
     if (gameStarted && !gameFinished && timeLeft > 0) {
       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
@@ -74,27 +96,37 @@ const QuizGame = ({ allQuestions, onComplete }) => {
 
   const startGame = () => {
     setGameStarted(true);
-    setTimeLeft(1200); // 20 minutos
+    setTimeLeft(timeLimit || 1200);
   };
 
-  const handleAnswer = (answerIndex) => {
+  const handleSelectAnswer = (answerIndex) => {
+    if (!showExplanation && !answerConfirmed) {
+      setSelectedAnswer(answerIndex);
+    }
+  };
+
+  const confirmAnswer = () => {
+    if (selectedAnswer === null) return;
+    
     const question = gameQuestions[currentQuestion];
-    const isCorrect = answerIndex === question.correctAnswer;
+    const isCorrect = selectedAnswer === question.correctAnswer;
+    const points = isCorrect ? (question.points || pointsPerQuestion || 10) : 0;
+    
     const newAnswer = {
       questionId: question.id,
-      selectedAnswer: answerIndex,
+      selectedAnswer: selectedAnswer,
       correctAnswer: question.correctAnswer,
       isCorrect,
-      points: isCorrect ? question.points : 0,
-      timeSpent: 1200 - timeLeft
+      points: points,
+      timeSpent: (timeLimit || 1200) - timeLeft
     };
 
-    setSelectedAnswer(answerIndex);
     setAnswers([...answers, newAnswer]);
     setShowExplanation(true);
+    setAnswerConfirmed(true);
     
     if (isCorrect) {
-      setScore(score + question.points);
+      setScore(score + points);
     }
   };
 
@@ -103,6 +135,7 @@ const QuizGame = ({ allQuestions, onComplete }) => {
       setCurrentQuestion(currentQuestion + 1);
       setSelectedAnswer(null);
       setShowExplanation(false);
+      setAnswerConfirmed(false);
     } else {
       finishGame();
     }
@@ -112,23 +145,24 @@ const QuizGame = ({ allQuestions, onComplete }) => {
     setGameFinished(true);
     const totalQuestions = gameQuestions.length;
     const correctAnswers = answers.filter(a => a.isCorrect).length;
-    const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+    const accuracy = Math.round((correctAnswers / totalQuestions) * 100);
     
     let levelAchieved = 'Iniciante';
-    if (percentage >= 90) levelAchieved = 'Expert';
-    else if (percentage >= 75) levelAchieved = 'Avançado';
-    else if (percentage >= 60) levelAchieved = 'Intermediário';
-    else if (percentage >= 40) levelAchieved = 'Básico';
+    if (accuracy >= 90) levelAchieved = 'Expert';
+    else if (accuracy >= 75) levelAchieved = 'Avançado';
+    else if (accuracy >= 60) levelAchieved = 'Intermediário';
+    else if (accuracy >= 40) levelAchieved = 'Básico';
 
     const result = {
       score,
       totalQuestions,
       correctAnswers,
-      percentage,
+      accuracy,
+      percentage: accuracy, // Para compatibilidade
       levelAchieved,
-      category,
+      category: category || 'mixed',
       level: level === 'mixed' ? 'Níveis Mistos' : level,
-      timeSpent: 1200 - timeLeft,
+      timeSpent: (timeLimit || 1200) - timeLeft,
       answers
     };
 
@@ -141,16 +175,18 @@ const QuizGame = ({ allQuestions, onComplete }) => {
     setSelectedAnswer(null);
     setAnswers([]);
     setShowExplanation(false);
-    setTimeLeft(1200);
+    setTimeLeft(timeLimit || 1200);
     setGameStarted(false);
     setGameFinished(false);
     setScore(0);
     setShowBadgeGenerator(false);
     setFinalResult(null);
+    setAnswerConfirmed(false);
     
     // Reselecionar questões para evitar repetição
     if (allQuestions && allQuestions.length > 0) {
-      const selectedQuestions = selectUniqueQuestions(allQuestions, 20);
+      const questionsCount = totalQuestions || 20;
+      const selectedQuestions = selectUniqueQuestions(allQuestions, questionsCount);
       setGameQuestions(selectedQuestions);
     }
   };
@@ -162,12 +198,18 @@ const QuizGame = ({ allQuestions, onComplete }) => {
   };
 
   const getTimeColor = () => {
-    if (timeLeft > 600) return 'text-green-600'; // > 10 min
-    if (timeLeft > 300) return 'text-yellow-600'; // > 5 min
-    return 'text-red-600'; // < 5 min
+    const halfTime = (timeLimit || 1200) / 2;
+    const quarterTime = (timeLimit || 1200) / 4;
+    
+    if (timeLeft > halfTime) return 'text-green-600'; 
+    if (timeLeft > quarterTime) return 'text-yellow-600'; 
+    return 'text-red-600';
   };
 
   if (!gameStarted) {
+    const questionsCount = totalQuestions || 20;
+    const timeInMinutes = Math.floor((timeLimit || 1200) / 60);
+    
     return (
       <div className="max-w-4xl mx-auto p-6">
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 text-center">
@@ -176,16 +218,16 @@ const QuizGame = ({ allQuestions, onComplete }) => {
           </div>
           
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Quiz Completo - Todos os Níveis e Categorias
+            {category === 'mixed' ? 'Quiz Completo - Todos os Níveis e Categorias' : `Quiz: ${category || 'Categoria'}`}
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl">
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">20</div>
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{questionsCount}</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Questões</div>
             </div>
             <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl">
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">20</div>
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400">{timeInMinutes}</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Minutos</div>
             </div>
             <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-xl">
@@ -193,7 +235,7 @@ const QuizGame = ({ allQuestions, onComplete }) => {
                 <Shuffle className="w-6 h-6 mx-auto" />
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                Mix de Níveis
+                {level === 'mixed' ? 'Mix de Níveis' : level || 'Nível'}
               </div>
             </div>
           </div>
@@ -201,7 +243,7 @@ const QuizGame = ({ allQuestions, onComplete }) => {
           <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-xl mb-6">
             <p className="text-sm text-yellow-800 dark:text-yellow-200">
               ⚠️ <strong>Importante:</strong> As questões não se repetirão em futuras rodadas. 
-              Você tem 20 minutos para responder todas as 20 questões.
+              Você tem {timeInMinutes} minutos para responder todas as {questionsCount} questões.
             </p>
           </div>
           
@@ -235,11 +277,11 @@ const QuizGame = ({ allQuestions, onComplete }) => {
               <div className="text-sm text-gray-600 dark:text-gray-400">Pontos</div>
             </div>
             <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl">
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">{finalResult?.percentage}%</div>
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400">{finalResult?.accuracy}%</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Acertos</div>
             </div>
             <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-xl">
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{finalResult?.correctAnswers}/20</div>
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{finalResult?.correctAnswers}/{finalResult?.totalQuestions}</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">Corretas</div>
             </div>
             <div className="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-xl">
@@ -255,11 +297,11 @@ const QuizGame = ({ allQuestions, onComplete }) => {
               Nível Alcançado: {finalResult?.levelAchieved}
             </h3>
             <p className="text-gray-600 dark:text-gray-400">
-              {finalResult?.percentage >= 90 && "Excelente! Você domina completamente este assunto!"}
-              {finalResult?.percentage >= 75 && finalResult?.percentage < 90 && "Muito bom! Você tem conhecimento avançado."}
-              {finalResult?.percentage >= 60 && finalResult?.percentage < 75 && "Bom trabalho! Continue estudando para aprimorar."}
-              {finalResult?.percentage >= 40 && finalResult?.percentage < 60 && "Você está no caminho certo! Pratique mais."}
-              {finalResult?.percentage < 40 && "Continue estudando! A prática leva à perfeição."}
+              {finalResult?.accuracy >= 90 && "Excelente! Você domina completamente este assunto!"}
+              {finalResult?.accuracy >= 75 && finalResult?.accuracy < 90 && "Muito bom! Você tem conhecimento avançado."}
+              {finalResult?.accuracy >= 60 && finalResult?.accuracy < 75 && "Bom trabalho! Continue estudando para aprimorar."}
+              {finalResult?.accuracy >= 40 && finalResult?.accuracy < 60 && "Você está no caminho certo! Pratique mais."}
+              {finalResult?.accuracy < 40 && "Continue estudando! A prática leva à perfeição."}
             </p>
           </div>
           
@@ -345,7 +387,7 @@ const QuizGame = ({ allQuestions, onComplete }) => {
             {question.options.map((option, index) => (
               <button
                 key={index}
-                onClick={() => !showExplanation && handleAnswer(index)}
+                onClick={() => handleSelectAnswer(index)}
                 disabled={showExplanation}
                 className={`w-full p-4 text-left rounded-xl border-2 transition-all duration-200 ${
                   showExplanation
@@ -379,31 +421,51 @@ const QuizGame = ({ allQuestions, onComplete }) => {
                       <div className="w-2 h-2 bg-white rounded-full" />
                     )}
                   </div>
-                  <span className="font-medium">{option}</span>
+                  <span className="flex-1">{option}</span>
                 </div>
               </button>
             ))}
           </div>
         </div>
 
-        {showExplanation && (
-          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl mb-6">
-            <h4 className="font-semibold text-blue-900 dark:text-blue-100 mb-2">Explicação:</h4>
-            <p className="text-blue-800 dark:text-blue-200">{question.explanation}</p>
-            <div className="mt-3 text-sm text-blue-700 dark:text-blue-300">
-              Pontos: {question.points}
-            </div>
+        {/* Botão de Confirmação */}
+        {!showExplanation && (
+          <div className="flex justify-center mb-6">
+            <button
+              onClick={confirmAnswer}
+              disabled={selectedAnswer === null}
+              className={`inline-flex items-center px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
+                selectedAnswer !== null
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg transform hover:scale-105'
+                  : 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-400 cursor-not-allowed'
+              }`}
+            >
+              <Check className="w-5 h-5 mr-2" />
+              Confirmar Resposta
+            </button>
           </div>
         )}
 
+        {/* Explicação */}
         {showExplanation && (
-          <div className="flex justify-end">
+          <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl mb-6">
+            <h4 className="font-bold text-blue-900 dark:text-blue-100 mb-2">Explicação:</h4>
+            <p className="text-blue-800 dark:text-blue-200 mb-4">{question.explanation}</p>
+            <p className="text-sm text-blue-600 dark:text-blue-300">
+              Pontos: {question.points || pointsPerQuestion || 10}
+            </p>
+          </div>
+        )}
+
+        {/* Botão Próxima Questão */}
+        {showExplanation && (
+          <div className="flex justify-center">
             <button
               onClick={nextQuestion}
-              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-green-600 to-blue-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              {currentQuestion < gameQuestions.length - 1 ? 'Próxima Questão' : 'Finalizar'}
-              <Target className="w-4 h-4 ml-2" />
+              {currentQuestion < gameQuestions.length - 1 ? 'Próxima Questão' : 'Finalizar Quiz'}
+              <ArrowRight className="w-5 h-5 ml-2" />
             </button>
           </div>
         )}
