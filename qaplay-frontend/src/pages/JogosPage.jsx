@@ -58,10 +58,9 @@ const JogosPage = () => {
       icon: Target,
       color: 'blue',
       levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
+        basico: { questions: 15, points: 100, time: 900 },
+        intermediario: { questions: 15, points: 150, time: 900 },
+        avancado: { questions: 15, points: 200, time: 900 }
       }
     },
     automacao: {
@@ -70,10 +69,9 @@ const JogosPage = () => {
       icon: Code,
       color: 'purple',
       levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
+        basico: { questions: 15, points: 100, time: 900 },
+        intermediario: { questions: 15, points: 150, time: 900 },
+        avancado: { questions: 15, points: 200, time: 900 }
       }
     },
     api: {
@@ -82,58 +80,9 @@ const JogosPage = () => {
       icon: Globe,
       color: 'green',
       levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
-      }
-    },
-    performance: {
-      name: 'Testes de Performance',
-      description: 'Load testing, stress testing e ferramentas de monitoramento.',
-      icon: TrendingUp,
-      color: 'orange',
-      levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
-      }
-    },
-    security: {
-      name: 'Testes de Segurança',
-      description: 'Vulnerabilidades, OWASP Top 10 e ferramentas de security testing.',
-      icon: Lock,
-      color: 'red',
-      levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
-      }
-    },
-    mobile: {
-      name: 'Testes Mobile',
-      description: 'Testes em dispositivos móveis, emuladores e ferramentas específicas.',
-      icon: Smartphone,
-      color: 'pink',
-      levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
-      }
-    },
-    database: {
-      name: 'Testes de Banco de Dados',
-      description: 'SQL, validação de dados e testes de integridade.',
-      icon: Database,
-      color: 'indigo',
-      levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
+        basico: { questions: 15, points: 100, time: 900 },
+        intermediario: { questions: 15, points: 150, time: 900 },
+        avancado: { questions: 15, points: 200, time: 900 }
       }
     },
     agile: {
@@ -142,34 +91,20 @@ const JogosPage = () => {
       icon: Users,
       color: 'teal',
       levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
+        basico: { questions: 15, points: 100, time: 900 },
+        intermediario: { questions: 15, points: 150, time: 900 },
+        avancado: { questions: 15, points: 200, time: 900 }
       }
     },
-    tools: {
+    ferramentas: {
       name: 'Ferramentas de QA',
-      description: 'JIRA, TestRail, Bugzilla e outras ferramentas essenciais.',
+      description: 'Selenium, Cypress, JMeter, Postman e outras ferramentas essenciais.',
       icon: Settings,
-      color: 'gray',
+      color: 'yellow',
       levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
-      }
-    },
-    web: {
-      name: 'Testes Web',
-      description: 'Cross-browser testing, responsividade e acessibilidade.',
-      icon: Monitor,
-      color: 'cyan',
-      levels: {
-        basico: { questions: 5, points: 65, time: 20 },
-        intermediario: { questions: 5, points: 110, time: 20 },
-        avancado: { questions: 5, points: 170, time: 20 },
-        mixed: { questions: 0, points: 0, time: 0 }
+        basico: { questions: 15, points: 100, time: 900 },
+        intermediario: { questions: 15, points: 150, time: 900 },
+        avancado: { questions: 15, points: 200, time: 900 }
       }
     }
   };
