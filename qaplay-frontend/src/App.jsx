@@ -28,12 +28,17 @@ import AboutPage from './pages/AboutPage';
 const useTheme = () => {
   const [isDark, setIsDark] = useState(() => {
     const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : false;
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return saved ? saved === 'dark' : prefersDark;
   });
 
   useEffect(() => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    document.documentElement.classList.toggle('dark', isDark);
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
   }, [isDark]);
 
   return [isDark, setIsDark];

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Code,
@@ -11,8 +11,11 @@ import {
   Target,
   CheckCircle
 } from 'lucide-react';
+import ContactModal from '../components/ContactModal';
 
 const HomePage = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
@@ -39,31 +42,31 @@ const HomePage = () => {
                   className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
                 >
                   <User className="w-5 h-5 mr-2" />
-                  Conheça Minha História
+                  Veja meu Currículo
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
                 
-                <Link
-                  to="/contato"
+                <button
+                  onClick={() => setIsContactModalOpen(true)}
                   className="inline-flex items-center px-8 py-4 border-2 border-blue-600 text-blue-600 dark:text-blue-400 font-semibold rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-200"
                 >
                   <Briefcase className="w-5 h-5 mr-2" />
                   Vamos Conversar
-                </Link>
+                </button>
               </div>
 
               {/* Estatísticas */}
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">2+</div>
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">4+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Anos na E2E Coders</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">4+</div>
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">5+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Projetos Principais</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">6+</div>
+                  <div className="text-2xl font-bold text-green-600 dark:text-green-400">9+</div>
                   <div className="text-sm text-gray-600 dark:text-gray-400">Tecnologias</div>
                 </div>
               </div>
@@ -257,16 +260,22 @@ const HomePage = () => {
           <p className="text-xl text-blue-100 mb-8">
             Estou sempre aberto a novos desafios e oportunidades de colaboração.
           </p>
-          <Link
-            to="/contato"
+          <button
+            onClick={() => setIsContactModalOpen(true)}
             className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
             <Briefcase className="w-5 h-5 mr-2" />
             Entre em Contato
             <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
+          </button>
         </div>
       </section>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 };
