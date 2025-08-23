@@ -26,11 +26,62 @@ html, body {
   --color-secondary-dark: #475569;
   --color-accent: #10B981;
   --color-accent-dark: #059669;
+  
+  /* Cores para light mode */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --border-color: #e5e7eb;
 }
 
-/* Melhor suporte ao dark mode */
+/* Dark mode variables */
 .dark {
   color-scheme: dark;
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --border-color: #374151;
+}
+
+/* Forçar aplicação do dark mode */
+.dark,
+.dark * {
+  color-scheme: dark;
+}
+
+/* CSS customizado para dark mode como fallback */
+.dark body,
+.dark #root,
+.dark .min-h-screen {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .bg-white {
+  background-color: var(--bg-primary) !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark .text-gray-900 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .border-gray-200 {
+  border-color: var(--border-color) !important;
+}
+
+/* Gradientes para dark mode */
+.dark .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--bg-primary), var(--bg-secondary)) !important;
 }
 
 /* Animações customizadas melhoradas */

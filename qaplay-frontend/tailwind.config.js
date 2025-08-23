@@ -5,6 +5,24 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: 'class',
+  safelist: [
+    'dark',
+    'dark:bg-gray-900',
+    'dark:bg-gray-800',
+    'dark:bg-gray-700',
+    'dark:text-gray-100',
+    'dark:text-gray-300',
+    'dark:text-white',
+    'dark:border-gray-600',
+    'dark:border-gray-700',
+    'dark:hover:bg-gray-700',
+    'dark:hover:bg-gray-600',
+    'dark:text-indigo-400',
+    'dark:text-purple-400',
+    'dark:text-emerald-400',
+    'dark:border-indigo-400',
+    'dark:hover:bg-indigo-500',
+  ],
   theme: {
     extend: {
       fontFamily: {
