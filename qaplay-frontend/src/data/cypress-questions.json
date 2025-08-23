@@ -1,0 +1,228 @@
+[
+  {
+    "id": "cypress_bas_001",
+    "question": "O que é o Cypress?",
+    "options": [
+      "Uma linguagem de programação",
+      "Um framework de testes end-to-end para aplicações web",
+      "Um banco de dados",
+      "Um servidor web"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cypress é um framework de testes end-to-end moderno, rápido e confiável para aplicações web, que roda diretamente no navegador.",
+    "points": 10,
+    "category": "cypress",
+    "level": "básico"
+  },
+  {
+    "id": "cypress_bas_002",
+    "question": "Qual comando é usado para visitar uma página no Cypress?",
+    "options": [
+      "cy.goto()",
+      "cy.visit()",
+      "cy.navigate()",
+      "cy.open()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O comando cy.visit() é usado para navegar para uma URL específica no Cypress.",
+    "points": 10,
+    "category": "cypress",
+    "level": "básico"
+  },
+  {
+    "id": "cypress_bas_003",
+    "question": "Como selecionar um elemento por ID no Cypress?",
+    "options": [
+      "cy.get('#elemento')",
+      "cy.find('#elemento')",
+      "cy.select('#elemento')",
+      "cy.element('#elemento')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "cy.get('#elemento') é a forma correta de selecionar um elemento por ID no Cypress.",
+    "points": 10,
+    "category": "cypress",
+    "level": "básico"
+  },
+  {
+    "id": "cypress_bas_004",
+    "question": "Qual comando é usado para clicar em um elemento?",
+    "options": [
+      "cy.press()",
+      "cy.click()",
+      "cy.tap()",
+      "cy.select()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "cy.click() é o comando usado para simular um clique em um elemento no Cypress.",
+    "points": 10,
+    "category": "cypress",
+    "level": "básico"
+  },
+  {
+    "id": "cypress_bas_005",
+    "question": "Como digitar texto em um campo de entrada?",
+    "options": [
+      "cy.write('texto')",
+      "cy.input('texto')",
+      "cy.type('texto')",
+      "cy.enter('texto')"
+    ],
+    "correctAnswer": 2,
+    "explanation": "cy.type('texto') é usado para digitar texto em campos de entrada no Cypress.",
+    "points": 10,
+    "category": "cypress",
+    "level": "básico"
+  },
+  {
+    "id": "cypress_int_001",
+    "question": "Como aguardar que um elemento apareça na tela?",
+    "options": [
+      "cy.wait(elemento)",
+      "cy.should('be.visible')",
+      "cy.expect(elemento)",
+      "cy.timeout(elemento)"
+    ],
+    "correctAnswer": 1,
+    "explanation": "cy.should('be.visible') aguarda que um elemento se torne visível na tela.",
+    "points": 15,
+    "category": "cypress",
+    "level": "intermediário"
+  },
+  {
+    "id": "cypress_int_002",
+    "question": "Qual é a diferença entre cy.get() e cy.find()?",
+    "options": [
+      "Não há diferença",
+      "cy.get() busca em todo o DOM, cy.find() busca dentro do elemento selecionado",
+      "cy.get() é mais rápido",
+      "cy.find() é mais preciso"
+    ],
+    "correctAnswer": 1,
+    "explanation": "cy.get() busca elementos em todo o DOM, enquanto cy.find() busca apenas dentro do elemento previamente selecionado.",
+    "points": 15,
+    "category": "cypress",
+    "level": "intermediário"
+  },
+  {
+    "id": "cypress_int_003",
+    "question": "Como fazer uma asserção sobre o texto de um elemento?",
+    "options": [
+      "cy.should('contain', 'texto')",
+      "cy.assert('contain', 'texto')",
+      "cy.expect('contain', 'texto')",
+      "cy.verify('contain', 'texto')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "cy.should('contain', 'texto') é usado para verificar se um elemento contém determinado texto.",
+    "points": 15,
+    "category": "cypress",
+    "level": "intermediário"
+  },
+  {
+    "id": "cypress_int_004",
+    "question": "Como interceptar requisições HTTP no Cypress?",
+    "options": [
+      "cy.route()",
+      "cy.intercept()",
+      "cy.mock()",
+      "cy.stub()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "cy.intercept() é o comando moderno usado para interceptar e mockar requisições HTTP no Cypress.",
+    "points": 20,
+    "category": "cypress",
+    "level": "intermediário"
+  },
+  {
+    "id": "cypress_int_005",
+    "question": "Como executar código JavaScript customizado no Cypress?",
+    "options": [
+      "cy.exec()",
+      "cy.run()",
+      "cy.window().then()",
+      "cy.script()"
+    ],
+    "correctAnswer": 2,
+    "explanation": "cy.window().then() permite acessar o objeto window e executar código JavaScript customizado.",
+    "points": 20,
+    "category": "cypress",
+    "level": "intermediário"
+  },
+  {
+    "id": "cypress_av_001",
+    "question": "Como configurar variáveis de ambiente no Cypress?",
+    "options": [
+      "No arquivo cypress.json",
+      "No arquivo cypress.config.js",
+      "Usando Cypress.env()",
+      "Todas as alternativas estão corretas"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Variáveis de ambiente podem ser configuradas no arquivo de configuração, via linha de comando ou usando Cypress.env().",
+    "points": 25,
+    "category": "cypress",
+    "level": "avançado"
+  },
+  {
+    "id": "cypress_av_002",
+    "question": "O que são Custom Commands no Cypress?",
+    "options": [
+      "Comandos nativos do Cypress",
+      "Comandos personalizados criados pelo usuário",
+      "Comandos de terceiros",
+      "Comandos deprecados"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Custom Commands são comandos personalizados que podem ser criados para reutilizar lógica comum nos testes.",
+    "points": 25,
+    "category": "cypress",
+    "level": "avançado"
+  },
+  {
+    "id": "cypress_av_003",
+    "question": "Como lidar com elementos que aparecem dinamicamente?",
+    "options": [
+      "Usar cy.wait() com tempo fixo",
+      "Usar cy.get() com timeout customizado",
+      "Usar cy.should() para aguardar condições",
+      "Alternativas B e C estão corretas"
+    ],
+    "correctAnswer": 3,
+    "explanation": "É recomendado usar cy.get() com timeout ou cy.should() para aguardar condições específicas, evitando waits fixos.",
+    "points": 25,
+    "category": "cypress",
+    "level": "avançado"
+  },
+  {
+    "id": "cypress_av_004",
+    "question": "Como executar testes em diferentes navegadores no Cypress?",
+    "options": [
+      "Configurando no cypress.config.js",
+      "Usando --browser na linha de comando",
+      "Através da interface gráfica",
+      "Todas as alternativas estão corretas"
+    ],
+    "correctAnswer": 3,
+    "explanation": "O Cypress permite executar testes em diferentes navegadores através de configuração, linha de comando ou interface gráfica.",
+    "points": 25,
+    "category": "cypress",
+    "level": "avançado"
+  },
+  {
+    "id": "cypress_av_005",
+    "question": "O que é o Cypress Dashboard?",
+    "options": [
+      "Interface local do Cypress",
+      "Serviço de nuvem para análise de testes",
+      "Plugin de terceiros",
+      "Ferramenta de debug"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cypress Dashboard é um serviço de nuvem que fornece análises, insights e paralelização para testes Cypress.",
+    "points": 30,
+    "category": "cypress",
+    "level": "avançado"
+  }
+]
+

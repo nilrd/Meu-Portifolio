@@ -1,0 +1,228 @@
+[
+  {
+    "id": "bdd_tdd_bas_001",
+    "question": "O que significa TDD?",
+    "options": [
+      "Test Driven Development",
+      "Technical Design Document",
+      "Test Data Development",
+      "Total Development Design"
+    ],
+    "correctAnswer": 0,
+    "explanation": "TDD significa Test Driven Development (Desenvolvimento Orientado por Testes), uma prática onde os testes são escritos antes do código de produção.",
+    "points": 10,
+    "category": "bdd-tdd",
+    "level": "básico"
+  },
+  {
+    "id": "bdd_tdd_bas_002",
+    "question": "Qual é o ciclo do TDD?",
+    "options": [
+      "Write-Test-Refactor",
+      "Red-Green-Refactor",
+      "Test-Code-Deploy",
+      "Plan-Code-Test"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O ciclo do TDD é Red-Green-Refactor: escrever um teste que falha (Red), fazer o teste passar (Green), refatorar o código (Refactor).",
+    "points": 15,
+    "category": "bdd-tdd",
+    "level": "básico"
+  },
+  {
+    "id": "bdd_tdd_bas_003",
+    "question": "O que significa BDD?",
+    "options": [
+      "Bug Driven Development",
+      "Behavior Driven Development",
+      "Business Development Design",
+      "Backend Development Design"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BDD significa Behavior Driven Development (Desenvolvimento Orientado por Comportamento), focando no comportamento esperado do software.",
+    "points": 10,
+    "category": "bdd-tdd",
+    "level": "básico"
+  },
+  {
+    "id": "bdd_tdd_bas_004",
+    "question": "Qual linguagem é comumente usada no BDD?",
+    "options": [
+      "Java",
+      "Python",
+      "Gherkin",
+      "JavaScript"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Gherkin é a linguagem de domínio específico usada no BDD para escrever cenários em linguagem natural.",
+    "points": 10,
+    "category": "bdd-tdd",
+    "level": "básico"
+  },
+  {
+    "id": "bdd_tdd_bas_005",
+    "question": "Qual é a estrutura básica de um cenário BDD?",
+    "options": [
+      "Setup-Execute-Verify",
+      "Given-When-Then",
+      "Arrange-Act-Assert",
+      "Input-Process-Output"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BDD usa a estrutura Given-When-Then: Given (contexto), When (ação), Then (resultado esperado).",
+    "points": 15,
+    "category": "bdd-tdd",
+    "level": "básico"
+  },
+  {
+    "id": "bdd_tdd_int_001",
+    "question": "Qual é a principal diferença entre TDD e BDD?",
+    "options": [
+      "TDD foca em testes técnicos, BDD foca no comportamento do usuário",
+      "TDD é mais rápido",
+      "BDD é apenas para testes manuais",
+      "Não há diferença"
+    ],
+    "correctAnswer": 0,
+    "explanation": "TDD foca em testes técnicos e estrutura do código, enquanto BDD foca no comportamento esperado do software do ponto de vista do usuário.",
+    "points": 20,
+    "category": "bdd-tdd",
+    "level": "intermediário"
+  },
+  {
+    "id": "bdd_tdd_int_002",
+    "question": "O que é um Step Definition no BDD?",
+    "options": [
+      "Uma definição de teste",
+      "Código que implementa os passos escritos em Gherkin",
+      "Uma ferramenta de BDD",
+      "Um tipo de cenário"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Step Definition é o código que implementa os passos (Given, When, Then) escritos em Gherkin, conectando a especificação ao código de teste.",
+    "points": 20,
+    "category": "bdd-tdd",
+    "level": "intermediário"
+  },
+  {
+    "id": "bdd_tdd_int_003",
+    "question": "O que é refatoração no contexto do TDD?",
+    "options": [
+      "Reescrever todo o código",
+      "Melhorar a estrutura do código sem alterar seu comportamento",
+      "Adicionar novos testes",
+      "Corrigir bugs"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Refatoração é o processo de melhorar a estrutura interna do código sem alterar seu comportamento externo, mantendo os testes passando.",
+    "points": 20,
+    "category": "bdd-tdd",
+    "level": "intermediário"
+  },
+  {
+    "id": "bdd_tdd_int_004",
+    "question": "Qual ferramenta é popular para BDD em Java?",
+    "options": [
+      "JUnit",
+      "Cucumber",
+      "TestNG",
+      "Mockito"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Cucumber é uma das ferramentas mais populares para implementar BDD em Java, permitindo executar especificações escritas em Gherkin.",
+    "points": 15,
+    "category": "bdd-tdd",
+    "level": "intermediário"
+  },
+  {
+    "id": "bdd_tdd_int_005",
+    "question": "O que é ATDD (Acceptance Test Driven Development)?",
+    "options": [
+      "Um tipo de TDD",
+      "Desenvolvimento orientado por testes de aceitação",
+      "Uma ferramenta de teste",
+      "Um framework"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ATDD é uma prática onde testes de aceitação são escritos antes do desenvolvimento, focando nos critérios de aceitação do cliente.",
+    "points": 20,
+    "category": "bdd-tdd",
+    "level": "intermediário"
+  },
+  {
+    "id": "bdd_tdd_av_001",
+    "question": "Como o TDD impacta o design do código?",
+    "options": [
+      "Não impacta",
+      "Promove código mais modular, testável e com baixo acoplamento",
+      "Torna o código mais complexo",
+      "Apenas melhora a performance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TDD naturalmente promove melhor design de código, resultando em código mais modular, testável e com baixo acoplamento.",
+    "points": 25,
+    "category": "bdd-tdd",
+    "level": "avançado"
+  },
+  {
+    "id": "bdd_tdd_av_002",
+    "question": "O que é Outside-In TDD?",
+    "options": [
+      "TDD feito ao ar livre",
+      "Começar com testes de aceitação e trabalhar para dentro",
+      "TDD apenas para interfaces externas",
+      "Uma variação do BDD"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Outside-In TDD começa com testes de aceitação (outside) e trabalha para dentro, criando testes unitários conforme necessário.",
+    "points": 25,
+    "category": "bdd-tdd",
+    "level": "avançado"
+  },
+  {
+    "id": "bdd_tdd_av_003",
+    "question": "Como lidar com dependências externas no TDD?",
+    "options": [
+      "Ignorar as dependências",
+      "Usar mocks, stubs e test doubles",
+      "Sempre usar dependências reais",
+      "Evitar dependências"
+    ],
+    "correctAnswer": 1,
+    "explanation": "No TDD, dependências externas são isoladas usando mocks, stubs e test doubles para manter os testes rápidos e determinísticos.",
+    "points": 25,
+    "category": "bdd-tdd",
+    "level": "avançado"
+  },
+  {
+    "id": "bdd_tdd_av_004",
+    "question": "O que é Living Documentation no BDD?",
+    "options": [
+      "Documentação que muda constantemente",
+      "Especificações executáveis que servem como documentação sempre atualizada",
+      "Documentação online",
+      "Documentação automática"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Living Documentation são especificações executáveis que servem como documentação sempre atualizada, pois são validadas a cada execução dos testes.",
+    "points": 30,
+    "category": "bdd-tdd",
+    "level": "avançado"
+  },
+  {
+    "id": "bdd_tdd_av_005",
+    "question": "Como integrar BDD com CI/CD?",
+    "options": [
+      "Não é possível integrar",
+      "Executar cenários BDD como parte do pipeline automatizado",
+      "BDD é apenas para desenvolvimento local",
+      "Usar apenas em ambiente de produção"
+    ],
+    "correctAnswer": 1,
+    "explanation": "BDD se integra perfeitamente com CI/CD executando cenários automaticamente no pipeline, fornecendo feedback contínuo sobre o comportamento do sistema.",
+    "points": 30,
+    "category": "bdd-tdd",
+    "level": "avançado"
+  }
+]
+

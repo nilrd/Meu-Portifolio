@@ -21,6 +21,7 @@ import {
 // Importar as novas páginas
 import HomePage from './pages/HomePage';
 import QAPlayTrainingPage from './pages/QAPlayTrainingPage';
+import QuizCategoryPage from './pages/QuizCategoryPage';
 import QuizPage from './pages/QuizPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
@@ -65,9 +66,34 @@ const Header = ({ isDark, setIsDark }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Fechar menu ao rolar a página
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMenuOpen]);
+
+  // Fechar menu ao clicar fora
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isMenuOpen && !event.target.closest('header')) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
+
   const menuItems = [
     { path: '/', label: 'Home', icon: HomeIcon },
     { path: '/training', label: 'QA Play Training', icon: BookOpen },
+    { path: '/categorias', label: 'Quiz por Categoria', icon: Target },
     { path: '/blog', label: 'Blog', icon: FileText },
     { path: '/sobre', label: 'Sobre Mim', icon: User },
   ];
@@ -200,6 +226,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Home</Link></li>
               <li><Link to="/training" className="text-gray-400 hover:text-white transition-colors">QA Play Training</Link></li>
+              <li><Link to="/categorias" className="text-gray-400 hover:text-white transition-colors">Quiz por Categoria</Link></li>
               <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
               <li><Link to="/sobre" className="text-gray-400 hover:text-white transition-colors">Sobre Mim</Link></li>
 
@@ -279,6 +306,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/training" element={<QAPlayTrainingPage />} />
+            <Route path="/categorias" element={<QuizCategoryPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/sobre" element={<AboutPage />} />

@@ -1,0 +1,228 @@
+[
+  {
+    "id": "selenium_bas_001",
+    "question": "O que é o Selenium WebDriver?",
+    "options": [
+      "Um navegador web",
+      "Uma ferramenta para automação de testes web",
+      "Um banco de dados",
+      "Um servidor de aplicação"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Selenium WebDriver é uma ferramenta de automação que permite controlar navegadores web programaticamente para testes automatizados.",
+    "points": 10,
+    "category": "selenium",
+    "level": "básico"
+  },
+  {
+    "id": "selenium_bas_002",
+    "question": "Quais navegadores o Selenium WebDriver suporta?",
+    "options": [
+      "Apenas Chrome",
+      "Chrome, Firefox, Safari, Edge e outros",
+      "Apenas Firefox",
+      "Apenas Internet Explorer"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Selenium WebDriver suporta múltiplos navegadores incluindo Chrome, Firefox, Safari, Edge, Internet Explorer e outros.",
+    "points": 10,
+    "category": "selenium",
+    "level": "básico"
+  },
+  {
+    "id": "selenium_bas_003",
+    "question": "Como localizar um elemento por ID no Selenium?",
+    "options": [
+      "driver.find_element(By.ID, 'elemento')",
+      "driver.get_element_by_id('elemento')",
+      "driver.locate_by_id('elemento')",
+      "driver.select_by_id('elemento')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "driver.find_element(By.ID, 'elemento') é a forma moderna de localizar elementos por ID no Selenium 4+.",
+    "points": 10,
+    "category": "selenium",
+    "level": "básico"
+  },
+  {
+    "id": "selenium_bas_004",
+    "question": "Quais são os principais localizadores (locators) no Selenium?",
+    "options": [
+      "ID, Name, Class apenas",
+      "ID, Name, Class, XPath, CSS Selector, Tag Name, Link Text, Partial Link Text",
+      "Apenas XPath e CSS",
+      "Apenas ID e Class"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Selenium oferece 8 localizadores principais: ID, Name, Class Name, XPath, CSS Selector, Tag Name, Link Text e Partial Link Text.",
+    "points": 15,
+    "category": "selenium",
+    "level": "básico"
+  },
+  {
+    "id": "selenium_bas_005",
+    "question": "Como clicar em um elemento no Selenium?",
+    "options": [
+      "element.click()",
+      "element.press()",
+      "element.tap()",
+      "element.select()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "element.click() é o método usado para simular um clique em um elemento no Selenium WebDriver.",
+    "points": 10,
+    "category": "selenium",
+    "level": "básico"
+  },
+  {
+    "id": "selenium_int_001",
+    "question": "Qual é a diferença entre implicit wait e explicit wait?",
+    "options": [
+      "Não há diferença",
+      "Implicit wait é global, explicit wait é específico para elementos",
+      "Implicit wait é mais rápido",
+      "Explicit wait é deprecado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Implicit wait define um tempo de espera global para todos os elementos, enquanto explicit wait é específico para condições particulares.",
+    "points": 20,
+    "category": "selenium",
+    "level": "intermediário"
+  },
+  {
+    "id": "selenium_int_002",
+    "question": "Como lidar com janelas pop-up (alerts) no Selenium?",
+    "options": [
+      "driver.switch_to.alert",
+      "driver.handle_alert()",
+      "driver.popup()",
+      "driver.alert_manager()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "driver.switch_to.alert permite acessar e interagir com alertas JavaScript no Selenium.",
+    "points": 20,
+    "category": "selenium",
+    "level": "intermediário"
+  },
+  {
+    "id": "selenium_int_003",
+    "question": "Como alternar entre frames/iframes no Selenium?",
+    "options": [
+      "driver.switch_to.frame()",
+      "driver.change_frame()",
+      "driver.enter_frame()",
+      "driver.select_frame()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "driver.switch_to.frame() é usado para alternar o contexto para um frame ou iframe específico.",
+    "points": 20,
+    "category": "selenium",
+    "level": "intermediário"
+  },
+  {
+    "id": "selenium_int_004",
+    "question": "Como executar JavaScript no Selenium?",
+    "options": [
+      "driver.execute_script()",
+      "driver.run_javascript()",
+      "driver.eval_js()",
+      "driver.javascript()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "driver.execute_script() permite executar código JavaScript arbitrário no contexto da página atual.",
+    "points": 20,
+    "category": "selenium",
+    "level": "intermediário"
+  },
+  {
+    "id": "selenium_int_005",
+    "question": "Como lidar com múltiplas janelas/abas no Selenium?",
+    "options": [
+      "driver.switch_to.window()",
+      "driver.change_window()",
+      "driver.select_tab()",
+      "driver.window_manager()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "driver.switch_to.window() é usado para alternar entre diferentes janelas ou abas do navegador.",
+    "points": 20,
+    "category": "selenium",
+    "level": "intermediário"
+  },
+  {
+    "id": "selenium_av_001",
+    "question": "O que é o Selenium Grid?",
+    "options": [
+      "Uma interface gráfica",
+      "Um sistema para execução distribuída de testes em múltiplas máquinas",
+      "Um tipo de localizador",
+      "Uma versão do Selenium"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Selenium Grid permite executar testes em paralelo em múltiplas máquinas e navegadores simultaneamente.",
+    "points": 25,
+    "category": "selenium",
+    "level": "avançado"
+  },
+  {
+    "id": "selenium_av_002",
+    "question": "Como configurar capabilities no Selenium?",
+    "options": [
+      "Usando DesiredCapabilities ou Options",
+      "Configurando no navegador",
+      "Usando variáveis de ambiente apenas",
+      "Não é possível configurar"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Capabilities são configuradas usando DesiredCapabilities (legado) ou classes Options específicas do navegador.",
+    "points": 25,
+    "category": "selenium",
+    "level": "avançado"
+  },
+  {
+    "id": "selenium_av_003",
+    "question": "O que é o padrão Page Object Model (POM)?",
+    "options": [
+      "Um tipo de localizador",
+      "Um padrão de design que encapsula elementos e ações de uma página",
+      "Uma ferramenta de teste",
+      "Um tipo de wait"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Page Object Model é um padrão que cria classes representando páginas web, encapsulando elementos e ações para melhor manutenibilidade.",
+    "points": 25,
+    "category": "selenium",
+    "level": "avançado"
+  },
+  {
+    "id": "selenium_av_004",
+    "question": "Como implementar testes headless no Selenium?",
+    "options": [
+      "Configurando --headless nas options do navegador",
+      "Usando driver.headless()",
+      "Configurando no sistema operacional",
+      "Não é possível executar headless"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Testes headless são configurados adicionando --headless nas options do navegador antes de inicializar o driver.",
+    "points": 25,
+    "category": "selenium",
+    "level": "avançado"
+  },
+  {
+    "id": "selenium_av_005",
+    "question": "Como otimizar a performance dos testes Selenium?",
+    "options": [
+      "Usar waits apropriados e executar em paralelo",
+      "Usar apenas implicit waits",
+      "Executar sempre em modo visual",
+      "Usar Thread.sleep() sempre"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Performance é otimizada usando waits apropriados (evitando Thread.sleep), execução paralela, modo headless e reutilização de sessões quando possível.",
+    "points": 30,
+    "category": "selenium",
+    "level": "avançado"
+  }
+]
+

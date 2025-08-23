@@ -1,0 +1,228 @@
+[
+  {
+    "id": "perf_bas_001",
+    "question": "O que é teste de performance?",
+    "options": [
+      "Teste de funcionalidades",
+      "Teste que avalia velocidade, estabilidade e escalabilidade do sistema",
+      "Teste de interface",
+      "Teste de segurança"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Teste de performance avalia como o sistema se comporta em termos de velocidade, estabilidade e escalabilidade sob diferentes cargas de trabalho.",
+    "points": 10,
+    "category": "performance",
+    "level": "básico"
+  },
+  {
+    "id": "perf_bas_002",
+    "question": "Qual é a diferença entre Load Testing e Stress Testing?",
+    "options": [
+      "Não há diferença",
+      "Load Testing testa carga normal, Stress Testing testa além da capacidade",
+      "Load Testing é mais rápido",
+      "Stress Testing é apenas para hardware"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Load Testing verifica o comportamento sob carga normal esperada, enquanto Stress Testing testa o sistema além de sua capacidade normal.",
+    "points": 15,
+    "category": "performance",
+    "level": "básico"
+  },
+  {
+    "id": "perf_bas_003",
+    "question": "O que é throughput em testes de performance?",
+    "options": [
+      "Tempo de resposta",
+      "Número de transações processadas por unidade de tempo",
+      "Número de usuários",
+      "Tamanho dos dados"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Throughput é a quantidade de transações ou requisições que o sistema consegue processar por unidade de tempo.",
+    "points": 10,
+    "category": "performance",
+    "level": "básico"
+  },
+  {
+    "id": "perf_bas_004",
+    "question": "O que é latência?",
+    "options": [
+      "Número de usuários simultâneos",
+      "Tempo que uma requisição leva para ser processada",
+      "Capacidade de armazenamento",
+      "Velocidade da rede"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Latência é o tempo decorrido entre o envio de uma requisição e o recebimento da resposta.",
+    "points": 10,
+    "category": "performance",
+    "level": "básico"
+  },
+  {
+    "id": "perf_bas_005",
+    "question": "Qual ferramenta é popular para testes de performance web?",
+    "options": [
+      "Selenium",
+      "JMeter",
+      "Postman",
+      "Git"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Apache JMeter é uma das ferramentas mais populares para testes de performance de aplicações web.",
+    "points": 10,
+    "category": "performance",
+    "level": "básico"
+  },
+  {
+    "id": "perf_int_001",
+    "question": "O que é Volume Testing?",
+    "options": [
+      "Teste de som",
+      "Teste com grandes quantidades de dados",
+      "Teste de capacidade de disco",
+      "Teste de backup"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Volume Testing verifica como o sistema se comporta quando processando grandes quantidades de dados.",
+    "points": 20,
+    "category": "performance",
+    "level": "intermediário"
+  },
+  {
+    "id": "perf_int_002",
+    "question": "O que é Spike Testing?",
+    "options": [
+      "Teste com picos súbitos de carga",
+      "Teste de segurança",
+      "Teste de rede",
+      "Teste de hardware"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Spike Testing verifica como o sistema reage a aumentos súbitos e dramáticos na carga de trabalho.",
+    "points": 20,
+    "category": "performance",
+    "level": "intermediário"
+  },
+  {
+    "id": "perf_int_003",
+    "question": "O que são percentis em análise de performance?",
+    "options": [
+      "Porcentagem de erros",
+      "Medida estatística que indica o valor abaixo do qual uma porcentagem de observações cai",
+      "Porcentagem de usuários",
+      "Porcentagem de CPU"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Percentis (como P95, P99) indicam que X% das requisições foram processadas em tempo menor ou igual ao valor especificado.",
+    "points": 20,
+    "category": "performance",
+    "level": "intermediário"
+  },
+  {
+    "id": "perf_int_004",
+    "question": "O que é ramp-up em testes de carga?",
+    "options": [
+      "Aumento gradual do número de usuários virtuais",
+      "Aumento da velocidade de rede",
+      "Aumento do hardware",
+      "Aumento dos dados de teste"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Ramp-up é o período durante o qual o número de usuários virtuais é aumentado gradualmente até atingir a carga desejada.",
+    "points": 15,
+    "category": "performance",
+    "level": "intermediário"
+  },
+  {
+    "id": "perf_int_005",
+    "question": "O que é baseline em testes de performance?",
+    "options": [
+      "Linha de base para comparação de resultados",
+      "Configuração mínima do sistema",
+      "Primeiro teste executado",
+      "Teste mais importante"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Baseline é um conjunto de métricas de performance estabelecido como referência para comparações futuras.",
+    "points": 15,
+    "category": "performance",
+    "level": "intermediário"
+  },
+  {
+    "id": "perf_av_001",
+    "question": "O que é APM (Application Performance Monitoring)?",
+    "options": [
+      "Monitoramento contínuo da performance de aplicações em produção",
+      "Teste de aplicações móveis",
+      "Análise de código",
+      "Auditoria de performance"
+    ],
+    "correctAnswer": 0,
+    "explanation": "APM é o monitoramento contínuo e análise da performance de aplicações em tempo real em ambiente de produção.",
+    "points": 25,
+    "category": "performance",
+    "level": "avançado"
+  },
+  {
+    "id": "perf_av_002",
+    "question": "O que é distributed tracing?",
+    "options": [
+      "Rastreamento de requisições através de múltiplos serviços",
+      "Teste distribuído",
+      "Backup distribuído",
+      "Cache distribuído"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Distributed tracing rastreia requisições conforme elas fluem através de múltiplos serviços em arquiteturas distribuídas.",
+    "points": 30,
+    "category": "performance",
+    "level": "avançado"
+  },
+  {
+    "id": "perf_av_003",
+    "question": "O que é chaos engineering aplicado a performance?",
+    "options": [
+      "Introduzir falhas aleatórias para testar resiliência de performance",
+      "Teste desorganizado",
+      "Teste sem planejamento",
+      "Teste de destruição"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Chaos engineering em performance introduz falhas controladas para verificar como o sistema mantém performance sob condições adversas.",
+    "points": 30,
+    "category": "performance",
+    "level": "avançado"
+  },
+  {
+    "id": "perf_av_004",
+    "question": "Como implementar shift-left em testes de performance?",
+    "options": [
+      "Executar testes de performance desde as fases iniciais do desenvolvimento",
+      "Mover testes para a esquerda da tela",
+      "Testar apenas no final",
+      "Usar apenas ferramentas open source"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Shift-left em performance significa integrar testes de performance desde as fases iniciais, incluindo no pipeline de CI/CD.",
+    "points": 25,
+    "category": "performance",
+    "level": "avançado"
+  },
+  {
+    "id": "perf_av_005",
+    "question": "O que é synthetic monitoring?",
+    "options": [
+      "Monitoramento artificial",
+      "Simulação automatizada de interações de usuário para monitorar performance",
+      "Monitoramento sintético de dados",
+      "Monitoramento falso"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Synthetic monitoring usa scripts automatizados para simular interações de usuário e monitorar performance continuamente.",
+    "points": 25,
+    "category": "performance",
+    "level": "avançado"
+  }
+]
+

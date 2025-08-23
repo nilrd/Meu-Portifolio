@@ -34,7 +34,7 @@ const AboutPage = () => {
               <img 
                 src="/images/NilsonBrites1.jpg" 
                 alt="Nilson da Silva Brites" 
-                className="w-64 h-64 rounded-2xl object-cover shadow-lg border-4 border-blue-400 dark:border-blue-600"
+                className="w-64 h-64 lg:rounded-2xl rounded-full object-cover shadow-lg border-4 border-blue-400 dark:border-blue-600 mx-auto lg:mx-0"
               />
             </div>
             <div className="flex-grow text-center lg:text-left">

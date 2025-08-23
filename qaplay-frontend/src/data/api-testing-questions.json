@@ -1,0 +1,228 @@
+[
+  {
+    "id": "api_bas_001",
+    "question": "O que é uma API?",
+    "options": [
+      "Application Programming Interface",
+      "Automated Programming Integration",
+      "Advanced Programming Implementation",
+      "Application Process Integration"
+    ],
+    "correctAnswer": 0,
+    "explanation": "API significa Application Programming Interface, um conjunto de definições e protocolos para integração entre aplicações.",
+    "points": 10,
+    "category": "api-testing",
+    "level": "básico"
+  },
+  {
+    "id": "api_bas_002",
+    "question": "Qual é o protocolo mais comum para APIs web?",
+    "options": [
+      "FTP",
+      "HTTP/HTTPS",
+      "SMTP",
+      "TCP"
+    ],
+    "correctAnswer": 1,
+    "explanation": "HTTP/HTTPS é o protocolo mais comum para APIs web, especialmente APIs REST.",
+    "points": 10,
+    "category": "api-testing",
+    "level": "básico"
+  },
+  {
+    "id": "api_bas_003",
+    "question": "Quais são os principais métodos HTTP?",
+    "options": [
+      "GET, POST, PUT, DELETE",
+      "READ, WRITE, UPDATE, REMOVE",
+      "SELECT, INSERT, UPDATE, DELETE",
+      "FETCH, SEND, MODIFY, ERASE"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Os principais métodos HTTP são GET (buscar), POST (criar), PUT (atualizar), DELETE (remover), entre outros.",
+    "points": 10,
+    "category": "api-testing",
+    "level": "básico"
+  },
+  {
+    "id": "api_bas_004",
+    "question": "O que é JSON?",
+    "options": [
+      "Java Script Object Notation",
+      "JavaScript Object Notation",
+      "Java Structured Object Network",
+      "JavaScript Organized Network"
+    ],
+    "correctAnswer": 1,
+    "explanation": "JSON (JavaScript Object Notation) é um formato leve de intercâmbio de dados, fácil de ler e escrever.",
+    "points": 10,
+    "category": "api-testing",
+    "level": "básico"
+  },
+  {
+    "id": "api_bas_005",
+    "question": "Qual ferramenta é popular para testar APIs manualmente?",
+    "options": [
+      "Selenium",
+      "Postman",
+      "JUnit",
+      "Git"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Postman é uma das ferramentas mais populares para testar APIs manualmente e automaticamente.",
+    "points": 10,
+    "category": "api-testing",
+    "level": "básico"
+  },
+  {
+    "id": "api_int_001",
+    "question": "O que é REST?",
+    "options": [
+      "Representational State Transfer",
+      "Remote State Transfer",
+      "Relational State Transfer",
+      "Responsive State Transfer"
+    ],
+    "correctAnswer": 0,
+    "explanation": "REST (Representational State Transfer) é um estilo arquitetural para sistemas distribuídos, especialmente web services.",
+    "points": 15,
+    "category": "api-testing",
+    "level": "intermediário"
+  },
+  {
+    "id": "api_int_002",
+    "question": "O que são status codes HTTP?",
+    "options": [
+      "Códigos de erro apenas",
+      "Códigos que indicam o resultado de uma requisição HTTP",
+      "Códigos de segurança",
+      "Códigos de performance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Status codes HTTP indicam o resultado de uma requisição: 2xx (sucesso), 4xx (erro do cliente), 5xx (erro do servidor), etc.",
+    "points": 15,
+    "category": "api-testing",
+    "level": "intermediário"
+  },
+  {
+    "id": "api_int_003",
+    "question": "O que é contract testing para APIs?",
+    "options": [
+      "Teste de contratos legais",
+      "Verificar se a API atende ao contrato definido entre consumidor e provedor",
+      "Teste de performance",
+      "Teste de segurança"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Contract testing verifica se a API atende ao contrato (schema, comportamento) acordado entre o provedor e o consumidor.",
+    "points": 20,
+    "category": "api-testing",
+    "level": "intermediário"
+  },
+  {
+    "id": "api_int_004",
+    "question": "O que é mocking em testes de API?",
+    "options": [
+      "Simular comportamento de APIs para testes isolados",
+      "Zombar das APIs",
+      "Testar APIs falsas",
+      "Copiar APIs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Mocking simula o comportamento de APIs externas, permitindo testes isolados e determinísticos.",
+    "points": 20,
+    "category": "api-testing",
+    "level": "intermediário"
+  },
+  {
+    "id": "api_int_005",
+    "question": "O que é GraphQL?",
+    "options": [
+      "Um banco de dados",
+      "Uma linguagem de consulta para APIs",
+      "Uma ferramenta de teste",
+      "Um protocolo de rede"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GraphQL é uma linguagem de consulta para APIs que permite aos clientes solicitar exatamente os dados que precisam.",
+    "points": 20,
+    "category": "api-testing",
+    "level": "intermediário"
+  },
+  {
+    "id": "api_av_001",
+    "question": "Como implementar versionamento de APIs?",
+    "options": [
+      "URL versioning, Header versioning, ou Parameter versioning",
+      "Apenas através de URLs",
+      "Apenas através de headers",
+      "Versionamento não é necessário"
+    ],
+    "correctAnswer": 0,
+    "explanation": "APIs podem ser versionadas através de URLs (/v1/users), headers (Accept-Version), ou parâmetros de consulta.",
+    "points": 25,
+    "category": "api-testing",
+    "level": "avançado"
+  },
+  {
+    "id": "api_av_002",
+    "question": "O que é rate limiting em APIs?",
+    "options": [
+      "Limitação de velocidade de rede",
+      "Controle do número de requisições por período de tempo",
+      "Limitação de dados",
+      "Limitação de usuários"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Rate limiting controla quantas requisições um cliente pode fazer em um período específico, prevenindo abuso.",
+    "points": 25,
+    "category": "api-testing",
+    "level": "avançado"
+  },
+  {
+    "id": "api_av_003",
+    "question": "O que é HATEOAS?",
+    "options": [
+      "Hypermedia as the Engine of Application State",
+      "HTTP Application Transfer Engine",
+      "Hypertext Application State Engine",
+      "HTTP Automated Transfer System"
+    ],
+    "correctAnswer": 0,
+    "explanation": "HATEOAS é um princípio REST onde a API fornece links para ações possíveis, tornando-a autodescritiva.",
+    "points": 30,
+    "category": "api-testing",
+    "level": "avançado"
+  },
+  {
+    "id": "api_av_004",
+    "question": "Como implementar autenticação JWT em APIs?",
+    "options": [
+      "JSON Web Token no header Authorization: Bearer <token>",
+      "Apenas através de cookies",
+      "Apenas através de sessões",
+      "JWT não é usado em APIs"
+    ],
+    "correctAnswer": 0,
+    "explanation": "JWT é tipicamente enviado no header Authorization com o prefixo 'Bearer', fornecendo autenticação stateless.",
+    "points": 25,
+    "category": "api-testing",
+    "level": "avançado"
+  },
+  {
+    "id": "api_av_005",
+    "question": "O que é API Gateway?",
+    "options": [
+      "Um tipo de API",
+      "Ponto de entrada único que gerencia, roteia e protege APIs",
+      "Uma ferramenta de teste",
+      "Um protocolo de comunicação"
+    ],
+    "correctAnswer": 1,
+    "explanation": "API Gateway é um serviço que atua como ponto de entrada único, gerenciando roteamento, autenticação, rate limiting e outras funcionalidades.",
+    "points": 30,
+    "category": "api-testing",
+    "level": "avançado"
+  }
+]
+

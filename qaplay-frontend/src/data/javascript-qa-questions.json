@@ -1,0 +1,228 @@
+[
+  {
+    "id": "js_qa_bas_001",
+    "question": "Qual framework de testes é mais popular para JavaScript?",
+    "options": [
+      "JUnit",
+      "Jest",
+      "NUnit",
+      "PyTest"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Jest é um dos frameworks de testes mais populares para JavaScript, desenvolvido pelo Facebook e amplamente usado em projetos React.",
+    "points": 10,
+    "category": "javascript-qa",
+    "level": "básico"
+  },
+  {
+    "id": "js_qa_bas_002",
+    "question": "Como escrever um teste básico no Jest?",
+    "options": [
+      "test('descrição', () => { expect().toBe() })",
+      "it('descrição', () => { assert().equals() })",
+      "describe('descrição', () => { verify() })",
+      "spec('descrição', () => { should() })"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Jest usa test() ou it() para definir testes e expect().toBe() para asserções.",
+    "points": 10,
+    "category": "javascript-qa",
+    "level": "básico"
+  },
+  {
+    "id": "js_qa_bas_003",
+    "question": "Qual é a diferença entre toBe() e toEqual() no Jest?",
+    "options": [
+      "Não há diferença",
+      "toBe() usa === (igualdade estrita), toEqual() compara valores profundamente",
+      "toBe() é mais rápido",
+      "toEqual() é deprecado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "toBe() usa Object.is() (similar a ===) para comparação exata, enquanto toEqual() faz comparação profunda de valores.",
+    "points": 15,
+    "category": "javascript-qa",
+    "level": "básico"
+  },
+  {
+    "id": "js_qa_bas_004",
+    "question": "Como mockar uma função no Jest?",
+    "options": [
+      "jest.mock()",
+      "jest.fn()",
+      "jest.spyOn()",
+      "Todas as alternativas estão corretas"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Jest oferece várias formas de mockar: jest.fn() para funções mock, jest.mock() para módulos e jest.spyOn() para espionar métodos.",
+    "points": 15,
+    "category": "javascript-qa",
+    "level": "básico"
+  },
+  {
+    "id": "js_qa_bas_005",
+    "question": "O que é o Playwright?",
+    "options": [
+      "Uma biblioteca de animações",
+      "Um framework de testes end-to-end para aplicações web",
+      "Um bundler de JavaScript",
+      "Um framework de backend"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Playwright é um framework moderno para automação de navegadores e testes end-to-end, desenvolvido pela Microsoft.",
+    "points": 10,
+    "category": "javascript-qa",
+    "level": "básico"
+  },
+  {
+    "id": "js_qa_int_001",
+    "question": "Como testar código assíncrono no Jest?",
+    "options": [
+      "Usando async/await ou retornando Promise",
+      "Usando setTimeout",
+      "Usando callbacks apenas",
+      "Não é possível testar código assíncrono"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Jest suporta testes assíncronos usando async/await, retornando Promises ou usando done() callback.",
+    "points": 20,
+    "category": "javascript-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "js_qa_int_002",
+    "question": "O que é Testing Library e qual sua filosofia?",
+    "options": [
+      "Uma biblioteca para testes de performance",
+      "Uma biblioteca que foca em testar como o usuário interage com a aplicação",
+      "Uma biblioteca para testes de API",
+      "Uma biblioteca para mocking"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Testing Library foca em testar aplicações da perspectiva do usuário, priorizando queries que refletem como usuários encontram elementos.",
+    "points": 20,
+    "category": "javascript-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "js_qa_int_003",
+    "question": "Como simular eventos de usuário com Testing Library?",
+    "options": [
+      "fireEvent.click()",
+      "userEvent.click()",
+      "Ambas as alternativas A e B",
+      "simulate.click()"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Testing Library oferece fireEvent para eventos simples e userEvent para simulações mais realistas de interações do usuário.",
+    "points": 20,
+    "category": "javascript-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "js_qa_int_004",
+    "question": "O que são snapshots no Jest?",
+    "options": [
+      "Capturas de tela dos testes",
+      "Representações serializadas de componentes para detectar mudanças",
+      "Backups dos testes",
+      "Métricas de performance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Snapshots são representações serializadas de componentes React ou outros objetos, usadas para detectar mudanças não intencionais.",
+    "points": 20,
+    "category": "javascript-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "js_qa_int_005",
+    "question": "Como configurar setup e teardown no Jest?",
+    "options": [
+      "beforeEach() e afterEach()",
+      "beforeAll() e afterAll()",
+      "setUp() e tearDown()",
+      "Alternativas A e B estão corretas"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Jest oferece beforeEach/afterEach para setup/teardown por teste e beforeAll/afterAll para setup/teardown por suite.",
+    "points": 15,
+    "category": "javascript-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "js_qa_av_001",
+    "question": "Como implementar testes de integração com supertest?",
+    "options": [
+      "request(app).get('/api').expect(200)",
+      "supertest.test('/api')",
+      "integration.test(app)",
+      "api.test('/endpoint')"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Supertest permite testar APIs HTTP usando request(app).get('/endpoint').expect(statusCode) para verificar respostas.",
+    "points": 25,
+    "category": "javascript-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "js_qa_av_002",
+    "question": "O que é Test-Driven Development (TDD) em JavaScript?",
+    "options": [
+      "Testar depois de desenvolver",
+      "Escrever testes antes do código de produção (Red-Green-Refactor)",
+      "Testar apenas funcionalidades críticas",
+      "Usar apenas testes automatizados"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TDD segue o ciclo Red-Green-Refactor: escrever teste que falha, fazer passar, refatorar.",
+    "points": 25,
+    "category": "javascript-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "js_qa_av_003",
+    "question": "Como configurar cobertura de código no Jest?",
+    "options": [
+      "jest --coverage",
+      "Configurando collectCoverage: true",
+      "Usando istanbul",
+      "Todas as alternativas estão corretas"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Jest tem cobertura integrada via --coverage, configuração collectCoverage ou usando istanbul por baixo dos panos.",
+    "points": 25,
+    "category": "javascript-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "js_qa_av_004",
+    "question": "O que é Visual Regression Testing?",
+    "options": [
+      "Testar performance visual",
+      "Comparar screenshots para detectar mudanças visuais",
+      "Testar acessibilidade",
+      "Testar animações"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Visual Regression Testing compara screenshots de diferentes versões da aplicação para detectar mudanças visuais não intencionais.",
+    "points": 30,
+    "category": "javascript-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "js_qa_av_005",
+    "question": "Como implementar testes E2E com Playwright?",
+    "options": [
+      "test('título', async ({ page }) => { await page.goto() })",
+      "playwright.test()",
+      "e2e.test()",
+      "browser.test()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Playwright usa test() com async function recebendo { page } como parâmetro para testes E2E.",
+    "points": 30,
+    "category": "javascript-qa",
+    "level": "avançado"
+  }
+]
+

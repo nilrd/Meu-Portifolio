@@ -1,0 +1,228 @@
+[
+  {
+    "id": "java_qa_bas_001",
+    "question": "Qual é a principal vantagem do Java para automação de testes?",
+    "options": [
+      "É uma linguagem interpretada",
+      "Tem tipagem dinâmica",
+      "É multiplataforma e tem forte ecossistema de ferramentas de teste",
+      "É mais rápido que outras linguagens"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Java é multiplataforma (write once, run anywhere) e possui um ecossistema robusto de ferramentas como JUnit, TestNG, Selenium WebDriver, etc.",
+    "points": 10,
+    "category": "java-qa",
+    "level": "básico"
+  },
+  {
+    "id": "java_qa_bas_002",
+    "question": "Qual anotação é usada para marcar um método de teste no JUnit 5?",
+    "options": [
+      "@TestMethod",
+      "@Test",
+      "@UnitTest",
+      "@TestCase"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A anotação @Test é usada no JUnit 5 para marcar métodos que devem ser executados como testes.",
+    "points": 10,
+    "category": "java-qa",
+    "level": "básico"
+  },
+  {
+    "id": "java_qa_bas_003",
+    "question": "Como criar uma asserção simples no JUnit para verificar igualdade?",
+    "options": [
+      "assertEquals(expected, actual)",
+      "assertThat(expected, actual)",
+      "assertEqual(expected, actual)",
+      "verify(expected, actual)"
+    ],
+    "correctAnswer": 0,
+    "explanation": "assertEquals(expected, actual) é o método padrão do JUnit para verificar se dois valores são iguais.",
+    "points": 10,
+    "category": "java-qa",
+    "level": "básico"
+  },
+  {
+    "id": "java_qa_bas_004",
+    "question": "Qual é a diferença entre @BeforeEach e @BeforeAll no JUnit 5?",
+    "options": [
+      "Não há diferença",
+      "@BeforeEach executa antes de cada teste, @BeforeAll executa uma vez antes de todos os testes",
+      "@BeforeEach é mais rápido",
+      "@BeforeAll é deprecado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "@BeforeEach executa antes de cada método de teste, enquanto @BeforeAll executa apenas uma vez antes de todos os testes da classe.",
+    "points": 15,
+    "category": "java-qa",
+    "level": "básico"
+  },
+  {
+    "id": "java_qa_bas_005",
+    "question": "Como instanciar um WebDriver para Chrome no Selenium?",
+    "options": [
+      "WebDriver driver = new ChromeDriver()",
+      "WebDriver driver = new WebDriver('chrome')",
+      "ChromeDriver driver = WebDriver.create()",
+      "WebDriver driver = Selenium.chrome()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "WebDriver driver = new ChromeDriver() é a forma correta de instanciar um driver do Chrome no Selenium WebDriver.",
+    "points": 10,
+    "category": "java-qa",
+    "level": "básico"
+  },
+  {
+    "id": "java_qa_int_001",
+    "question": "Como implementar o padrão Page Object Model em Java?",
+    "options": [
+      "Criando classes que representam páginas com elementos e métodos",
+      "Usando apenas métodos estáticos",
+      "Criando interfaces para cada página",
+      "Usando herança múltipla"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Page Object Model é implementado criando classes que representam páginas web, encapsulando elementos e ações da página.",
+    "points": 20,
+    "category": "java-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "java_qa_int_002",
+    "question": "Qual anotação do Selenium é usada para inicializar elementos da página?",
+    "options": [
+      "@FindElement",
+      "@FindBy",
+      "@WebElement",
+      "@PageElement"
+    ],
+    "correctAnswer": 1,
+    "explanation": "@FindBy é usado com PageFactory para inicializar elementos da página automaticamente.",
+    "points": 15,
+    "category": "java-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "java_qa_int_003",
+    "question": "Como implementar esperas explícitas no Selenium WebDriver?",
+    "options": [
+      "Thread.sleep()",
+      "WebDriverWait com ExpectedConditions",
+      "driver.wait()",
+      "Timeout.wait()"
+    ],
+    "correctAnswer": 1,
+    "explanation": "WebDriverWait com ExpectedConditions é a forma recomendada para implementar esperas explícitas no Selenium.",
+    "points": 20,
+    "category": "java-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "java_qa_int_004",
+    "question": "O que é TestNG e qual sua vantagem sobre JUnit?",
+    "options": [
+      "É igual ao JUnit",
+      "Framework de testes com recursos avançados como grupos, dependências e execução paralela",
+      "É apenas para testes de integração",
+      "É mais lento que JUnit"
+    ],
+    "correctAnswer": 1,
+    "explanation": "TestNG oferece recursos avançados como agrupamento de testes, dependências entre testes, execução paralela e relatórios mais ricos.",
+    "points": 20,
+    "category": "java-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "java_qa_int_005",
+    "question": "Como configurar um teste parametrizado no JUnit 5?",
+    "options": [
+      "Usando @ParameterizedTest com @ValueSource",
+      "Usando @TestParameters",
+      "Usando @DataProvider",
+      "Usando @Parameters"
+    ],
+    "correctAnswer": 0,
+    "explanation": "@ParameterizedTest junto com anotações como @ValueSource, @CsvSource, etc., permite criar testes parametrizados no JUnit 5.",
+    "points": 20,
+    "category": "java-qa",
+    "level": "intermediário"
+  },
+  {
+    "id": "java_qa_av_001",
+    "question": "Como implementar testes paralelos com TestNG?",
+    "options": [
+      "Configurando parallel='methods' no testng.xml",
+      "Usando @Parallel",
+      "Configurando thread-count",
+      "Alternativas A e C estão corretas"
+    ],
+    "correctAnswer": 3,
+    "explanation": "Testes paralelos no TestNG são configurados usando parallel='methods' ou 'classes' e thread-count no arquivo testng.xml.",
+    "points": 25,
+    "category": "java-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "java_qa_av_002",
+    "question": "O que é o padrão Builder para criação de objetos de teste?",
+    "options": [
+      "Um padrão para construir interfaces",
+      "Um padrão que permite criar objetos complexos passo a passo",
+      "Um padrão para herança",
+      "Um padrão para testes unitários"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O padrão Builder permite criar objetos complexos de forma fluente e flexível, muito útil para criar dados de teste.",
+    "points": 25,
+    "category": "java-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "java_qa_av_003",
+    "question": "Como implementar mocks com Mockito?",
+    "options": [
+      "Usando @Mock e when().thenReturn()",
+      "Usando @Spy apenas",
+      "Usando @InjectMocks apenas",
+      "Mockito não funciona com Java"
+    ],
+    "correctAnswer": 0,
+    "explanation": "Mockito usa @Mock para criar mocks e when().thenReturn() para definir comportamentos esperados.",
+    "points": 25,
+    "category": "java-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "java_qa_av_004",
+    "question": "Como configurar um WebDriver remoto para execução em grid?",
+    "options": [
+      "new RemoteWebDriver(hubURL, capabilities)",
+      "new GridWebDriver()",
+      "new SeleniumGrid()",
+      "new DistributedDriver()"
+    ],
+    "correctAnswer": 0,
+    "explanation": "RemoteWebDriver é usado para conectar a um Selenium Grid, passando a URL do hub e as capabilities desejadas.",
+    "points": 30,
+    "category": "java-qa",
+    "level": "avançado"
+  },
+  {
+    "id": "java_qa_av_005",
+    "question": "O que é o padrão Factory para WebDrivers?",
+    "options": [
+      "Um padrão para criar múltiplas instâncias",
+      "Um padrão que centraliza a criação de diferentes tipos de WebDriver",
+      "Um padrão para testes de performance",
+      "Um padrão deprecado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O padrão Factory centraliza a lógica de criação de diferentes tipos de WebDriver (Chrome, Firefox, etc.) em um local.",
+    "points": 30,
+    "category": "java-qa",
+    "level": "avançado"
+  }
+]
+

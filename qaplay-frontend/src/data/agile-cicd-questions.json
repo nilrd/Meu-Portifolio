@@ -1,0 +1,228 @@
+[
+  {
+    "id": "agile_bas_001",
+    "question": "O que significa CI/CD?",
+    "options": [
+      "Continuous Integration / Continuous Deployment",
+      "Code Integration / Code Deployment",
+      "Continuous Improvement / Continuous Development",
+      "Central Integration / Central Deployment"
+    ],
+    "correctAnswer": 0,
+    "explanation": "CI/CD significa Continuous Integration (Integração Contínua) e Continuous Deployment/Delivery (Entrega/Implantação Contínua).",
+    "points": 10,
+    "category": "agile-cicd",
+    "level": "básico"
+  },
+  {
+    "id": "agile_bas_002",
+    "question": "Qual é o principal objetivo da Integração Contínua?",
+    "options": [
+      "Fazer deploy em produção",
+      "Integrar código frequentemente e detectar problemas cedo",
+      "Escrever mais código",
+      "Reduzir o número de testes"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CI visa integrar mudanças de código frequentemente, executando testes automatizados para detectar problemas rapidamente.",
+    "points": 15,
+    "category": "agile-cicd",
+    "level": "básico"
+  },
+  {
+    "id": "agile_bas_003",
+    "question": "O que é um pipeline de CI/CD?",
+    "options": [
+      "Um tipo de teste",
+      "Uma sequência automatizada de etapas para build, teste e deploy",
+      "Uma ferramenta de versionamento",
+      "Um framework de desenvolvimento"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Pipeline de CI/CD é uma sequência automatizada de etapas que inclui build, testes, e deploy do código.",
+    "points": 15,
+    "category": "agile-cicd",
+    "level": "básico"
+  },
+  {
+    "id": "agile_bas_004",
+    "question": "Qual é a duração típica de uma Sprint no Scrum?",
+    "options": [
+      "1 semana",
+      "2-4 semanas",
+      "2 meses",
+      "6 meses"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Sprints no Scrum tipicamente duram de 2 a 4 semanas, sendo 2 semanas o mais comum.",
+    "points": 10,
+    "category": "agile-cicd",
+    "level": "básico"
+  },
+  {
+    "id": "agile_bas_005",
+    "question": "O que é Definition of Done (DoD)?",
+    "options": [
+      "Quando o código está escrito",
+      "Critérios que definem quando uma funcionalidade está completa",
+      "Quando os testes passam",
+      "Quando o deploy é feito"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Definition of Done é um conjunto de critérios que define quando uma funcionalidade ou user story está verdadeiramente completa.",
+    "points": 15,
+    "category": "agile-cicd",
+    "level": "básico"
+  },
+  {
+    "id": "agile_int_001",
+    "question": "O que é Blue-Green Deployment?",
+    "options": [
+      "Deploy usando cores diferentes",
+      "Estratégia que mantém dois ambientes idênticos para deploy sem downtime",
+      "Deploy apenas em ambiente de teste",
+      "Deploy manual"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Blue-Green Deployment mantém dois ambientes de produção idênticos, permitindo deploy sem downtime alternando entre eles.",
+    "points": 20,
+    "category": "agile-cicd",
+    "level": "intermediário"
+  },
+  {
+    "id": "agile_int_002",
+    "question": "O que é Canary Deployment?",
+    "options": [
+      "Deploy para todos os usuários",
+      "Deploy gradual para uma pequena porcentagem de usuários primeiro",
+      "Deploy apenas em horário comercial",
+      "Deploy usando pássaros"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Canary Deployment libera mudanças gradualmente para uma pequena porcentagem de usuários antes do rollout completo.",
+    "points": 20,
+    "category": "agile-cicd",
+    "level": "intermediário"
+  },
+  {
+    "id": "agile_int_003",
+    "question": "O que é Infrastructure as Code (IaC)?",
+    "options": [
+      "Código que roda na infraestrutura",
+      "Gerenciar infraestrutura através de código versionável",
+      "Infraestrutura física",
+      "Código compilado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "IaC é a prática de gerenciar e provisionar infraestrutura através de código, permitindo versionamento e automação.",
+    "points": 20,
+    "category": "agile-cicd",
+    "level": "intermediário"
+  },
+  {
+    "id": "agile_int_004",
+    "question": "O que é Retrospectiva no Scrum?",
+    "options": [
+      "Reunião para planejar a próxima sprint",
+      "Reunião para refletir sobre o processo e identificar melhorias",
+      "Reunião com stakeholders",
+      "Reunião de review do produto"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Retrospectiva é uma cerimônia do Scrum onde a equipe reflete sobre o processo e identifica melhorias para a próxima sprint.",
+    "points": 15,
+    "category": "agile-cicd",
+    "level": "intermediário"
+  },
+  {
+    "id": "agile_int_005",
+    "question": "O que são Feature Flags?",
+    "options": [
+      "Bandeiras de países",
+      "Mecanismo para ativar/desativar funcionalidades sem deploy",
+      "Marcadores de código",
+      "Flags de compilação"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Feature Flags permitem ativar ou desativar funcionalidades em tempo de execução sem necessidade de novo deploy.",
+    "points": 20,
+    "category": "agile-cicd",
+    "level": "intermediário"
+  },
+  {
+    "id": "agile_av_001",
+    "question": "O que é GitOps?",
+    "options": [
+      "Operações com Git apenas",
+      "Metodologia que usa Git como fonte única da verdade para deploy e operações",
+      "Ferramenta de versionamento",
+      "Tipo de pipeline"
+    ],
+    "correctAnswer": 1,
+    "explanation": "GitOps é uma metodologia que usa Git como fonte única da verdade para configuração e deploy de aplicações e infraestrutura.",
+    "points": 25,
+    "category": "agile-cicd",
+    "level": "avançado"
+  },
+  {
+    "id": "agile_av_002",
+    "question": "O que é Shift-Left em DevOps?",
+    "options": [
+      "Mover para a esquerda fisicamente",
+      "Mover atividades de qualidade e segurança para fases anteriores do desenvolvimento",
+      "Usar apenas ferramentas open source",
+      "Trabalhar apenas pela manhã"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Shift-Left significa mover atividades de teste, qualidade e segurança para fases mais iniciais do ciclo de desenvolvimento.",
+    "points": 25,
+    "category": "agile-cicd",
+    "level": "avançado"
+  },
+  {
+    "id": "agile_av_003",
+    "question": "O que é Chaos Engineering?",
+    "options": [
+      "Engenharia desorganizada",
+      "Prática de introduzir falhas controladas para testar resiliência do sistema",
+      "Metodologia de desenvolvimento",
+      "Tipo de teste de performance"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Chaos Engineering é a prática de introduzir falhas controladas em sistemas para testar e melhorar sua resiliência.",
+    "points": 30,
+    "category": "agile-cicd",
+    "level": "avançado"
+  },
+  {
+    "id": "agile_av_004",
+    "question": "O que é Observabilidade em sistemas distribuídos?",
+    "options": [
+      "Capacidade de observar o código",
+      "Capacidade de entender o estado interno do sistema através de suas saídas",
+      "Monitoramento básico",
+      "Logs de aplicação"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Observabilidade é a capacidade de entender o estado interno de um sistema através de métricas, logs e traces.",
+    "points": 30,
+    "category": "agile-cicd",
+    "level": "avançado"
+  },
+  {
+    "id": "agile_av_005",
+    "question": "O que é Site Reliability Engineering (SRE)?",
+    "options": [
+      "Engenharia de sites web",
+      "Disciplina que aplica princípios de engenharia de software para operações",
+      "Manutenção de servidores",
+      "Design de interfaces"
+    ],
+    "correctAnswer": 1,
+    "explanation": "SRE é uma disciplina que aplica princípios de engenharia de software para resolver problemas operacionais e criar sistemas escaláveis e confiáveis.",
+    "points": 30,
+    "category": "agile-cicd",
+    "level": "avançado"
+  }
+]
+
