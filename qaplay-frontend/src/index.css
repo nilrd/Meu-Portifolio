@@ -11,13 +11,29 @@ html, body {
   padding: 0;
   min-height: 100vh;
   font-family: 'Inter', system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
   min-height: 100vh;
 }
 
-/* Animações customizadas */
+/* Variáveis CSS para cores customizadas */
+:root {
+  --color-primary: #4F46E5;
+  --color-primary-dark: #6366F1;
+  --color-secondary: #334155;
+  --color-secondary-dark: #475569;
+  --color-accent: #10B981;
+  --color-accent-dark: #059669;
+}
+
+/* Melhor suporte ao dark mode */
+.dark {
+  color-scheme: dark;
+}
+
+/* Animações customizadas melhoradas */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }

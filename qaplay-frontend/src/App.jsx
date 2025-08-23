@@ -31,18 +31,31 @@ import AboutPage from './pages/AboutPage';
 // Hook para gerenciar tema
 const useTheme = () => {
   const [isDark, setIsDark] = useState(() => {
+    // Verificar se estamos no browser
+    if (typeof window === 'undefined') return false;
+    
     const saved = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     return saved ? saved === 'dark' : prefersDark;
   });
 
   useEffect(() => {
+    // Garantir que estamos no browser
+    if (typeof window === 'undefined') return;
+    
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    
+    // Aplicar a classe dark no documentElement
+    const root = document.documentElement;
     if (isDark) {
-      document.documentElement.classList.add('dark');
+      root.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+      root.classList.remove('dark');
     }
+    
+    // Log para debug
+    console.log('Theme changed to:', isDark ? 'dark' : 'light');
+    console.log('HTML classes:', root.classList.toString());
   }, [isDark]);
 
   return [isDark, setIsDark];
@@ -263,7 +276,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
         <Header isDark={isDark} setIsDark={setIsDark} />
         <main className="flex-grow">
           <Routes>
