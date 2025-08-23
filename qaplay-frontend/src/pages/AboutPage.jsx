@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { 
-  Mail, 
-  Linkedin, 
-  Github, 
-  Instagram, 
-  ArrowRight, 
+import {
+  Mail,
+  Linkedin,
+  Github,
+  Instagram,
+  ArrowRight,
   Award,
   Briefcase,
   GraduationCap,
@@ -16,8 +15,11 @@ import {
   MapPin,
   Heart
 } from 'lucide-react';
+import ContactModal from '../components/ContactModal';
 
 const AboutPage = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -331,207 +333,56 @@ const AboutPage = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Sistema de Corretagem - E2E Coders
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Sistema de corretagem imobiliária com funcionalidades avançadas de gestão de propriedades e transações. 
-                Responsável por testes manuais, escrita de casos de teste e automação com Playwright e Cucumber em ambiente Scrum.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
-                  Playwright
-                </span>
-                <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  Cucumber
-                </span>
-                <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
-                  Scrum
-                </span>
-                <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded text-sm">
-                  Testes Manuais
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-blue-50 dark:from-green-900/20 dark:to-blue-900/20 p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Plataforma Educacional - E2E Coders
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Plataforma educacional em desenvolvimento para gestão de cursos e alunos. Execução de testes de API, 
-                testes web manuais e automatizados utilizando Selenium, JUnit, Java e Cucumber.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
-                  Selenium
-                </span>
-                <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
-                  Java
-                </span>
-                <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  JUnit
-                </span>
-                <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded text-sm">
-                  Cucumber
-                </span>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                Toque Ideal - Freelancer
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Site completo para empresa de serviços desenvolvido do zero utilizando HTML, CSS, JavaScript e 
-                técnicas de Engenharia de Prompt com IA. Inclui CMS headless e testes completos de qualidade.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
-                  HTML/CSS
-                </span>
-                <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
-                  JavaScript
-                </span>
-                <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  CMS Headless
-                </span>
-                <span className="px-2 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded text-sm">
-                  IA/Prompt Engineering
-                </span>
-              </div>
-              <div className="flex gap-3">
-                <a
-                  href="https://github.com/nilrd/SiteToqueIdeal"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
-                >
-                  GitHub
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </a>
-                <a
-                  href="https://www.toqueideal.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300"
-                >
-                  Site Live
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 rounded-xl">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                QA Play - Projeto Pessoal
-              </h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Plataforma interativa para aprendizado e prática de Quality Assurance através de jogos educacionais. 
-                Projeto pessoal desenvolvido para demonstrar habilidades em desenvolvimento frontend e QA.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded text-sm">
-                  React
-                </span>
-                <span className="px-2 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded text-sm">
-                  JavaScript
-                </span>
-                <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded text-sm">
-                  Tailwind CSS
-                </span>
-                <span className="px-2 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded text-sm">
-                  Gamificação
-                </span>
-              </div>
-              <Link
-                to="/jogos"
-                className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+            <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">QA Play</h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">Plataforma interativa para aprendizado de QA.</p>
+              <a 
+                href="https://github.com/nilrd/QA-Play" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-600 hover:underline flex items-center"
               >
-                Explorar Projeto
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
+                Ver Projeto <ArrowRight className="w-4 h-4 ml-1" />
+              </a>
             </div>
-          </div>
-
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">4+</div>
-              <div className="text-gray-700 dark:text-gray-300">Projetos Principais</div>
-            </div>
-            <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-xl">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">2+</div>
-              <div className="text-gray-700 dark:text-gray-300">Anos na E2E Coders</div>
-            </div>
-            <div className="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-xl">
-              <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">100%</div>
-              <div className="text-gray-700 dark:text-gray-300">Dedicação à Qualidade</div>
-            </div>
-          </div>
-        </section>
-
-        {/* Interesses Pessoais */}
-        <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-gray-700 mb-12">
-          <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white flex items-center justify-center">
-            <Heart className="w-8 h-8 mr-3 text-red-500" />
-            Interesses Pessoais
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-              <div className="text-4xl mb-3">🎮</div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Gaming</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Apaixonado por jogos, especialmente RPGs e estratégia
-              </p>
-            </div>
-            
-            <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
-              <div className="text-4xl mb-3">📚</div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Aprendizado</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Sempre estudando novas tecnologias e metodologias
-              </p>
-            </div>
-            
-            <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-              <div className="text-4xl mb-3">🏃‍♂️</div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Esportes</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Corrida e academia para manter corpo e mente saudáveis
-              </p>
-            </div>
-            
-            <div className="text-center p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl">
-              <div className="text-4xl mb-3">🎵</div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Música</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Rock, eletrônica e música instrumental para programar
-              </p>
+            <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Toque Ideal</h3>
+              <p className="text-gray-700 dark:text-gray-300 mb-4">Website desenvolvido com HTML, CSS, JS e IA.</p>
+              <a 
+                href="https://github.com/nilrd/Toque-Ideal" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-blue-600 hover:underline flex items-center"
+              >
+                Ver Projeto <ArrowRight className="w-4 h-4 ml-1" />
+              </a>
             </div>
           </div>
         </section>
 
         {/* Call to Action */}
-        <section className="text-center bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl shadow-lg">
-          <h2 className="text-3xl font-bold mb-4">Vamos Conectar?</h2>
-          <p className="text-xl mb-6">
-            Estou sempre aberto a novas oportunidades, colaborações e conversas interessantes sobre tecnologia e qualidade.
+        <section className="text-center mt-12">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+            Pronto para Elevarmos a Qualidade Juntos?
+          </h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+            Se você busca um especialista em QA dedicado e apaixonado por inovação, 
+            estou pronto para contribuir com o sucesso do seu próximo projeto.
           </p>
-          <a
-            href="/contato"
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center mx-auto"
           >
-            <Mail className="w-5 h-5 mr-2" />
             Entre em Contato
             <ArrowRight className="w-5 h-5 ml-2" />
-          </a>
+          </button>
         </section>
       </div>
+      <ContactModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
 
 export default AboutPage;
+
 

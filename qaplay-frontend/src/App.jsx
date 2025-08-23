@@ -22,7 +22,7 @@ import QuizPage from './pages/QuizPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+
 
 // Hook para gerenciar tema
 const useTheme = () => {
@@ -50,7 +50,7 @@ const Header = ({ isDark, setIsDark }) => {
     { path: '/jogos', label: 'Jogos', icon: Target },
     { path: '/blog', label: 'Blog', icon: FileText },
     { path: '/sobre', label: 'Sobre Mim', icon: User },
-    { path: '/contato', label: 'Contato', icon: Mail }
+
   ];
 
   return (
@@ -67,7 +67,7 @@ const Header = ({ isDark, setIsDark }) => {
                 QA Play
               </span>
               <span className="text-xs text-gray-500 dark:text-gray-400 animate-float">
-                Interactive Learning
+                por Nilson Brites
               </span>
             </div>
           </Link>
@@ -167,7 +167,7 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold">QA Play</h3>
-                <p className="text-sm text-gray-400">Interactive Learning</p>
+                <p className="text-sm text-gray-400">por Nilson Brites</p>
               </div>
             </div>
             <p className="text-gray-400 text-sm">
@@ -183,7 +183,7 @@ const Footer = () => {
               <li><Link to="/training" className="text-gray-400 hover:text-white transition-colors">QA Play Training</Link></li>
               <li><Link to="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
               <li><Link to="/sobre" className="text-gray-400 hover:text-white transition-colors">Sobre Mim</Link></li>
-              <li><Link to="/contato" className="text-gray-400 hover:text-white transition-colors">Contato</Link></li>
+
             </ul>
           </div>
 
@@ -260,7 +260,7 @@ const App = () => {
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/sobre" element={<AboutPage />} />
-            <Route path="/contato" element={<ContactPage />} />
+
           </Routes>
         </main>
         <Footer />
