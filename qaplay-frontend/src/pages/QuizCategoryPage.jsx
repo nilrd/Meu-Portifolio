@@ -15,6 +15,7 @@ import performanceQuestions from '../data/performance-testing-questions.json';
 import apiTestingQuestions from '../data/api-testing-questions.json';
 import istqbCTFLQuestions from '../data/istqb-ctfl-questions.json';
 import allMixedQuestions from '../data/qa-questions-mixed.json';
+import qaTrainingQuestions from '../data/qa-training-questions.json';
 
 const QuizCategoryPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -25,6 +26,17 @@ const QuizCategoryPage = () => {
   const [showBadge, setShowBadge] = useState(false);
 
   const quizCategories = [
+    {
+      id: 'qa-training',
+      title: 'QA Training - Desafio Completo',
+      description: 'Mistura abrangente de todos os temas de QA: Scrum, Kanban, Ágil, SDLC, TDD, BDD, Técnicas de Teste, Pirâmide, Automação, Java, JavaScript, Selenium, Cypress, Playwright, Shift Left',
+      icon: Trophy,
+      color: 'from-purple-600 via-pink-600 to-blue-600',
+      questions: qaTrainingQuestions,
+      totalQuestions: 30,
+      timeLimit: 2400, // 40 minutos
+      difficulty: 'Desafiador - Todos os Níveis'
+    },
     {
       id: 'mixed',
       title: 'Quiz Completo - Mix de Tudo',

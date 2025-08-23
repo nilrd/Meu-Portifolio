@@ -1,0 +1,198 @@
+[
+  {
+    "id": "qa_training_001",
+    "question": "Qual dos seguintes papéis é o principal responsável por facilitar os eventos do Scrum e garantir que o framework seja compreendido e aplicado?",
+    "options": [
+      "Product Owner",
+      "Scrum Master",
+      "Development Team",
+      "Stakeholder"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O Scrum Master é o responsável por garantir que o Scrum seja entendido e aplicado, facilitando os eventos e removendo impedimentos para a equipe.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_002",
+    "question": "No Kanban, qual é o principal objetivo do WIP (Work in Progress) limit?",
+    "options": [
+      "Aumentar a quantidade de trabalho em andamento",
+      "Otimizar o fluxo de trabalho e evitar gargalos",
+      "Definir as tarefas a serem feitas",
+      "Medir o tempo de ciclo"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O limite de WIP (Work in Progress) no Kanban é usado para otimizar o fluxo de trabalho, evitando que a equipe se sobrecarregue e identificando gargalos no processo.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_003",
+    "question": "Qual dos princípios do Manifesto Ágil é mais relacionado à entrega de valor ao cliente?",
+    "options": [
+      "Indivíduos e interações mais que processos e ferramentas",
+      "Software em funcionamento mais que documentação abrangente",
+      "Colaboração com o cliente mais que negociação de contratos",
+      "Responder a mudanças mais que seguir um plano"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O princípio de 'Software em funcionamento mais que documentação abrangente' está diretamente relacionado à entrega de valor tangível ao cliente de forma mais frequente.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_004",
+    "question": "Qual fase do SDLC (Software Development Life Cycle) é focada em coletar e documentar as necessidades dos usuários e stakeholders?",
+    "options": [
+      "Planejamento",
+      "Análise de Requisitos",
+      "Design",
+      "Implementação"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A fase de Análise de Requisitos é onde as necessidades dos usuários e stakeholders são coletadas, analisadas e documentadas para guiar o desenvolvimento do software.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_005",
+    "question": "Em TDD (Test-Driven Development), qual é o primeiro passo do ciclo Red-Green-Refactor?",
+    "options": [
+      "Escrever o código de produção",
+      "Escrever um teste que falha (Red)",
+      "Fazer o teste passar (Green)",
+      "Refatorar o código"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O primeiro passo no ciclo TDD é escrever um teste que falha (Red), definindo o comportamento esperado antes de escrever o código de produção.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_006",
+    "question": "Qual é a principal característica do BDD (Behavior-Driven Development)?",
+    "options": [
+      "Focar em testes de unidade",
+      "Usar uma linguagem de programação específica",
+      "Descrever o comportamento do sistema em linguagem natural (Gherkin)",
+      "Testar apenas a interface do usuário"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A principal característica do BDD é descrever o comportamento do sistema em uma linguagem natural e compreensível para todos os envolvidos, como o Gherkin (Given, When, Then).",
+    "points": 20
+  },
+  {
+    "id": "qa_training_007",
+    "question": "Qual das seguintes técnicas de teste de caixa-preta é mais eficaz para encontrar erros em valores de entrada numéricos?",
+    "options": [
+      "Particionamento de Equivalência",
+      "Análise de Valor Limite",
+      "Tabela de Decisão",
+      "Teste de Transição de Estado"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A Análise de Valor Limite é uma técnica de teste de caixa-preta que foca em testar os valores nos limites das partições de equivalência, onde os erros são mais prováveis de ocorrer.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_008",
+    "question": "Na Pirâmide de Testes de Mike Cohn, qual tipo de teste deve ter a maior quantidade?",
+    "options": [
+      "Testes de UI (End-to-End)",
+      "Testes de Serviço (Integração)",
+      "Testes de Unidade",
+      "Testes Manuais"
+    ],
+    "correctAnswer": 2,
+    "explanation": "A Pirâmide de Testes sugere que a base deve ser composta por uma grande quantidade de testes de unidade, que são rápidos, baratos e estáveis.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_009",
+    "question": "Qual é um dos principais benefícios da automação de testes?",
+    "options": [
+      "Eliminar a necessidade de testes manuais",
+      "Encontrar todos os bugs do sistema",
+      "Acelerar a execução de testes repetitivos e de regressão",
+      "Garantir 100% de cobertura de código"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Um dos principais benefícios da automação de testes é a capacidade de executar testes repetitivos e de regressão de forma rápida e consistente, liberando os testadores para atividades mais exploratórias.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_010",
+    "question": "Em Java, qual é a principal diferença entre `==` e `.equals()` para objetos?",
+    "options": [
+      "Não há diferença",
+      "`==` compara a referência de memória, enquanto `.equals()` compara o valor do objeto",
+      "`==` é mais rápido que `.equals()`",
+      "`.equals()` só pode ser usado para Strings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Em Java, `==` compara se duas variáveis de objeto apontam para a mesma referência de memória, enquanto o método `.equals()` é usado para comparar o conteúdo ou valor dos objetos.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_011",
+    "question": "Em JavaScript, qual a diferença entre `null` e `undefined`?",
+    "options": [
+      "São a mesma coisa",
+      "`null` é um valor atribuído intencionalmente, enquanto `undefined` significa que uma variável foi declarada mas não inicializada",
+      "`null` é um objeto, `undefined` é um tipo primitivo",
+      "`null` é usado para números, `undefined` para strings"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Em JavaScript, `null` é um valor que representa a ausência intencional de qualquer valor de objeto, enquanto `undefined` indica que uma variável foi declarada, mas ainda não teve um valor atribuído.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_012",
+    "question": "No Selenium WebDriver, qual comando é usado para encontrar um elemento na página?",
+    "options": [
+      "`driver.getElement()`",
+      "`driver.findElement()`",
+      "`driver.searchElement()`",
+      "`driver.locateElement()`"
+    ],
+    "correctAnswer": 1,
+    "explanation": "O comando `driver.findElement(By.locator)` é usado no Selenium WebDriver para encontrar um único elemento na página com base em um localizador (ID, name, class, etc.).",
+    "points": 20
+  },
+  {
+    "id": "qa_training_013",
+    "question": "Qual é a principal vantagem do Cypress em relação ao Selenium?",
+    "options": [
+      "Suporte a mais linguagens de programação",
+      "Execução de testes no mesmo run-loop do navegador, o que o torna mais rápido e menos propenso a falhas",
+      "Capacidade de testar aplicações desktop",
+      "Ser mais antigo e ter mais documentação"
+    ],
+    "correctAnswer": 1,
+    "explanation": "A principal vantagem do Cypress é que ele executa os testes no mesmo run-loop do navegador, o que permite um controle mais direto e uma execução mais rápida e estável em comparação com o Selenium, que opera remotamente.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_014",
+    "question": "Qual é uma das principais características do Playwright?",
+    "options": [
+      "Suporte apenas ao navegador Chrome",
+      "Capacidade de testar em múltiplos navegadores (Chromium, Firefox, WebKit) com uma única API",
+      "Ser uma ferramenta exclusiva para testes de API",
+      "Não ter suporte para testes em modo headless"
+    ],
+    "correctAnswer": 1,
+    "explanation": "Uma das principais características do Playwright é sua capacidade de automatizar e testar em múltiplos navegadores (Chromium, Firefox, WebKit) com uma única API, facilitando testes cross-browser.",
+    "points": 20
+  },
+  {
+    "id": "qa_training_015",
+    "question": "O que significa o conceito de 'Shift Left Testing'?",
+    "options": [
+      "Mover os testes para o final do ciclo de desenvolvimento",
+      "Iniciar as atividades de teste o mais cedo possível no ciclo de desenvolvimento",
+      "Testar apenas o lado esquerdo da aplicação",
+      "Uma metodologia de teste específica para equipes ágeis"
+    ],
+    "correctAnswer": 1,
+    "explanation": "'Shift Left Testing' é a prática de mover as atividades de teste para o início do ciclo de desenvolvimento de software, em vez de esperar até o final, para identificar e corrigir defeitos mais cedo.",
+    "points": 20
+  }
+]
+
