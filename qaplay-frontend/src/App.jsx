@@ -12,12 +12,16 @@ import {
   Mail,
   Target,
   ExternalLink,
-  MessageCircle
+  MessageCircle,
+  Linkedin,
+  Github,
+  Instagram
 } from 'lucide-react';
 
 // Importar as novas páginas
 import HomePage from './pages/HomePage';
 import QAPlayTrainingPage from './pages/QAPlayTrainingPage';
+import JogosPage from './pages/JogosPage';
 import QuizPage from './pages/QuizPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
@@ -200,23 +204,26 @@ const Footer = () => {
                 href="https://www.linkedin.com/in/nilsondasilvabrites/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors"
+                className="p-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors group"
+                title="LinkedIn"
               >
-                <ExternalLink className="w-5 h-5" />
+                <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="https://github.com/nilrd"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors"
+                className="p-2 bg-gray-700 rounded-lg hover:bg-gray-600 transition-colors group"
+                title="GitHub"
               >
-                <ExternalLink className="w-5 h-5" />
+                <Github className="w-5 h-5" />
               </a>
               <a
                 href="https://wa.me/5511940825120"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-green-600 rounded-lg hover:bg-green-700 transition-colors"
+                className="p-2 bg-green-600 rounded-lg hover:bg-green-700 transition-colors group"
+                title="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
               </a>
@@ -224,9 +231,10 @@ const Footer = () => {
                 href="https://instagram.com/nilsbrites"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-pink-600 rounded-lg hover:bg-pink-700 transition-colors"
+                className="p-2 bg-pink-600 rounded-lg hover:bg-pink-700 transition-colors group"
+                title="Instagram"
               >
-                <ExternalLink className="w-5 h-5" />
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
             <div className="mt-4">
@@ -261,7 +269,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/training" element={<QAPlayTrainingPage />} />
-            <Route path="/jogos" element={<QuizPage />} />
+            <Route path="/jogos" element={<JogosPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/sobre" element={<AboutPage />} />

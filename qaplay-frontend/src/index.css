@@ -24,14 +24,23 @@ html, body {
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
-  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+  0%, 100% { box-shadow: 0 0 20px rgba(79, 70, 229, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(79, 70, 229, 0.6); }
 }
 
 @keyframes gradient-shift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slide-in-up {
@@ -80,6 +89,10 @@ html, body {
   animation: gradient-shift 3s ease infinite;
 }
 
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
 .animate-slide-in-up {
   animation: slide-in-up 0.6s ease-out;
 }
@@ -111,7 +124,7 @@ html, body {
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 30px rgba(79, 70, 229, 0.4);
   transform: scale(1.02);
 }
 
@@ -128,9 +141,9 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Gradientes animados */
+/* Gradientes animados - Nova paleta mais suave */
 .gradient-text {
-  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+  background: linear-gradient(-45deg, #4f46e5, #6366f1, #059669, #0891b2);
   background-size: 400% 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -139,7 +152,7 @@ html, body {
 }
 
 .gradient-bg {
-  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #f59e0b);
+  background: linear-gradient(-45deg, #4f46e5, #6366f1, #059669, #0891b2);
   background-size: 400% 400%;
   animation: gradient-shift 3s ease infinite;
 }
